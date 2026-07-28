@@ -1,0 +1,461 @@
+/*==================================================
+CURRENT GOAL
+==================================================*/
+
+.goal-section{
+
+    margin-top:140px;
+
+}
+
+.goal-heading{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.goal-heading h2{
+
+    font-size:46px;
+
+    margin:15px 0;
+
+}
+
+.goal-heading p{
+
+    color:#94a3b8;
+
+    font-size:18px;
+
+}
+
+/*==================================================
+LAYOUT
+==================================================*/
+
+.goal-container{
+
+    display:grid;
+
+    grid-template-columns:360px 1fr;
+
+    gap:70px;
+
+    align-items:flex-start;
+
+}
+
+/*==================================================
+TARGET CARD
+==================================================*/
+
+.target-box{
+
+    position:sticky;
+
+    top:120px;
+
+    background:linear-gradient(135deg,#111827,#0f172a);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:45px 35px;
+
+    text-align:center;
+
+    transition:.4s;
+
+}
+
+.target-box:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#00C6FF;
+
+    box-shadow:0 25px 60px rgba(0,198,255,.18);
+
+}
+
+.target-icon{
+
+    width:120px;
+
+    height:120px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:58px;
+
+    color:#00C6FF;
+
+    background:rgba(0,198,255,.12);
+
+    margin-bottom:30px;
+
+    animation:targetPulse 2s infinite;
+
+}
+
+.target-box h3{
+
+    font-size:34px;
+
+    margin-bottom:18px;
+
+}
+
+.target-box p{
+
+    color:#b6c2d3;
+
+    line-height:1.8;
+
+}
+
+/*==================================================
+TIMELINE
+==================================================*/
+
+.goal-timeline{
+
+    position:relative;
+
+    padding-left:70px;
+
+}
+
+.goal-timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:24px;
+
+    top:25px;
+
+    width:4px;
+
+    height:calc(100% - 45px);
+
+    background:#374151;
+
+    border-radius:30px;
+
+}
+
+/* GREEN PROGRESS */
+
+.goal-timeline::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:24px;
+
+    top:25px;
+
+    width:4px;
+
+    height:56%;
+
+    border-radius:30px;
+
+    background:linear-gradient(#22c55e,#14F195);
+
+    animation:progressGrow 2s ease;
+
+}
+
+/*==================================================
+STEP
+==================================================*/
+
+.goal-step{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+    margin-bottom:55px;
+
+}
+
+.goal-dot{
+
+    position:absolute;
+
+    left:-58px;
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:18px;
+
+    z-index:2;
+
+}
+
+/*==================================================
+STATUS
+==================================================*/
+
+.completed .goal-dot{
+
+    background:#22c55e;
+
+    color:#fff;
+
+    box-shadow:0 0 20px rgba(34,197,94,.45);
+
+}
+
+.active .goal-dot{
+
+    background:#f59e0b;
+
+    color:#fff;
+
+    animation:pulse 1.8s infinite;
+
+    box-shadow:0 0 25px rgba(245,158,11,.45);
+
+}
+
+.goal-step:not(.completed):not(.active) .goal-dot{
+
+    background:#374151;
+
+    color:#d1d5db;
+
+}
+
+/*==================================================
+CARD
+==================================================*/
+
+.goal-card{
+
+    flex:1;
+
+    padding:28px 30px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    transition:.35s;
+
+}
+
+.goal-card:hover{
+
+    transform:translateX(12px);
+
+    border-color:#00C6FF;
+
+    box-shadow:0 20px 45px rgba(0,198,255,.15);
+
+}
+
+.goal-card h4{
+
+    font-size:24px;
+
+    margin-bottom:8px;
+
+}
+
+.goal-card p{
+
+    color:#9fb0c7;
+
+    font-size:17px;
+
+}
+
+/*==================================================
+ANIMATIONS
+==================================================*/
+
+@keyframes targetPulse{
+
+    0%{
+
+        transform:scale(1);
+
+        box-shadow:0 0 0 rgba(0,198,255,.45);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+        box-shadow:0 0 40px rgba(0,198,255,.35);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        box-shadow:0 0 0 rgba(0,198,255,.45);
+
+    }
+
+}
+
+@keyframes progressGrow{
+
+    from{
+
+        height:0;
+
+    }
+
+    to{
+
+        height:56%;
+
+    }
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.12);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*==================================================
+LIGHT MODE
+==================================================*/
+
+body.light-mode .target-box{
+
+    background:#ffffff;
+
+    border:1px solid #dbe4ef;
+
+    box-shadow:0 15px 35px rgba(15,23,42,.08);
+
+}
+
+body.light-mode .goal-card{
+
+    background:#ffffff;
+
+    border:1px solid #dbe4ef;
+
+}
+
+body.light-mode .goal-card h4{
+
+    color:#111827;
+
+}
+
+body.light-mode .goal-card p{
+
+    color:#64748b;
+
+}
+
+body.light-mode .goal-timeline::before{
+
+    background:#d1d5db;
+
+}
+
+/*==================================================
+RESPONSIVE
+==================================================*/
+
+@media(max-width:992px){
+
+    .goal-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .target-box{
+
+        position:relative;
+
+        top:0;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .goal-heading h2{
+
+        font-size:36px;
+
+    }
+
+    .goal-card{
+
+        padding:22px;
+
+    }
+
+    .goal-card h4{
+
+        font-size:20px;
+
+    }
+
+}
