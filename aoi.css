@@ -1,461 +1,542 @@
 /*==================================================
-CURRENT GOAL
+                SKILLS SECTION
 ==================================================*/
 
-.goal-section{
-
-    margin-top:140px;
-
+.skills-section{
+    padding:120px 0;
+    position:relative;
 }
 
-.goal-heading{
-
+.skills-heading{
     text-align:center;
-
     margin-bottom:70px;
-
 }
 
-.goal-heading h2{
-
-    font-size:46px;
-
-    margin:15px 0;
-
+.skills-heading span{
+    display:inline-block;
+    padding:10px 24px;
+    background:rgba(0,198,255,.12);
+    color:#00C6FF;
+    border-radius:40px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:20px;
 }
 
-.goal-heading p{
+.skills-heading h2{
+    font-size:54px;
+    margin-bottom:15px;
+}
 
-    color:#94a3b8;
-
-    font-size:18px;
-
+.skills-heading p{
+    max-width:700px;
+    margin:auto;
+    color:#94A3B8;
+    line-height:1.8;
 }
 
 /*==================================================
-LAYOUT
+                GRID
 ==================================================*/
 
-.goal-container{
+.skills-grid{
 
     display:grid;
 
-    grid-template-columns:360px 1fr;
+    grid-template-columns:repeat(3,1fr);
 
-    gap:70px;
-
-    align-items:flex-start;
+    gap:28px;
 
 }
 
 /*==================================================
-TARGET CARD
+                CARD
 ==================================================*/
 
-.target-box{
+.skill-card{
 
-    position:sticky;
+    position:relative;
 
-    top:120px;
+    padding:35px;
 
-    background:linear-gradient(135deg,#111827,#0f172a);
+    border-radius:26px;
+
+    background:#101827;
 
     border:1px solid rgba(255,255,255,.08);
 
-    border-radius:28px;
+    overflow:hidden;
 
-    padding:45px 35px;
+    transition:.4s;
 
-    text-align:center;
+    cursor:pointer;
+
+}
+
+.skill-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#00C6FF;
+
+    box-shadow:0 25px 55px rgba(0,198,255,.18);
+
+}
+
+/*==================================================
+                GLOW
+==================================================*/
+
+.skill-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    right:-140px;
+
+    top:-140px;
+
+    border-radius:50%;
+
+    background:rgba(0,198,255,.08);
+
+    filter:blur(60px);
+
+    opacity:0;
+
+    transition:.5s;
+
+}
+
+.skill-card:hover::before{
+
+    opacity:1;
+
+    transform:scale(1.5);
+
+}
+
+/*==================================================
+                ICON
+==================================================*/
+
+.skill-icon{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:34px;
+
+    background:rgba(0,198,255,.12);
+
+    margin-bottom:22px;
 
     transition:.4s;
 
 }
 
-.target-box:hover{
+.skill-card:hover .skill-icon{
 
-    transform:translateY(-8px);
+    background:#00C6FF;
 
-    border-color:#00C6FF;
-
-    box-shadow:0 25px 60px rgba(0,198,255,.18);
+    transform:rotate(-8deg) scale(1.08);
 
 }
 
-.target-icon{
+/*==================================================
+                TEXT
+==================================================*/
 
-    width:120px;
+.skill-card h3{
 
-    height:120px;
+    font-size:24px;
 
-    margin:auto;
+    margin-bottom:12px;
 
-    border-radius:50%;
+    transition:.3s;
 
-    display:flex;
+}
 
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:58px;
+.skill-card:hover h3{
 
     color:#00C6FF;
 
-    background:rgba(0,198,255,.12);
-
-    margin-bottom:30px;
-
-    animation:targetPulse 2s infinite;
-
 }
 
-.target-box h3{
+.skill-card p{
 
-    font-size:34px;
-
-    margin-bottom:18px;
-
-}
-
-.target-box p{
-
-    color:#b6c2d3;
+    color:#9CA3AF;
 
     line-height:1.8;
 
-}
+    margin-bottom:35px;
 
-/*==================================================
-TIMELINE
-==================================================*/
-
-.goal-timeline{
-
-    position:relative;
-
-    padding-left:70px;
-
-}
-
-.goal-timeline::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:24px;
-
-    top:25px;
-
-    width:4px;
-
-    height:calc(100% - 45px);
-
-    background:#374151;
-
-    border-radius:30px;
-
-}
-
-/* GREEN PROGRESS */
-
-.goal-timeline::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:24px;
-
-    top:25px;
-
-    width:4px;
-
-    height:56%;
-
-    border-radius:30px;
-
-    background:linear-gradient(#22c55e,#14F195);
-
-    animation:progressGrow 2s ease;
+    min-height:90px;
 
 }
 
 /*==================================================
-STEP
+            BUTTON
 ==================================================*/
 
-.goal-step{
-
-    position:relative;
+.explore-btn{
 
     display:flex;
 
     align-items:center;
 
-    gap:28px;
+    justify-content:space-between;
 
-    margin-bottom:55px;
+    width:100%;
 
-}
+    padding:16px 20px;
 
-.goal-dot{
+    border:none;
 
-    position:absolute;
+    border-radius:14px;
 
-    left:-58px;
+    background:rgba(255,255,255,.04);
 
-    width:46px;
+    color:#00C6FF;
 
-    height:46px;
+    cursor:pointer;
 
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:18px;
-
-    z-index:2;
-
-}
-
-/*==================================================
-STATUS
-==================================================*/
-
-.completed .goal-dot{
-
-    background:#22c55e;
-
-    color:#fff;
-
-    box-shadow:0 0 20px rgba(34,197,94,.45);
-
-}
-
-.active .goal-dot{
-
-    background:#f59e0b;
-
-    color:#fff;
-
-    animation:pulse 1.8s infinite;
-
-    box-shadow:0 0 25px rgba(245,158,11,.45);
-
-}
-
-.goal-step:not(.completed):not(.active) .goal-dot{
-
-    background:#374151;
-
-    color:#d1d5db;
-
-}
-
-/*==================================================
-CARD
-==================================================*/
-
-.goal-card{
-
-    flex:1;
-
-    padding:28px 30px;
-
-    border-radius:22px;
-
-    background:rgba(255,255,255,.05);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    backdrop-filter:blur(20px);
+    font-weight:600;
 
     transition:.35s;
 
 }
 
-.goal-card:hover{
+.explore-btn:hover{
 
-    transform:translateX(12px);
+    background:#00C6FF;
 
-    border-color:#00C6FF;
-
-    box-shadow:0 20px 45px rgba(0,198,255,.15);
+    color:#fff;
 
 }
 
-.goal-card h4{
+.explore-btn i{
 
-    font-size:24px;
-
-    margin-bottom:8px;
+    transition:.35s;
 
 }
 
-.goal-card p{
+.explore-btn:hover i{
 
-    color:#9fb0c7;
-
-    font-size:17px;
+    transform:translateX(8px);
 
 }
 
 /*==================================================
-ANIMATIONS
+            MODAL OVERLAY
 ==================================================*/
 
-@keyframes targetPulse{
+.skill-modal-overlay{
 
-    0%{
+    position:fixed;
 
-        transform:scale(1);
+    inset:0;
 
-        box-shadow:0 0 0 rgba(0,198,255,.45);
+    background:rgba(0,0,0,.55);
 
-    }
+    backdrop-filter:blur(14px);
 
-    50%{
+    display:flex;
 
-        transform:scale(1.08);
+    align-items:center;
 
-        box-shadow:0 0 40px rgba(0,198,255,.35);
+    justify-content:center;
 
-    }
+    opacity:0;
 
-    100%{
+    visibility:hidden;
 
-        transform:scale(1);
+    transition:.35s;
 
-        box-shadow:0 0 0 rgba(0,198,255,.45);
-
-    }
+    z-index:9999;
 
 }
 
-@keyframes progressGrow{
+.skill-modal-overlay.active{
 
-    from{
+    opacity:1;
 
-        height:0;
-
-    }
-
-    to{
-
-        height:56%;
-
-    }
+    visibility:visible;
 
 }
-
-@keyframes pulse{
-
-    0%{
-
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        transform:scale(1.12);
-
-    }
-
-    100%{
-
-        transform:scale(1);
-
-    }
-
-}
-
 /*==================================================
-LIGHT MODE
+                MODAL
 ==================================================*/
 
-body.light-mode .target-box{
+.skill-modal{
 
-    background:#ffffff;
+    width:650px;
 
-    border:1px solid #dbe4ef;
+    max-width:92%;
 
-    box-shadow:0 15px 35px rgba(15,23,42,.08);
+    background:rgba(15,23,42,.95);
 
-}
+    backdrop-filter:blur(30px);
 
-body.light-mode .goal-card{
+    border:1px solid rgba(255,255,255,.08);
 
-    background:#ffffff;
+    border-radius:30px;
 
-    border:1px solid #dbe4ef;
+    padding:45px;
 
-}
+    position:relative;
 
-body.light-mode .goal-card h4{
+    transform:scale(.8) translateY(40px);
 
-    color:#111827;
+    transition:.4s;
 
-}
-
-body.light-mode .goal-card p{
-
-    color:#64748b;
+    box-shadow:0 35px 90px rgba(0,0,0,.45);
 
 }
 
-body.light-mode .goal-timeline::before{
+.skill-modal-overlay.active .skill-modal{
 
-    background:#d1d5db;
+    transform:scale(1) translateY(0);
+
+}
+
+/*======================================*/
+
+.close-modal{
+
+    position:absolute;
+
+    top:22px;
+
+    right:22px;
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.05);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.35s;
 
 }
 
-/*==================================================
-RESPONSIVE
-==================================================*/
+.close-modal:hover{
 
-@media(max-width:992px){
+    background:#00C6FF;
 
-    .goal-container{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .target-box{
-
-        position:relative;
-
-        top:0;
-
-    }
+    transform:rotate(90deg);
 
 }
+
+/*======================================*/
+
+.modal-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    margin-bottom:40px;
+
+}
+
+.modal-icon{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:45px;
+
+    background:rgba(0,198,255,.12);
+
+    color:#fff;
+
+}
+
+/*======================================*/
+
+#modalTitle{
+
+    font-size:36px;
+
+    margin-bottom:12px;
+
+}
+
+#modalDescription{
+
+    color:#9CA3AF;
+
+    line-height:1.8;
+
+}
+
+/*======================================*/
+
+.modal-skills{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+}
+
+/*======================================*/
+
+.modal-skills span{
+
+    padding:14px 22px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#fff;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transform:translateY(20px);
+
+    opacity:0;
+
+    animation:chipAppear .45s forwards;
+
+    transition:.35s;
+
+}
+
+.modal-skills span:hover{
+
+    background:#00C6FF;
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 35px rgba(0,198,255,.35);
+
+}
+
+/*======================================*/
+
+.modal-skills span:nth-child(1){animation-delay:.05s;}
+.modal-skills span:nth-child(2){animation-delay:.10s;}
+.modal-skills span:nth-child(3){animation-delay:.15s;}
+.modal-skills span:nth-child(4){animation-delay:.20s;}
+.modal-skills span:nth-child(5){animation-delay:.25s;}
+.modal-skills span:nth-child(6){animation-delay:.30s;}
+.modal-skills span:nth-child(7){animation-delay:.35s;}
+.modal-skills span:nth-child(8){animation-delay:.40s;}
+
+/*======================================*/
+
+@keyframes chipAppear{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/*======================================*/
+
+body.modal-open{
+
+overflow:hidden;
+
+}
+
+/*======================================*/
 
 @media(max-width:768px){
 
-    .goal-heading h2{
+.skills-grid{
 
-        font-size:36px;
+grid-template-columns:1fr;
 
-    }
+}
 
-    .goal-card{
+.skill-modal{
 
-        padding:22px;
+padding:30px;
 
-    }
+}
 
-    .goal-card h4{
+.modal-header{
 
-        font-size:20px;
+flex-direction:column;
 
-    }
+text-align:center;
+
+}
+
+.modal-icon{
+
+width:80px;
+
+height:80px;
+
+font-size:38px;
+
+}
+
+#modalTitle{
+
+font-size:28px;
+
+}
 
 }

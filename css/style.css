@@ -2841,98 +2841,6 @@ body.light-mode .roadmap::before{
 }
 
 /*==========================================
-        QUOTE SECTION
-==========================================*/
-
-.vision-quote{
-
-    position:relative;
-
-    margin-top:70px;
-
-    padding:50px;
-
-    text-align:center;
-
-    border-radius:26px;
-
-    background:linear-gradient(135deg,#111827,#0B1522);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    overflow:hidden;
-
-}
-
-.vision-quote::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-    radial-gradient(circle at top left,
-    rgba(0,198,255,.15),
-    transparent 45%),
-
-    radial-gradient(circle at bottom right,
-    rgba(0,198,255,.08),
-    transparent 45%);
-
-    animation:quoteGlow 6s ease-in-out infinite alternate;
-
-}
-
-.vision-quote i{
-
-    position:relative;
-
-    z-index:2;
-
-    font-size:55px;
-
-    color:#00C6FF;
-
-    margin-bottom:20px;
-
-}
-
-.vision-quote h3{
-
-    position:relative;
-
-    z-index:2;
-
-    font-size:34px;
-
-    margin-bottom:18px;
-
-    font-weight:700;
-
-}
-
-.vision-quote p{
-
-    position:relative;
-
-    z-index:2;
-
-    max-width:760px;
-
-    margin:auto;
-
-    color:#B8C4D6;
-
-    font-size:18px;
-
-    line-height:1.9;
-
-}
-
-/*==========================================
         FLOAT ANIMATION
 ==========================================*/
 
@@ -3046,27 +2954,7 @@ body.light-mode .vision-icon{
 
 }
 
-body.light-mode .vision-quote{
 
-    background:#ffffff;
-
-    border:1px solid #dbe4ef;
-
-    box-shadow:0 15px 35px rgba(15,23,42,.08);
-
-}
-
-body.light-mode .vision-quote h3{
-
-    color:#111827;
-
-}
-
-body.light-mode .vision-quote p{
-
-    color:#4B5563;
-
-}
 
 /*==========================================
         RESPONSIVE
@@ -3100,24 +2988,548 @@ body.light-mode .vision-quote p{
 
         padding:28px;
 
-    }
+    }  
+}
 
-    .vision-quote{
+/*=====================================================================================
+                SKILLS SECTION
+=======================================================================================*/
 
-        padding:35px 25px;
+.skills-section{
+    padding:120px 0;
+    position:relative;
+}
 
-    }
+.skills-heading{
+    text-align:center;
+    margin-bottom:70px;
+}
 
-    .vision-quote h3{
+.skills-heading span{
+    display:inline-block;
+    padding:10px 24px;
+    background:rgba(0,198,255,.12);
+    color:#00C6FF;
+    border-radius:40px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:20px;
+}
 
-        font-size:28px;
+.skills-heading h2{
+    font-size:54px;
+    margin-bottom:15px;
+}
 
-    }
+.skills-heading p{
+    max-width:700px;
+    margin:auto;
+    color:#94A3B8;
+    line-height:1.8;
+}
 
-    .vision-quote p{
+/*==================================================
+                GRID
+==================================================*/
 
-        font-size:16px;
+.skills-grid{
 
-    }
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:28px;
+
+}
+
+/*==================================================
+                CARD
+==================================================*/
+
+.skill-card{
+
+    position:relative;
+
+    padding:35px;
+
+    border-radius:26px;
+
+    background:#101827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    overflow:hidden;
+
+    transition:.4s;
+
+    cursor:pointer;
+
+}
+
+.skill-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#00C6FF;
+
+    box-shadow:0 25px 55px rgba(0,198,255,.18);
+
+}
+
+/*==================================================
+                GLOW
+==================================================*/
+
+.skill-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    right:-140px;
+
+    top:-140px;
+
+    border-radius:50%;
+
+    background:rgba(0,198,255,.08);
+
+    filter:blur(60px);
+
+    opacity:0;
+
+    transition:.5s;
+
+}
+
+.skill-card:hover::before{
+
+    opacity:1;
+
+    transform:scale(1.5);
+
+}
+
+/*==================================================
+                ICON
+==================================================*/
+
+.skill-icon{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:34px;
+
+    background:rgba(0,198,255,.12);
+
+    margin-bottom:22px;
+
+    transition:.4s;
+
+}
+
+.skill-card:hover .skill-icon{
+
+    background:#00C6FF;
+
+    transform:rotate(-8deg) scale(1.08);
+
+}
+
+/*==================================================
+                TEXT
+==================================================*/
+
+.skill-card h3{
+
+    font-size:22px;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+.skill-card:hover h3{
+
+    color:#00C6FF;
+
+}
+
+.skill-card p{
+
+    color:#9CA3AF;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+    min-height:90px;
+
+}
+
+/*==================================================
+            BUTTON
+==================================================*/
+
+.explore-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    width:100%;
+
+    padding:16px 20px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.04);
+
+    color:#00C6FF;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.explore-btn:hover{
+
+    background:#00C6FF;
+
+    color:#fff;
+
+}
+
+.explore-btn i{
+
+    transition:.35s;
+
+}
+
+.explore-btn:hover i{
+
+    transform:translateX(8px);
+
+}
+
+/*==================================================
+            MODAL OVERLAY
+==================================================*/
+
+.skill-modal-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    backdrop-filter:blur(14px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:9999;
+
+}
+
+.skill-modal-overlay.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+/*==================================================
+                MODAL
+==================================================*/
+
+.skill-modal{
+
+    width:650px;
+
+    max-width:92%;
+
+    background:rgba(15,23,42,.95);
+
+    backdrop-filter:blur(30px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:30px;
+
+    padding:45px;
+
+    position:relative;
+
+    transform:scale(.8) translateY(40px);
+
+    transition:.4s;
+
+    box-shadow:0 35px 90px rgba(0,0,0,.45);
+
+}
+
+.skill-modal-overlay.active .skill-modal{
+
+    transform:scale(1) translateY(0);
+
+}
+
+/*======================================*/
+
+.close-modal{
+
+    position:absolute;
+
+    top:22px;
+
+    right:22px;
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.05);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.35s;
+
+}
+
+.close-modal:hover{
+
+    background:#00C6FF;
+
+    transform:rotate(90deg);
+
+}
+
+/*======================================*/
+
+.modal-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    margin-bottom:40px;
+
+}
+
+.modal-icon{
+
+    width:120px;
+
+    height:90px;
+
+    border-radius:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:45px;
+
+    background:rgba(0,198,255,.12);
+
+    color:#fff;
+
+}
+
+/*======================================*/
+
+#modalTitle{
+
+    font-size:30px;
+
+    margin-bottom:12px;
+
+}
+
+#modalDescription{
+
+    color:#9CA3AF;
+
+    line-height:1.8;
+
+}
+
+/*======================================*/
+
+.modal-skills{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+}
+
+/*======================================*/
+
+.modal-skills span{
+
+    padding:14px 22px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#fff;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transform:translateY(20px);
+
+    opacity:0;
+
+    animation:chipAppear .45s forwards;
+
+    transition:.35s;
+
+}
+
+.modal-skills span:hover{
+
+    background:#00C6FF;
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 35px rgba(0,198,255,.35);
+
+}
+
+/*======================================*/
+
+.modal-skills span:nth-child(1){animation-delay:.05s;}
+.modal-skills span:nth-child(2){animation-delay:.10s;}
+.modal-skills span:nth-child(3){animation-delay:.15s;}
+.modal-skills span:nth-child(4){animation-delay:.20s;}
+.modal-skills span:nth-child(5){animation-delay:.25s;}
+.modal-skills span:nth-child(6){animation-delay:.30s;}
+.modal-skills span:nth-child(7){animation-delay:.35s;}
+.modal-skills span:nth-child(8){animation-delay:.40s;}
+
+/*======================================*/
+
+@keyframes chipAppear{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/*======================================*/
+
+body.modal-open{
+
+overflow:hidden;
+
+}
+
+/*======================================*/
+
+@media(max-width:768px){
+
+.skills-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.skill-modal{
+
+padding:30px;
+
+}
+
+.modal-header{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.modal-icon{
+
+width:120px;
+
+height:90px;
+
+font-size:38px;
+
+}
+
+#modalTitle{
+
+font-size:28px;
+
+}
 
 }
