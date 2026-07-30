@@ -7,220 +7,169 @@
     <link rel="stylesheet" href="aoi.css">
 </head>
 <body>
-<!-- =========================================
-                SKILLS SECTION
-========================================== -->
-<!-- ==========================================
-                SKILLS SECTION
-=========================================== -->
-
-<section class="skills-section" id="skills">
-
-    <div class="skills-heading">
-
-        <span>MY TECH ECOSYSTEM</span>
-
-        <h2>Skills & Technologies</h2>
-
+<!-- ======================================================
+                    PROJECT COMMAND CENTER
+======================================================= -->
+<section class="projects-section" id="projects">
+    <div class="projects-header">
+        <span>PROJECT COMMAND CENTER</span>
+        <h2>Projects That Define My Journey</h2>
         <p>
-            Technologies, tools and capabilities that I use to build modern digital experiences.
+            Explore my work through an interactive command center.
+            Select any project to view its complete story, technologies,
+            challenges and achievements.
         </p>
-
     </div>
-
-    <div class="skills-grid">
-
-        <!-- ================= FRONTEND ================= -->
-
-        <div class="skill-card"
-            data-title="Frontend Development"
-            data-icon="💻"
-            data-description="Building modern, responsive and scalable web applications with a strong focus on performance and user experience."
-            data-skills="HTML5,CSS3,JavaScript (ES6+),React.js,Tailwind CSS,Responsive Web Design">
-
-            <div class="skill-icon">💻</div>
-
-            <h3>Frontend Development</h3>
-
-            <p>
-                Building modern responsive web applications with performance,
-                scalability and exceptional user experience.
-            </p>
-
-            <button class="explore-btn">
-                Explore Tech Stack
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
-
-        </div>
-
-        <!-- ================= UI UX ================= -->
-
-        <div class="skill-card"
-            data-title="UI / UX Design"
-            data-icon="🎨"
-            data-description="Designing intuitive and visually engaging digital experiences."
-            data-skills="Figma,Wireframing,Prototyping,Design Systems,UI Design,UX Design">
-
-            <div class="skill-icon">🎨</div>
-
-            <h3>UI / UX Design</h3>
-
-            <p>
-                Creating user-friendly interfaces with clean layouts,
-                usability and aesthetic consistency.
-            </p>
-
-            <button class="explore-btn">
-                Explore Tech Stack
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
-
-        </div>
-
-        <!-- ================= AI ================= -->
-
-        <div class="skill-card"
-            data-title="AI-Assisted Development"
-            data-icon="🤖"
-            data-description="Using AI tools to accelerate software development and productivity."
-            data-skills="Vibe Coding,Prompt Crafting,AI-Assisted Development Workflow,Rapid Prototyping with AI Tools">
-
-            <div class="skill-icon">🤖</div>
-
-            <h3>AI-Assisted Development</h3>
-
-            <p>
-                Leveraging AI to build faster, prototype rapidly
-                and improve development workflow.
-            </p>
-
-            <button class="explore-btn">
-                Explore Tech Stack
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
-
-        </div>
-
-        <!-- ================= TOOLS ================= -->
-
-        <div class="skill-card"
-            data-title="Development Tools"
-            data-icon="🛠️"
-            data-description="Tools that support efficient software development."
-            data-skills="Git,GitHub,Visual Studio Code,Canva">
-
-            <div class="skill-icon">🛠️</div>
-
-            <h3>Development Tools</h3>
-
-            <p>
-                Modern tools used for coding, collaboration,
-                version control and productivity.
-            </p>
-
-            <button class="explore-btn">
-                Explore Tech Stack
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
-
-        </div>
-
-        <!-- ================= SOFT SKILLS ================= -->
-
-        <div class="skill-card"
-            data-title="Professional Skills"
-            data-icon="🤝"
-            data-description="Skills that help me work effectively with teams and projects."
-            data-skills="Leadership,Communication,Problem Solving,Critical Thinking,Teamwork,Adaptability,Time Management,Continuous Learning">
-
-            <div class="skill-icon">🤝</div>
-
-            <h3>Professional Skills</h3>
-
-            <p>
-                Leadership, collaboration, communication and
-                problem-solving abilities that drive results.
-            </p>
-
-            <button class="explore-btn">
-                Explore Skills
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
-
-        </div>
-
-        <!-- ================= LANGUAGES ================= -->
-
-        <div class="skill-card"
-            data-title="Languages"
-            data-icon="🌍"
-            data-description="Languages I use to communicate with people from diverse backgrounds."
-            data-skills="English,Kannada,Telugu,Tamil,Hindi,Marathi">
-
-            <div class="skill-icon">🌍</div>
-
-            <h3>Languages</h3>
-
-            <p>
-                Comfortable communicating across multiple
-                languages and diverse communities.
-            </p>
-
-            <button class="explore-btn">
-                Explore Languages
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==========================================
-            SKILL MODAL
-=========================================== -->
-
-<div class="skill-modal-overlay">
-
-    <div class="skill-modal">
-
-        <button class="close-modal">
-
-            <i class="fa-solid fa-xmark"></i>
-
-        </button>
-
-        <div class="modal-header">
-
-            <div class="modal-icon" id="modalIcon">
-                💻
+    <div class="command-center">
+        <!-- ==========================================
+                    LEFT PANEL
+        ========================================== -->
+        <div class="project-sidebar">
+            <h3>Projects</h3>
+            <div class="project-item active"
+                data-project="vanrakshak">
+                <span class="project-number">
+                    01
+                </span>
+                <div>
+                    <h4>VanRakshak</h4>
+                    <small>Featured Project</small>
+                </div>
             </div>
-
-            <div>
-
-                <h2 id="modalTitle">
-                    Frontend Development
+            <div class="project-item"
+                data-project="campuseye">
+                <span class="project-number">
+                    02
+                </span>
+                <div>
+                    <h4>CampusEye</h4>
+                    <small>College Management</small>
+                </div>
+            </div>
+            <div class="project-item"
+                data-project="portfolio">
+                <span class="project-number">
+                    03
+                </span>
+                <div>
+                    <h4>Portfolio</h4>
+                    <small>Personal Website</small>
+                </div>
+            </div>
+            <div class="project-item"
+                data-project="calculator">
+                <span class="project-number">
+                    04
+                </span>
+                <div>
+                    <h4>Calculator</h4>
+                    <small>Frontend Project</small>
+                </div>
+            </div>
+        </div>
+        <!-- ==========================================
+                    RIGHT PANEL
+        ========================================== -->
+        <div class="project-viewer">
+            <!-- IMAGE -->
+            <div class="viewer-image">
+                <img
+                    id="projectImage"
+                    src="images/vanrakshak.png"
+                    alt="VanRakshak">
+                <div class="featured-tag">
+                    🏆 Featured
+                </div>
+            </div>
+            <!-- CONTENT -->
+            <div class="viewer-content">
+                <span id="projectCategory">
+                    AI • Dashboard • Hackathon
+                </span>
+                <h2 id="projectTitle">
+                    VanRakshak
                 </h2>
-
-                <p id="modalDescription">
-                    Building modern responsive web applications.
+                <p id="projectDescription">
+                    AI Powered Forest Monitoring Dashboard
+                    developed during HackMela to monitor forests,
+                    wildlife and environmental conditions.
                 </p>
-
+                <!-- TECH -->
+                <div
+                    id="projectTech"
+                    class="tech-stack">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>AI</span>
+                    <span>IoT</span>
+                </div>
+                <!-- FEATURES -->
+                <div class="project-features">
+                    <h3>
+                        Key Features
+                    </h3>
+                    <ul id="featureList">
+                        <li>
+                            Real Time Dashboard
+                        </li>
+                        <li>
+                            AI Detection
+                        </li>
+                        <li>
+                            Analytics
+                        </li>
+                        <li>
+                            Forest Monitoring
+                        </li>
+                    </ul>
+                </div>
+                <!-- TIMELINE -->
+                <div class="project-timeline">
+                    <h3>
+                        Development Journey
+                    </h3>
+                    <div class="timeline-item">
+                        💡 Idea
+                    </div>
+                    <div class="timeline-item">
+                        🎨 Design
+                    </div>
+                    <div class="timeline-item">
+                        💻 Development
+                    </div>
+                    <div class="timeline-item">
+                        🚀 Deployment
+                    </div>
+                </div>
+                <!-- BUTTONS -->
+                <div class="project-buttons">
+                    <a
+                        id="githubBtn"
+                        href="#"
+                        class="primary-btn">
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+                    </a>
+                    <a
+                        id="liveBtn"
+                        href="#"
+                        class="secondary-btn">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        Live Demo
+                    </a>
+                    <a
+                        id="caseBtn"
+                        href="#"
+                        class="secondary-btn">
+                        <i class="fa-solid fa-book-open"></i>
+                        Case Study
+                    </a>
+                </div>
             </div>
-
         </div>
-
-        <div id="modalSkills" class="modal-skills">
-
-            <!-- Filled automatically using JavaScript -->
-
-        </div>
-
     </div>
-
-</div>
+</section>
 <script src="aoi.js"></script>
 </body>
 </html>

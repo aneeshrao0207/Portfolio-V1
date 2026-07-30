@@ -1,146 +1,247 @@
-// ==========================================
-// SKILL MODAL
-// ==========================================
+/*==================================================
+            PROJECT COMMAND CENTER
+==================================================*/
 
-const cards = document.querySelectorAll(".skill-card");
+const projects = {
 
-const overlay = document.querySelector(".skill-modal-overlay");
+    vanrakshak:{
 
-const modal = document.querySelector(".skill-modal");
+        title:"VanRakshak",
 
-const closeBtn = document.querySelector(".close-modal");
+        category:"AI • Dashboard • Hackathon",
 
-const modalTitle = document.getElementById("modalTitle");
+        image:"images/vanrakshak.png",
 
-const modalIcon = document.getElementById("modalIcon");
+        description:
+        "AI Powered Forest Monitoring Dashboard developed during HackMela to monitor forests, wildlife and environmental conditions using intelligent technologies.",
 
-const modalDescription = document.getElementById("modalDescription");
+        tech:[
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "AI",
+            "IoT",
+            "Dashboard UI"
+        ],
 
-const modalSkills = document.getElementById("modalSkills");
+        features:[
+            "Real Time Dashboard",
+            "AI Detection",
+            "Forest Monitoring",
+            "Analytics & Reports"
+        ],
 
+        github:"https://github.com/yourusername/VanRakshak",
 
+        live:"#",
 
-// ==========================================
-// OPEN MODAL
-// ==========================================
+        case:"#"
 
-cards.forEach(card=>{
-
-    card.querySelector(".explore-btn").addEventListener("click",()=>{
-
-        const title=card.dataset.title;
-
-        const icon=card.dataset.icon;
-
-        const description=card.dataset.description;
-
-        const skills=card.dataset.skills.split(",");
-
-
-
-        modalTitle.textContent=title;
-
-        modalIcon.textContent=icon;
-
-        modalDescription.textContent=description;
+    },
 
 
 
-        modalSkills.innerHTML="";
+    campuseye:{
+
+        title:"CampusEye",
+
+        category:"College Management",
+
+        image:"images/campuseye.png",
+
+        description:
+        "CampusEye is a smart campus management platform designed to simplify administration, improve communication and enhance student experience.",
+
+        tech:[
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+
+        features:[
+            "Student Dashboard",
+            "Attendance",
+            "Notice Board",
+            "Responsive UI"
+        ],
+
+        github:"#",
+
+        live:"#",
+
+        case:"#"
+
+    },
 
 
 
-        skills.forEach((skill,index)=>{
+    portfolio:{
 
-            const chip=document.createElement("span");
+        title:"Developer Portfolio",
 
-            chip.textContent=skill;
+        category:"Personal Website",
 
-            chip.style.animationDelay=`${index*0.08}s`;
+        image:"images/portfolio.png",
 
-            modalSkills.appendChild(chip);
+        description:
+        "A premium portfolio designed to showcase projects, achievements, skills and experience with modern UI animations.",
 
-        });
+        tech:[
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
 
+        features:[
+            "Dark Mode",
+            "Animations",
+            "Responsive Design",
+            "Interactive UI"
+        ],
 
+        github:"#",
 
-        overlay.classList.add("active");
+        live:"#",
 
-        document.body.classList.add("modal-open");
+        case:"#"
 
-    });
-
-});
-
-
-
-// ==========================================
-// CLOSE
-// ==========================================
-
-function closeModal(){
-
-    overlay.classList.remove("active");
-
-    document.body.classList.remove("modal-open");
-
-}
+    },
 
 
 
-closeBtn.addEventListener("click",closeModal);
+    calculator:{
 
+        title:"Calculator",
 
+        category:"Frontend Project",
 
-// ==========================================
-// CLICK OUTSIDE
-// ==========================================
+        image:"images/calculator.png",
 
-overlay.addEventListener("click",(e)=>{
+        description:
+        "Responsive Calculator developed during CodeAlpha Frontend Internship featuring a modern UI and theme switcher.",
 
-    if(e.target===overlay){
+        tech:[
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
 
-        closeModal();
+        features:[
+            "Responsive",
+            "Theme Switch",
+            "Keyboard Support",
+            "Smooth UI"
+        ],
+
+        github:"#",
+
+        live:"#",
+
+        case:"#"
 
     }
 
-});
+};
 
 
 
-// ==========================================
-// ESC KEY
-// ==========================================
+/*==================================================
+            ELEMENTS
+==================================================*/
 
-document.addEventListener("keydown",(e)=>{
+const items=document.querySelectorAll(".project-item");
 
-    if(e.key==="Escape"){
+const image=document.getElementById("projectImage");
 
-        closeModal();
+const title=document.getElementById("projectTitle");
 
-    }
+const category=document.getElementById("projectCategory");
 
-});
+const description=document.getElementById("projectDescription");
+
+const tech=document.getElementById("projectTech");
+
+const feature=document.getElementById("featureList");
+
+const github=document.getElementById("githubBtn");
+
+const live=document.getElementById("liveBtn");
+
+const study=document.getElementById("caseBtn");
+
+const viewer=document.querySelector(".project-viewer");
 
 
 
-// ==========================================
-// SMALL CARD HOVER EFFECT
-// ==========================================
+/*==================================================
+            CHANGE PROJECT
+==================================================*/
 
-cards.forEach(card=>{
+items.forEach(item=>{
 
-    card.addEventListener("mousemove",(e)=>{
+    item.addEventListener("click",()=>{
 
-        const rect=card.getBoundingClientRect();
+        items.forEach(card=>card.classList.remove("active"));
 
-        const x=e.clientX-rect.left;
+        item.classList.add("active");
 
-        const y=e.clientY-rect.top;
+        const data=projects[item.dataset.project];
 
-        card.style.setProperty("--x",`${x}px`);
 
-        card.style.setProperty("--y",`${y}px`);
+
+        viewer.style.opacity="0";
+
+        viewer.style.transform="translateY(30px)";
+
+
+
+        setTimeout(()=>{
+
+            image.src=data.image;
+
+            title.textContent=data.title;
+
+            category.textContent=data.category;
+
+            description.textContent=data.description;
+
+
+
+            tech.innerHTML="";
+
+            data.tech.forEach(skill=>{
+
+                tech.innerHTML+=`<span>${skill}</span>`;
+
+            });
+
+
+
+            feature.innerHTML="";
+
+            data.features.forEach(point=>{
+
+                feature.innerHTML+=`<li>${point}</li>`;
+
+            });
+
+
+
+            github.href=data.github;
+
+            live.href=data.live;
+
+            study.href=data.case;
+
+
+
+            viewer.style.opacity="1";
+
+            viewer.style.transform="translateY(0px)";
+
+
+
+        },250);
 
     });
 
