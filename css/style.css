@@ -5201,3 +5201,620 @@ padding:16px;
     transform:translateY(-5px);
 
 }
+
+/*==========================================================
+                    ACHIEVEMENTS
+==========================================================*/
+
+.achievements{
+    padding:120px 0;
+    position:relative;
+}
+
+.achievement-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:32px;
+    margin-top:40px;
+    align-items:stretch;
+}
+
+/*==========================================================
+                    FEATURED CARD
+==========================================================*/
+
+.achievement-featured{
+
+    display:flex;
+    align-items:center;
+    gap:55px;
+
+    background:#101827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:30px;
+
+    padding:55px;
+
+    margin-top:70px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.4s ease;
+
+}
+
+.achievement-featured:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#00C6FF;
+
+    box-shadow:0 20px 60px rgba(0,198,255,.18);
+
+}
+
+.featured-left{
+
+    width:130px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.featured-right{
+
+    flex:1;
+
+}
+
+.featured-right h2{
+
+    color:#fff;
+
+    font-size:44px;
+
+    margin:12px 0;
+
+    transition:.35s;
+
+}
+
+.featured-right h3{
+
+    color:#00C6FF;
+
+    font-size:28px;
+
+    margin-bottom:22px;
+
+}
+
+.featured-right p{
+
+    color:#94A3B8;
+
+    line-height:1.9;
+
+    max-width:780px;
+
+}
+
+/*==========================================================
+                    LOGO
+==========================================================*/
+
+.achievement-logo{
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:24px;
+
+    background:linear-gradient(135deg,#00C6FF,#0072FF);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:54px;
+
+    color:#fff;
+
+    transition:.4s;
+
+}
+
+.achievement-featured:hover .achievement-logo{
+
+    transform:rotate(-8deg) scale(1.08);
+
+}
+
+/*==========================================================
+                    TYPE
+==========================================================*/
+
+.achievement-type{
+
+    color:#00C6FF;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+/*==========================================================
+                    NORMAL CARD
+==========================================================*/
+
+.achievement-card{
+
+    background:#101827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:34px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100%;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.35s ease;
+
+}
+
+.achievement-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#00C6FF;
+
+    box-shadow:0 18px 45px rgba(0,198,255,.18);
+
+}
+
+.card-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+    margin-bottom:28px;
+
+}
+
+.card-top .achievement-logo{
+
+    width:82px;
+
+    height:82px;
+
+    font-size:36px;
+
+    border-radius:20px;
+
+}
+
+.card-top h3{
+
+    color:#fff;
+
+    font-size:34px;
+
+    line-height:1.2;
+
+    margin-top:6px;
+
+    transition:.35s;
+
+}
+
+.achievement-card:hover h3{
+
+    color:#00C6FF;
+
+}
+
+.achievement-card h4{
+
+    color:#00C6FF;
+
+    font-size:22px;
+
+    margin-bottom:20px;
+
+}
+
+.achievement-card p{
+
+    color:#94A3B8;
+
+    line-height:1.9;
+
+    flex:1;
+
+    min-height:155px;
+
+    margin-bottom:28px;
+
+}
+
+/*==========================================================
+                    BUTTONS
+==========================================================*/
+
+.achievement-buttons{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-top:35px;
+
+}
+
+.certificate-btn{
+
+    width:100%;
+
+    height:58px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:auto;
+
+    border-radius:15px;
+
+    background:#00C6FF;
+
+    color:#08111F;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:.35s;
+
+}
+
+.certificate-btn:hover{
+
+    background:#16D2FF;
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 35px rgba(0,198,255,.35);
+
+}
+
+.project-btn{
+
+    flex:1;
+
+    height:58px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:15px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    transition:.35s;
+
+}
+
+.project-btn:hover{
+
+    background:rgba(0,198,255,.08);
+
+    border-color:#00C6FF;
+
+    transform:translateY(-5px);
+
+}
+
+/*==========================================================
+                CARD GLOW EFFECT
+==========================================================*/
+
+.achievement-card::before,
+.achievement-featured::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top right,
+    rgba(0,198,255,.12),
+    transparent 60%);
+
+    opacity:0;
+
+    transition:.45s ease;
+
+    pointer-events:none;
+
+}
+
+.achievement-card:hover::before,
+.achievement-featured:hover::before{
+
+    opacity:1;
+
+}
+
+/*==========================================================
+                SHINE EFFECT
+==========================================================*/
+
+.achievement-card::after,
+.achievement-featured::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-150%;
+
+    width:60%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.08),
+        transparent
+    );
+
+    transform:skewX(-20deg);
+
+    pointer-events:none;
+
+}
+
+.achievement-card:hover::after,
+.achievement-featured:hover::after{
+
+    animation:shine .9s ease;
+
+}
+
+@keyframes shine{
+
+    100%{
+
+        left:180%;
+
+    }
+
+}
+
+/*==========================================================
+                LOGO ANIMATION
+==========================================================*/
+
+.achievement-logo{
+
+    transition:.35s ease;
+
+}
+
+.achievement-card:hover .achievement-logo,
+.achievement-featured:hover .achievement-logo{
+
+    transform:rotate(-8deg) scale(1.08);
+
+}
+
+/*==========================================================
+                TITLE ANIMATION
+==========================================================*/
+
+.featured-right h2,
+.card-top h3{
+
+    transition:.35s ease;
+
+}
+
+.achievement-featured:hover h2,
+.achievement-card:hover h3{
+
+    color:#00C6FF;
+
+}
+
+/*==========================================================
+                FEATURED BUTTONS
+==========================================================*/
+
+.achievement-buttons{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-top:35px;
+
+}
+
+.achievement-buttons .certificate-btn{
+
+    flex:1;
+
+}
+
+.achievement-buttons .project-btn{
+
+    flex:1;
+
+}
+
+/*==========================================================
+                RESPONSIVE
+==========================================================*/
+
+@media(max-width:991px){
+
+    .achievement-featured{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        padding:40px;
+
+        gap:35px;
+
+    }
+
+    .featured-left{
+
+        width:100%;
+
+    }
+
+    .achievement-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .featured-right h2{
+
+        font-size:34px;
+
+    }
+
+    .featured-right h3{
+
+        font-size:22px;
+
+    }
+
+    .card-top{
+
+        gap:18px;
+
+    }
+
+    .card-top h3{
+
+        font-size:26px;
+
+    }
+
+    .achievement-card{
+
+        padding:28px;
+
+    }
+
+    .achievement-card p{
+
+        min-height:auto;
+
+    }
+
+    .achievement-buttons{
+
+        flex-direction:column;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .achievements{
+
+        padding:90px 0;
+
+    }
+
+    .achievement-featured{
+
+        padding:28px;
+
+    }
+
+    .achievement-logo{
+
+        width:90px;
+
+        height:90px;
+
+        font-size:44px;
+
+    }
+
+    .card-top .achievement-logo{
+
+        width:68px;
+
+        height:68px;
+
+        font-size:30px;
+
+    }
+
+    .featured-right h2{
+
+        font-size:30px;
+
+    }
+
+    .featured-right p{
+
+        font-size:15px;
+
+    }
+
+}
