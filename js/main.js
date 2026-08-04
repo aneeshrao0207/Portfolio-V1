@@ -463,3 +463,46 @@ items.forEach(item=>{
 
 });
 
+/*==================================
+        PORTFOLIO LIKE
+===================================*/
+
+const likeBtn = document.getElementById("likeBtn");
+const likeCount = document.getElementById("likeCount");
+
+let count = localStorage.getItem("portfolioLikes");
+let liked = localStorage.getItem("portfolioLiked");
+
+if(count===null){
+
+    count=0;
+
+}
+
+likeCount.innerText=count;
+
+if(liked==="true"){
+
+    likeBtn.classList.add("liked");
+
+}
+
+likeBtn.onclick=function(){
+
+    if(localStorage.getItem("portfolioLiked")==="true"){
+
+        return;
+
+    }
+
+    count++;
+
+    likeCount.innerText=count;
+
+    localStorage.setItem("portfolioLikes",count);
+
+    localStorage.setItem("portfolioLiked","true");
+
+    likeBtn.classList.add("liked");
+
+}
