@@ -7050,29 +7050,37 @@ gap:12px;
 
 }
 
-/*==================================
-        PORTFOLIO LIKE WIDGET
-===================================*/
+/*=========================================
+        PORTFOLIO APPRECIATION
+=========================================*/
 
-.portfolio-widget{
+.portfolio-rating{
 
-    position:fixed;
+    margin:55px auto;
 
-    right:30px;
+    max-width:420px;
 
-    top:50%;
-
-    transform:translateY(-50%);
-
-    z-index:999;
+    text-align:center;
 
 }
 
-.like-btn{
+.rating-heading{
 
-    width:85px;
+    color:#ffffff;
 
-    height:95px;
+    font-size:20px;
+
+    font-weight:600;
+
+    margin-bottom:25px;
+
+}
+
+.rating-button{
+
+    width:100%;
+
+    padding:24px;
 
     border:none;
 
@@ -7080,54 +7088,104 @@ gap:12px;
 
     cursor:pointer;
 
-    border-radius:22px;
+    border-radius:18px;
 
-    background:rgba(16,24,39,.88);
-
-    backdrop-filter:blur(15px);
+    background:#101827;
 
     border:1px solid rgba(255,255,255,.08);
 
     display:flex;
 
-    flex-direction:column;
-
     justify-content:center;
 
     align-items:center;
 
-    gap:8px;
-
-    font-size:30px;
-
-    color:white;
+    gap:15px;
 
     transition:.35s;
 
 }
 
-.like-btn span{
+.rating-button:hover{
 
-    font-size:18px;
-
-    font-weight:700;
-
-}
-
-.like-btn:hover{
-
-    transform:translateY(-8px);
+    transform:translateY(-6px);
 
     border-color:#00C6FF;
 
-    box-shadow:0 20px 45px rgba(0,198,255,.25);
+    box-shadow:0 20px 40px rgba(0,198,255,.18);
 
 }
 
-.like-btn.liked{
+.rating-star{
 
-    background:#00C6FF;
+    font-size:32px;
 
-    color:#08111F;
+    transition:.35s;
+
+}
+
+.rating-button:hover .rating-star{
+
+    transform:rotate(-12deg) scale(1.2);
+
+}
+
+.rating-text{
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+.rating-message{
+
+    margin-top:18px;
+
+    color:#00C6FF;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    min-height:20px;
+
+}
+
+.rating-button.liked{
+
+    background:linear-gradient(135deg,#00C6FF,#0072FF);
+
+    border-color:#00C6FF;
+
+}
+
+.rating-button.liked .rating-star{
+
+    animation:pop .4s ease;
+
+}
+
+@keyframes pop{
+
+0%{
+
+transform:scale(.5);
+
+}
+
+50%{
+
+transform:scale(1.4);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
 
 }

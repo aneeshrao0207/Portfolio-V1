@@ -463,46 +463,37 @@ items.forEach(item=>{
 
 });
 
-/*==================================
-        PORTFOLIO LIKE
-===================================*/
+/*=====================================
+        PORTFOLIO APPRECIATION
+======================================*/
 
-const likeBtn = document.getElementById("likeBtn");
-const likeCount = document.getElementById("likeCount");
+const portfolioLike = document.getElementById("portfolioLike");
+const ratingMessage = document.getElementById("ratingMessage");
 
-let count = localStorage.getItem("portfolioLikes");
-let liked = localStorage.getItem("portfolioLiked");
+if(portfolioLike){
 
-if(count===null){
+    if(localStorage.getItem("portfolioLiked")){
 
-    count=0;
+        portfolioLike.classList.add("liked");
 
-}
-
-likeCount.innerText=count;
-
-if(liked==="true"){
-
-    likeBtn.classList.add("liked");
-
-}
-
-likeBtn.onclick=function(){
-
-    if(localStorage.getItem("portfolioLiked")==="true"){
-
-        return;
+        ratingMessage.innerHTML = "❤️ Thank you for appreciating my portfolio!";
 
     }
 
-    count++;
+    portfolioLike.onclick = () => {
 
-    likeCount.innerText=count;
+        if(localStorage.getItem("portfolioLiked")){
 
-    localStorage.setItem("portfolioLikes",count);
+            return;
 
-    localStorage.setItem("portfolioLiked","true");
+        }
 
-    likeBtn.classList.add("liked");
+        portfolioLike.classList.add("liked");
+
+        ratingMessage.innerHTML = "❤️ Thank you for appreciating my portfolio!";
+
+        localStorage.setItem("portfolioLiked","true");
+
+    };
 
 }
