@@ -1,247 +1,146 @@
-/*==================================================
-            PROJECT COMMAND CENTER
-==================================================*/
+// ==========================================
+// SKILL MODAL
+// ==========================================
 
-const projects = {
+const cards = document.querySelectorAll(".skill-card");
 
-    vanrakshak:{
+const overlay = document.querySelector(".skill-modal-overlay");
 
-        title:"VanRakshak",
+const modal = document.querySelector(".skill-modal");
 
-        category:"AI • Dashboard • Hackathon",
+const closeBtn = document.querySelector(".close-modal");
 
-        image:"images/vanrakshak.png",
+const modalTitle = document.getElementById("modalTitle");
 
-        description:
-        "AI Powered Forest Monitoring Dashboard developed during HackMela to monitor forests, wildlife and environmental conditions using intelligent technologies.",
+const modalIcon = document.getElementById("modalIcon");
 
-        tech:[
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "AI",
-            "IoT",
-            "Dashboard UI"
-        ],
+const modalDescription = document.getElementById("modalDescription");
 
-        features:[
-            "Real Time Dashboard",
-            "AI Detection",
-            "Forest Monitoring",
-            "Analytics & Reports"
-        ],
-
-        github:"https://github.com/yourusername/VanRakshak",
-
-        live:"#",
-
-        case:"#"
-
-    },
+const modalSkills = document.getElementById("modalSkills");
 
 
 
-    campuseye:{
+// ==========================================
+// OPEN MODAL
+// ==========================================
 
-        title:"CampusEye",
+cards.forEach(card=>{
 
-        category:"College Management",
+    card.querySelector(".explore-btn").addEventListener("click",()=>{
 
-        image:"images/campuseye.png",
+        const title=card.dataset.title;
 
-        description:
-        "CampusEye is a smart campus management platform designed to simplify administration, improve communication and enhance student experience.",
+        const icon=card.dataset.icon;
 
-        tech:[
-            "HTML",
-            "CSS",
-            "JavaScript"
-        ],
+        const description=card.dataset.description;
 
-        features:[
-            "Student Dashboard",
-            "Attendance",
-            "Notice Board",
-            "Responsive UI"
-        ],
-
-        github:"#",
-
-        live:"#",
-
-        case:"#"
-
-    },
+        const skills=card.dataset.skills.split(",");
 
 
 
-    portfolio:{
+        modalTitle.textContent=title;
 
-        title:"Developer Portfolio",
+        modalIcon.textContent=icon;
 
-        category:"Personal Website",
-
-        image:"images/portfolio.png",
-
-        description:
-        "A premium portfolio designed to showcase projects, achievements, skills and experience with modern UI animations.",
-
-        tech:[
-            "HTML",
-            "CSS",
-            "JavaScript"
-        ],
-
-        features:[
-            "Dark Mode",
-            "Animations",
-            "Responsive Design",
-            "Interactive UI"
-        ],
-
-        github:"#",
-
-        live:"#",
-
-        case:"#"
-
-    },
+        modalDescription.textContent=description;
 
 
 
-    calculator:{
+        modalSkills.innerHTML="";
 
-        title:"Calculator",
 
-        category:"Frontend Project",
 
-        image:"images/calculator.png",
+        skills.forEach((skill,index)=>{
 
-        description:
-        "Responsive Calculator developed during CodeAlpha Frontend Internship featuring a modern UI and theme switcher.",
+            const chip=document.createElement("span");
 
-        tech:[
-            "HTML",
-            "CSS",
-            "JavaScript"
-        ],
+            chip.textContent=skill;
 
-        features:[
-            "Responsive",
-            "Theme Switch",
-            "Keyboard Support",
-            "Smooth UI"
-        ],
+            chip.style.animationDelay=`${index*0.08}s`;
 
-        github:"#",
+            modalSkills.appendChild(chip);
 
-        live:"#",
+        });
 
-        case:"#"
+
+
+        overlay.classList.add("active");
+
+        document.body.classList.add("modal-open");
+
+    });
+
+});
+
+
+
+// ==========================================
+// CLOSE
+// ==========================================
+
+function closeModal(){
+
+    overlay.classList.remove("active");
+
+    document.body.classList.remove("modal-open");
+
+}
+
+
+
+closeBtn.addEventListener("click",closeModal);
+
+
+
+// ==========================================
+// CLICK OUTSIDE
+// ==========================================
+
+overlay.addEventListener("click",(e)=>{
+
+    if(e.target===overlay){
+
+        closeModal();
 
     }
 
-};
+});
 
 
 
-/*==================================================
-            ELEMENTS
-==================================================*/
+// ==========================================
+// ESC KEY
+// ==========================================
 
-const items=document.querySelectorAll(".project-item");
+document.addEventListener("keydown",(e)=>{
 
-const image=document.getElementById("projectImage");
+    if(e.key==="Escape"){
 
-const title=document.getElementById("projectTitle");
+        closeModal();
 
-const category=document.getElementById("projectCategory");
+    }
 
-const description=document.getElementById("projectDescription");
-
-const tech=document.getElementById("projectTech");
-
-const feature=document.getElementById("featureList");
-
-const github=document.getElementById("githubBtn");
-
-const live=document.getElementById("liveBtn");
-
-const study=document.getElementById("caseBtn");
-
-const viewer=document.querySelector(".project-viewer");
+});
 
 
 
-/*==================================================
-            CHANGE PROJECT
-==================================================*/
+// ==========================================
+// SMALL CARD HOVER EFFECT
+// ==========================================
 
-items.forEach(item=>{
+cards.forEach(card=>{
 
-    item.addEventListener("click",()=>{
+    card.addEventListener("mousemove",(e)=>{
 
-        items.forEach(card=>card.classList.remove("active"));
+        const rect=card.getBoundingClientRect();
 
-        item.classList.add("active");
+        const x=e.clientX-rect.left;
 
-        const data=projects[item.dataset.project];
+        const y=e.clientY-rect.top;
 
+        card.style.setProperty("--x",`${x}px`);
 
-
-        viewer.style.opacity="0";
-
-        viewer.style.transform="translateY(30px)";
-
-
-
-        setTimeout(()=>{
-
-            image.src=data.image;
-
-            title.textContent=data.title;
-
-            category.textContent=data.category;
-
-            description.textContent=data.description;
-
-
-
-            tech.innerHTML="";
-
-            data.tech.forEach(skill=>{
-
-                tech.innerHTML+=`<span>${skill}</span>`;
-
-            });
-
-
-
-            feature.innerHTML="";
-
-            data.features.forEach(point=>{
-
-                feature.innerHTML+=`<li>${point}</li>`;
-
-            });
-
-
-
-            github.href=data.github;
-
-            live.href=data.live;
-
-            study.href=data.case;
-
-
-
-            viewer.style.opacity="1";
-
-            viewer.style.transform="translateY(0px)";
-
-
-
-        },250);
+        card.style.setProperty("--y",`${y}px`);
 
     });
 

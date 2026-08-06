@@ -1,0 +1,599 @@
+/*==================================================
+                SKILLS SECTION
+==================================================*/
+
+.skills-section{
+
+    padding:120px 0;
+
+    position:relative;
+
+}
+
+.skills-heading{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.skills-heading span{
+
+    display:inline-block;
+
+    padding:10px 24px;
+
+    border-radius:40px;
+
+    background:rgba(0,198,255,.08);
+
+    border:1px solid rgba(0,198,255,.15);
+
+    color:#00C6FF;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    font-weight:700;
+
+}
+
+.skills-heading h2{
+
+    margin-top:20px;
+
+    font-size:54px;
+
+}
+
+.skills-heading p{
+
+    max-width:720px;
+
+    margin:20px auto 0;
+
+    color:#94A3B8;
+
+    line-height:1.8;
+
+}
+
+/*==================================================
+                GRID
+==================================================*/
+
+.skills-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+/*==================================================
+                CARD
+==================================================*/
+
+.skill-card{
+
+    position:relative;
+
+    height:220px;
+
+    border-radius:28px;
+
+    background:#101827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    transition:.45s;
+
+}
+
+.skill-card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:#00C6FF;
+
+    box-shadow:0 25px 60px rgba(0,198,255,.18);
+
+}
+
+/*==============================================*/
+
+.skill-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+
+    height:280px;
+
+    border-radius:50%;
+
+    background:rgba(0,198,255,.08);
+
+    top:-140px;
+
+    right:-140px;
+
+    filter:blur(60px);
+
+    opacity:0;
+
+    transition:.45s;
+
+}
+
+.skill-card:hover::before{
+
+    opacity:1;
+
+}
+
+/*==============================================*/
+
+.skill-card::after{
+
+    content:"Explore";
+
+    position:absolute;
+
+    bottom:25px;
+
+    font-size:13px;
+
+    color:#94A3B8;
+
+    letter-spacing:1px;
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.skill-card:hover::after{
+
+    opacity:1;
+
+}
+
+/*==================================================
+                ICON
+==================================================*/
+
+.skill-icon{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:22px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:42px;
+
+    background:rgba(255,255,255,.05);
+
+    transition:.4s;
+
+}
+
+.skill-card:hover .skill-icon{
+
+    transform:rotate(-8deg) scale(1.1);
+
+    background:#00C6FF;
+
+}
+
+/*==================================================
+                TITLE
+==================================================*/
+
+.skill-card h3{
+
+    margin-top:25px;
+
+    font-size:24px;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.skill-card:hover h3{
+
+    color:#00C6FF;
+
+}
+
+/*==================================================
+                OVERLAY
+==================================================*/
+
+.orbit-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(2,8,23,.88);
+
+    backdrop-filter:blur(25px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.45s;
+
+    z-index:99999;
+
+}
+
+.orbit-overlay.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/*==================================================
+                BACKGROUND
+==================================================*/
+
+.orbit-background{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+}
+
+.orbit-background span{
+
+    position:absolute;
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:#00C6FF;
+
+    opacity:.18;
+
+    animation:particleFloat 10s linear infinite;
+
+}
+
+.orbit-background span:nth-child(1){top:8%;left:15%;}
+.orbit-background span:nth-child(2){top:18%;left:82%;}
+.orbit-background span:nth-child(3){top:78%;left:10%;}
+.orbit-background span:nth-child(4){top:85%;left:72%;}
+.orbit-background span:nth-child(5){top:52%;left:30%;}
+.orbit-background span:nth-child(6){top:25%;left:45%;}
+.orbit-background span:nth-child(7){top:65%;left:92%;}
+.orbit-background span:nth-child(8){top:42%;left:70%;}
+.orbit-background span:nth-child(9){top:60%;left:52%;}
+.orbit-background span:nth-child(10){top:12%;left:60%;}
+
+@keyframes particleFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-30px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==================================================
+                WRAPPER
+==================================================*/
+
+.orbit-wrapper{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:850px;
+
+    height:850px;
+
+}
+
+/*==================================================
+                ORBITS
+==================================================*/
+
+.orbit{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transform:translate(-50%,-50%);
+
+}
+
+.outer-orbit{
+
+    width:760px;
+
+    height:760px;
+
+}
+
+.middle-orbit{
+
+    width:560px;
+
+    height:560px;
+
+}
+
+.inner-orbit{
+
+    width:360px;
+
+    height:360px;
+
+}
+
+/*==================================================
+                CENTER CARD
+==================================================*/
+
+.orbit-center{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:260px;
+
+    height:260px;
+
+    border-radius:30px;
+
+    background:rgba(16,24,39,.95);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    box-shadow:0 35px 80px rgba(0,198,255,.20);
+
+}
+
+.center-icon{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:22px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#00C6FF;
+
+    font-size:44px;
+
+    margin-bottom:20px;
+
+}
+
+.orbit-center h2{
+
+    font-size:28px;
+
+    margin-bottom:10px;
+
+}
+
+.orbit-center p{
+
+    color:#94A3B8;
+
+}
+
+/*==================================================
+                CLOSE
+==================================================*/
+
+.orbit-close{
+
+    position:absolute;
+
+    right:45px;
+
+    top:45px;
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#101827;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:24px;
+
+    transition:.35s;
+
+}
+
+.orbit-close:hover{
+
+    background:#00C6FF;
+
+    transform:rotate(90deg);
+
+}
+/*==================================================
+                CHIP
+==================================================*/
+
+.orbit-chip{
+
+position:absolute;
+
+left:50%;
+top:50%;
+
+padding:15px 22px;
+
+border-radius:60px;
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+background:rgba(16,24,39,.92);
+
+border:1px solid;
+
+backdrop-filter:blur(20px);
+
+font-size:15px;
+
+font-weight:600;
+
+white-space:nowrap;
+
+cursor:pointer;
+
+transition:
+
+background .35s,
+
+box-shadow .35s,
+
+transform .25s;
+
+box-shadow:
+
+0 12px 30px rgba(0,0,0,.25);
+
+will-change:transform;
+
+}
+.orbit-chip:hover{
+
+background:#101827;
+
+box-shadow:
+
+0 20px 45px rgba(0,198,255,.35);
+
+z-index:100;
+
+}
+
+.chip-dot{
+
+width:10px;
+
+height:10px;
+
+border-radius:50%;
+
+background:currentColor;
+
+box-shadow:0 0 15px currentColor;
+
+flex-shrink:0;
+
+}
+
+.orbit-chip:hover{
+
+transform:scale(1.12);
+
+background:#101827;
+
+box-shadow:0 20px 45px rgba(0,198,255,.35);
+
+}
