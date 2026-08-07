@@ -128,7 +128,7 @@ rotation+=0.2;
 
 const chips=document.querySelectorAll(".skill-chip");
 
-const radius=310;
+const radius=320;
 
 chips.forEach(chip=>{
 
