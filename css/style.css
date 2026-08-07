@@ -3145,6 +3145,518 @@ body.light-mode .vision-icon{
                 SKILLS SECTION
 =======================================================================================*/
 
+.skills-section{
+    padding:120px 0;
+}
+
+.skills-heading{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.skills-heading span{
+    display:inline-block;
+    padding:10px 24px;
+    border-radius:40px;
+    background:rgba(0,198,255,.08);
+    border:1px solid rgba(0,198,255,.15);
+    color:#00C6FF;
+    font-size:13px;
+    letter-spacing:2px;
+    font-weight:700;
+}
+
+.skills-heading h2{
+    font-size:54px;
+    margin-top:20px;
+}
+
+.skills-heading p{
+    max-width:720px;
+    margin:20px auto 0;
+    color:#94A3B8;
+    line-height:1.8;
+}
+
+/*==========================================================
+GRID
+==========================================================*/
+
+.skills-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:28px;
+
+}
+
+/*==========================================================
+CARD
+==========================================================*/
+
+.skill-card{
+
+    height:220px;
+
+    border-radius:28px;
+
+    background:#101827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.skill-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#00C6FF;
+
+    box-shadow:0 20px 45px rgba(0,198,255,.20);
+
+}
+
+.skill-icon{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(255,255,255,.05);
+
+    font-size:42px;
+
+    transition:.35s;
+
+}
+
+.skill-card:hover .skill-icon{
+
+    background:#00C6FF;
+
+    transform:scale(1.08);
+
+}
+
+.skill-card h3{
+
+    margin-top:22px;
+
+    font-size:24px;
+
+}
+
+/*==========================================================
+OVERLAY
+==========================================================*/
+
+.wheel-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(3,8,20,.82);
+
+    backdrop-filter:blur(18px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.4s;
+
+    z-index:9999;
+
+}
+
+.wheel-overlay.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/*==========================================================
+MODAL
+==========================================================*/
+
+.wheel-modal{
+
+    width:900px;
+
+    height:900px;
+
+    position:relative;
+
+}
+
+/*==========================================================
+CENTER CARD
+==========================================================*/
+
+.wheel-center{
+
+position:absolute;
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-50%);
+
+width:300px;
+
+height:300px;
+
+border-radius:36px;
+
+background:rgba(17,24,39,.92);
+
+backdrop-filter:blur(25px);
+
+border:1px solid rgba(255,255,255,.08);
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+box-shadow:
+
+0 30px 80px rgba(0,198,255,.22);
+
+}
+
+.wheel-icon{
+
+width:110px;
+
+height:110px;
+
+border-radius:24px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:48px;
+
+background:linear-gradient(
+135deg,
+#00C6FF,
+#008CFF);
+
+margin-bottom:22px;
+
+box-shadow:
+
+0 20px 45px rgba(0,198,255,.35);
+
+}
+
+.wheel-center h2{
+
+font-size:32px;
+
+font-weight:700;
+
+line-height:1.4;
+
+max-width:220px;
+
+}
+
+/*==========================================================
+WHEEL
+==========================================================*/
+
+.wheel-container{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+/*==========================================================
+CHIPS
+==========================================================*/
+
+/*==================================================
+                SKILL BUBBLES
+==================================================*/
+
+.skill-chip{
+
+    position:absolute;
+
+    width:100px;
+
+    height:100px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:6px;
+
+    text-align:center;
+
+    background:rgba(17,24,39,.82);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    line-height:1.25;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    transition:.35s ease;
+
+    box-shadow:
+
+        0 12px 35px rgba(0,0,0,.25),
+
+        0 0 20px rgba(0,198,255,.08);
+
+}
+
+.skill-chip:hover{
+
+    transform:
+
+    translate(-50%,-50%)
+
+    scale(1.18);
+
+    background:linear-gradient(
+    135deg,
+    #00C6FF,
+    #008CFF);
+
+    border-color:#00C6FF;
+
+    box-shadow:
+
+    0 0 35px rgba(0,198,255,.55);
+
+}
+
+/*==========================================================
+CLOSE
+==========================================================*/
+
+.wheel-close{
+
+    position:absolute;
+
+    right:20px;
+
+    top:20px;
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:50%;
+
+    border:none;
+
+    cursor:pointer;
+
+    background:#101827;
+
+    color:white;
+
+    font-size:22px;
+
+    transition:.35s;
+
+    z-index:100;
+
+}
+
+.wheel-close:hover{
+
+    background:#00C6FF;
+
+    transform:rotate(90deg);
+
+}
+
+/*==========================================================
+RESPONSIVE
+==========================================================*/
+
+@media(max-width:992px){
+
+.skills-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.wheel-modal{
+
+width:700px;
+height:700px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.skills-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.wheel-modal{
+
+width:95vw;
+height:95vw;
+
+}
+
+.wheel-center{
+
+width:170px;
+height:170px;
+
+}
+
+.skill-chip{
+
+width:110px;
+
+height:45px;
+
+font-size:13px;
+
+}
+
+}
+.wheel-container::before{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+top:50%;
+
+width:620px;
+height:620px;
+
+border-radius:50%;
+
+transform:translate(-50%,-50%);
+
+border:2px dashed rgba(255,255,255,.08);
+
+}
+
+/*==================================================
+                GLOW RING
+==================================================*/
+
+.wheel-container::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    width:640px;
+
+    height:640px;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    border:2px dashed rgba(255,255,255,.08);
+
+    animation:ringRotate 60s linear infinite;
+
+}
+
+@keyframes ringRotate{
+
+from{
+
+transform:translate(-50%,-50%) rotate(0deg);
+
+}
+
+to{
+
+transform:translate(-50%,-50%) rotate(360deg);
+
+}
+
+}
 
 /*==================================================
                 PROJECT COMMAND CENTER
