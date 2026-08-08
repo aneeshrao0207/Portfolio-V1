@@ -1,155 +1,446 @@
 /*====================================================
-            SKILL WHEEL
+                SKILL WHEEL SYSTEM
 ====================================================*/
 
-const skillCards = document.querySelectorAll(".skill-card");
 
-const wheelOverlay = document.querySelector(".wheel-overlay");
+/*====================================================
+                ELEMENTS
+====================================================*/
 
-const wheelClose = document.querySelector(".wheel-close");
+const skillCards =
+    document.querySelectorAll(".skill-card");
 
-const wheelContainer = document.querySelector(".wheel-container");
+const wheelOverlay =
+    document.querySelector(".wheel-overlay");
 
-const wheelTitle = document.querySelector(".wheel-center h2");
+const wheelClose =
+    document.querySelector(".wheel-close");
 
-const wheelIcon = document.querySelector(".wheel-icon");
+const wheelContainer =
+    document.querySelector(".wheel-container");
+
+const wheelTitle =
+    document.querySelector(".wheel-center h2");
+
+const wheelIcon =
+    document.querySelector(".wheel-icon");
+
+
+/*====================================================
+                VARIABLES
+====================================================*/
 
 let rotation = 0;
 
-let wheelAnimation;
+let wheelAnimation = null;
 
-/*==============================================*/
 
-skillCards.forEach(card=>{
+/*
+    IMPORTANT
 
-card.addEventListener("click",()=>{
+    This radius is exactly 320px.
 
-openWheel(card);
+    CSS ring = 640px diameter.
 
-});
+    Therefore:
 
-});
+    320px radius × 2 = 640px ring
 
-/*==============================================*/
+    This makes the ring pass directly
+    through the CENTER of every bubble.
+*/
 
-function openWheel(card){
+const wheelRadius = 320;
 
-wheelOverlay.classList.add("active");
 
-document.body.style.overflow="hidden";
+/*====================================================
+                LOGO DATABASE
+====================================================*/
 
-wheelTitle.innerHTML=card.dataset.title;
+/*
+    CHANGE THESE PATHS TO YOUR ACTUAL
+    LOGO FILE LOCATIONS.
 
-wheelIcon.innerHTML=card.dataset.icon;
+    Example:
 
-wheelIcon.style.background=card.dataset.color;
+    images/skills/html.png
 
-wheelContainer.innerHTML="";
+*/
 
-const skills=card.dataset.skills.split(",");
+const skillLogos = {
 
-createWheel(skills);
+    "HTML5":
+        "images/html.png",
 
-cancelAnimationFrame(wheelAnimation);
+    "CSS3":
+        "images/css.png",
 
-animateWheel();
+    "JavaScript":
+        "images/javascript.png",
 
-}
+    "React":
+        "images/react.png",
 
-/*==============================================*/
+    "Tailwind CSS":
+        "images/tcss.png",
 
-function closeWheel(){
+    "Responsive Design":
+        "images/rwd.png",
 
-wheelOverlay.classList.remove("active");
+    "Figma":
+        "images/skills/figma.png",
 
-document.body.style.overflow="auto";
+    "Wireframing":
+        "images/skills/wireframe.png",
 
-cancelAnimationFrame(wheelAnimation);
+    "Prototype":
+        "images/skills/prototype.png",
 
-}
+    "Auto Layout":
+        "images/skills/autolayout.png",
 
-wheelClose.onclick=closeWheel;
+    "Design Systems":
+        "images/skills/design-system.png",
 
-wheelOverlay.onclick=(e)=>{
+    "User Research":
+        "images/skills/user-research.png",
 
-if(e.target===wheelOverlay){
+    "VS Code":
+        "images/skills/vscode.png",
 
-closeWheel();
+    "Git":
+        "images/skills/git.png",
 
-}
+    "GitHub":
+        "images/skills/github.png",
+
+    "Vercel":
+        "images/skills/vercel.png",
+
+    "Canva":
+        "images/skills/canva.png"
 
 };
 
-document.addEventListener("keydown",(e)=>{
 
-if(e.key==="Escape"){
+/*====================================================
+                CARD CLICK
+====================================================*/
 
-closeWheel();
+skillCards.forEach(card => {
 
-}
+    card.addEventListener("click", () => {
+
+        openWheel(card);
+
+    });
 
 });
 
+
 /*====================================================
-            CREATE CHIPS
+                OPEN WHEEL
+====================================================*/
+
+function openWheel(card){
+
+    /* show overlay */
+
+    wheelOverlay.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+
+    /* reset rotation */
+
+    rotation = 0;
+
+
+    /* title */
+
+    wheelTitle.textContent =
+        card.dataset.title;
+
+
+    /* center icon */
+
+    wheelIcon.textContent =
+        card.dataset.icon;
+
+
+    /* center color */
+
+    wheelIcon.style.background =
+        `linear-gradient(
+            135deg,
+            ${card.dataset.color},
+            ${card.dataset.color}aa
+        )`;
+
+
+    /* remove previous chips */
+
+    wheelContainer.innerHTML = "";
+
+
+    /* get skills */
+
+    const skills =
+        card.dataset.skills
+        .split(",")
+        .map(skill => skill.trim());
+
+
+    /* create bubbles */
+
+    createWheel(skills);
+
+
+    /* start animation */
+
+    cancelAnimationFrame(wheelAnimation);
+
+    animateWheel();
+
+}
+
+
+/*====================================================
+                CREATE WHEEL
 ====================================================*/
 
 function createWheel(skills){
 
-const radius=310;
+    const total = skills.length;
 
-const total=skills.length;
+    skills.forEach((skill,index)=>{
 
-skills.forEach((skill,index)=>{
+        const chip = document.createElement("div");
 
-const chip=document.createElement("div");
+        chip.className = "skill-chip";
 
-chip.className="skill-chip";
+        /*
+        ==========================================
+        LOGO PATHS
+        ==========================================
+        */
 
-chip.innerHTML=skill;
+        const logoMap = {
 
-const angle=(360/total)*index;
+            "HTML5": "images/html.png",
 
-chip.dataset.angle=angle;
+            "CSS3": "images/css.png",
 
-wheelContainer.appendChild(chip);
+            "JavaScript": "images/javascript.png",
 
-});
+            "React": "images/react.png",
+
+            "Tailwind CSS": "images/tcss.png",
+
+            "Responsive Design": "images/rwd.png"
+
+        };
+
+
+        /*
+        ==========================================
+        CREATE LOGO
+        ==========================================
+        */
+
+        if(logoMap[skill]){
+
+            const img = document.createElement("img");
+
+            img.src = logoMap[skill];
+
+            img.alt = skill;
+
+            img.title = skill;
+
+            chip.appendChild(img);
+
+            chip.classList.add("logo-chip");
+
+        }
+
+        else{
+
+            chip.innerHTML = `<span>${skill}</span>`;
+
+        }
+
+
+        /*
+        ==========================================
+        POSITION
+        ==========================================
+        */
+
+        const angle = (360 / total) * index;
+
+        chip.dataset.angle = angle;
+
+        wheelContainer.appendChild(chip);
+
+    });
 
 }
 
 /*====================================================
-            ANIMATION
+                ROTATION ANIMATION
 ====================================================*/
 
 function animateWheel(){
 
-rotation+=0.2;
+    /*
+        Slow rotation.
 
-const chips=document.querySelectorAll(".skill-chip");
+        0.2 = very smooth.
 
-const radius=320;
+        One full rotation takes
+        roughly 30 seconds.
+    */
 
-chips.forEach(chip=>{
+    rotation += 0.2;
 
-const angle=parseFloat(chip.dataset.angle)+rotation;
 
-const rad=angle*Math.PI/180;
+    const chips =
+        document.querySelectorAll(".skill-chip");
 
-const x=Math.cos(rad)*radius;
 
-const y=Math.sin(rad)*radius;
+    chips.forEach(chip => {
 
-chip.style.left=`calc(50% + ${x}px)`;
+        const baseAngle =
+            parseFloat(
+                chip.dataset.angle
+            );
 
-chip.style.top=`calc(50% + ${y}px)`;
 
-/* keep text straight */
+        const angle =
+            baseAngle + rotation;
 
-chip.style.transform="translate(-50%,-50%)";
 
-});
+        const radians =
+            angle * Math.PI / 180;
 
-wheelAnimation=requestAnimationFrame(animateWheel);
+
+        const x =
+            Math.cos(radians)
+            * wheelRadius;
+
+
+        const y =
+            Math.sin(radians)
+            * wheelRadius;
+
+
+        /*
+            Position chip around center.
+        */
+
+        chip.style.left =
+            `calc(50% + ${x}px)`;
+
+
+        chip.style.top =
+            `calc(50% + ${y}px)`;
+
+
+        /*
+            Keep every logo perfectly upright.
+
+            Important:
+
+            Do NOT use scale here.
+
+            CSS handles hover scale.
+        */
+
+        chip.style.transform =
+            "translate(-50%, -50%)";
+
+    });
+
+
+    wheelAnimation =
+        requestAnimationFrame(
+            animateWheel
+        );
 
 }
+
+
+/*====================================================
+                CLOSE WHEEL
+====================================================*/
+
+function closeWheel(){
+
+    wheelOverlay.classList.remove(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "";
+
+
+    cancelAnimationFrame(
+        wheelAnimation
+    );
+
+}
+
+
+/*====================================================
+                CLOSE BUTTON
+====================================================*/
+
+wheelClose.addEventListener(
+    "click",
+    closeWheel
+);
+
+
+/*====================================================
+                CLICK OUTSIDE
+====================================================*/
+
+wheelOverlay.addEventListener(
+    "click",
+    event => {
+
+        if(
+            event.target === wheelOverlay
+        ){
+
+            closeWheel();
+
+        }
+
+    }
+);
+
+
+/*====================================================
+                ESC KEY
+====================================================*/
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.key === "Escape" &&
+            wheelOverlay.classList.contains(
+                "active"
+            )
+        ){
+
+            closeWheel();
+
+        }
+
+    }
+);

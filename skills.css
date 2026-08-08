@@ -3,40 +3,73 @@
 ==========================================================*/
 
 .skills-section{
+
     padding:120px 0;
+
+    position:relative;
+
 }
 
+
+/*==========================================================
+                HEADING
+==========================================================*/
+
 .skills-heading{
+
     text-align:center;
+
     margin-bottom:70px;
+
 }
 
 .skills-heading span{
+
     display:inline-block;
+
     padding:10px 24px;
+
     border-radius:40px;
+
     background:rgba(0,198,255,.08);
+
     border:1px solid rgba(0,198,255,.15);
+
     color:#00C6FF;
+
     font-size:13px;
+
     letter-spacing:2px;
+
     font-weight:700;
+
 }
 
 .skills-heading h2{
+
     font-size:54px;
+
     margin-top:20px;
+
+    margin-bottom:0;
+
 }
 
 .skills-heading p{
+
     max-width:720px;
+
     margin:20px auto 0;
+
     color:#94A3B8;
+
     line-height:1.8;
+
 }
 
+
 /*==========================================================
-GRID
+                SKILLS GRID
 ==========================================================*/
 
 .skills-grid{
@@ -49,8 +82,9 @@ GRID
 
 }
 
+
 /*==========================================================
-CARD
+                SKILL CARD
 ==========================================================*/
 
 .skill-card{
@@ -73,7 +107,7 @@ CARD
 
     cursor:pointer;
 
-    transition:.4s;
+    transition:.4s ease;
 
     position:relative;
 
@@ -81,35 +115,162 @@ CARD
 
 }
 
+
+/* subtle background glow */
+
+.skill-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(0,198,255,.08);
+
+    filter:blur(60px);
+
+    top:-80px;
+
+    right:-80px;
+
+    opacity:0;
+
+    transition:.5s ease;
+
+}
+
+.skill-card:hover::before{
+
+    opacity:1;
+
+}
+
+
+/* card hover */
+
 .skill-card:hover{
 
     transform:translateY(-10px);
 
     border-color:#00C6FF;
 
-    box-shadow:0 20px 45px rgba(0,198,255,.20);
+    box-shadow:
+
+        0 20px 45px rgba(0,198,255,.20);
 
 }
 
-.skill-icon{
 
-    width:90px;
+/*==========================================================
+                CARD ICON
+==========================================================*/
 
-    height:90px;
+/*==========================================================
+                CIRCULAR SKILL CHIP
+==========================================================*/
 
-    border-radius:22px;
+.skill-chip{
+
+    position:absolute;
+
+    width:105px;
+    height:105px;
+
+    border-radius:50%;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
-    background:rgba(255,255,255,.05);
+    overflow:hidden;
 
-    font-size:42px;
+    background:#101827;
 
-    transition:.35s;
+    border:2px solid rgba(255,255,255,.12);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.30),
+        0 0 25px rgba(0,198,255,.08);
+
+    cursor:pointer;
+
+    user-select:none;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+
+}
+
+
+/* IMAGE INSIDE CHIP */
+
+.skill-chip img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    padding:18px;
+
+    display:block;
+
+}
+
+
+/* HOVER */
+
+.skill-chip:hover{
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.12);
+
+    border-color:#00C6FF;
+
+    box-shadow:
+        0 0 35px rgba(0,198,255,.45),
+        0 15px 40px rgba(0,0,0,.35);
+
+}
+
+
+/*==========================================================
+        OPTIONAL LOGO BACKGROUND
+==========================================================*/
+
+.skill-chip.logo-chip{
+
+    background:rgba(255,255,255,.96);
+
+}
+
+
+/*==========================================================
+        MOBILE
+==========================================================*/
+
+@media(max-width:768px){
+
+    .skill-chip{
+
+        width:78px;
+        height:78px;
+
+    }
+
+    .skill-chip img{
+
+        padding:13px;
+
+    }
 
 }
 
@@ -119,7 +280,16 @@ CARD
 
     transform:scale(1.08);
 
+    box-shadow:
+
+        0 15px 35px rgba(0,198,255,.30);
+
 }
+
+
+/*==========================================================
+                CARD TITLE
+==========================================================*/
 
 .skill-card h3{
 
@@ -127,10 +297,23 @@ CARD
 
     font-size:24px;
 
+    position:relative;
+
+    z-index:2;
+
+    transition:.3s ease;
+
 }
 
+.skill-card:hover h3{
+
+    color:#00C6FF;
+
+}
+
+
 /*==========================================================
-OVERLAY
+                WHEEL OVERLAY
 ==========================================================*/
 
 .wheel-overlay{
@@ -139,7 +322,7 @@ OVERLAY
 
     inset:0;
 
-    background:rgba(3,8,20,.82);
+    background:rgba(3,8,20,.84);
 
     backdrop-filter:blur(18px);
 
@@ -153,7 +336,7 @@ OVERLAY
 
     visibility:hidden;
 
-    transition:.4s;
+    transition:.4s ease;
 
     z-index:9999;
 
@@ -167,8 +350,9 @@ OVERLAY
 
 }
 
+
 /*==========================================================
-MODAL
+                WHEEL MODAL
 ==========================================================*/
 
 .wheel-modal{
@@ -179,93 +363,116 @@ MODAL
 
     position:relative;
 
+    max-width:95vw;
+
+    max-height:95vh;
+
 }
 
+
 /*==========================================================
-CENTER CARD
+                CENTER CARD
 ==========================================================*/
 
 .wheel-center{
 
-position:absolute;
+    position:absolute;
 
-left:50%;
+    left:50%;
 
-top:50%;
+    top:50%;
 
-transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%);
 
-width:300px;
+    width:300px;
 
-height:300px;
+    height:300px;
 
-border-radius:36px;
+    border-radius:36px;
 
-background:rgba(17,24,39,.92);
+    background:rgba(17,24,39,.94);
 
-backdrop-filter:blur(25px);
+    backdrop-filter:blur(25px);
 
-border:1px solid rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.10);
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
 
-justify-content:center;
+    justify-content:center;
 
-align-items:center;
+    align-items:center;
 
-text-align:center;
+    text-align:center;
 
-box-shadow:
+    z-index:50;
 
-0 30px 80px rgba(0,198,255,.22);
+    box-shadow:
+
+        0 30px 80px rgba(0,198,255,.22);
 
 }
+
+
+/*==========================================================
+                CENTER ICON
+==========================================================*/
 
 .wheel-icon{
 
-width:110px;
+    width:110px;
 
-height:110px;
+    height:110px;
 
-border-radius:24px;
+    border-radius:24px;
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-align-items:center;
+    align-items:center;
 
-font-size:48px;
+    font-size:48px;
 
-background:linear-gradient(
-135deg,
-#00C6FF,
-#008CFF);
+    background:linear-gradient(
+        135deg,
+        #00C6FF,
+        #008CFF
+    );
 
-margin-bottom:22px;
+    margin-bottom:22px;
 
-box-shadow:
+    box-shadow:
 
-0 20px 45px rgba(0,198,255,.35);
+        0 20px 45px rgba(0,198,255,.35);
+
+    transition:.35s ease;
 
 }
+
+
+/*==========================================================
+                CENTER TITLE
+==========================================================*/
 
 .wheel-center h2{
 
-font-size:32px;
+    font-size:32px;
 
-font-weight:700;
+    font-weight:700;
 
-line-height:1.4;
+    line-height:1.4;
 
-max-width:220px;
+    max-width:230px;
+
+    margin:0;
 
 }
 
+
 /*==========================================================
-WHEEL
+                WHEEL CONTAINER
 ==========================================================*/
 
 .wheel-container{
@@ -274,15 +481,124 @@ WHEEL
 
     inset:0;
 
+    width:100%;
+
+    height:100%;
+
 }
 
+
 /*==========================================================
-CHIPS
+                PERFECT ALIGNMENT RING
 ==========================================================*/
 
-/*==================================================
+/*
+    Chip radius = 320px
+
+    Therefore ring diameter = 640px
+
+    The ring passes directly through
+    the CENTER of every chip.
+*/
+
+.wheel-container::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    width:640px;
+
+    height:640px;
+
+    border-radius:50%;
+
+    transform:translate(-50%,-50%);
+
+    border:
+
+        2px dashed
+
+        rgba(255,255,255,.08);
+
+    pointer-events:none;
+
+    animation:
+
+        ringRotate 60s linear infinite;
+
+}
+
+
+/*==========================================================
+                RING GLOW
+==========================================================*/
+
+.wheel-container::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    width:640px;
+
+    height:640px;
+
+    border-radius:50%;
+
+    transform:translate(-50%,-50%);
+
+    border:
+
+        1px solid
+
+        rgba(0,198,255,.08);
+
+    box-shadow:
+
+        0 0 50px rgba(0,198,255,.04);
+
+    pointer-events:none;
+
+}
+
+
+/*==========================================================
+                RING ROTATION
+==========================================================*/
+
+@keyframes ringRotate{
+
+    from{
+
+        transform:
+            translate(-50%,-50%)
+            rotate(0deg);
+
+    }
+
+    to{
+
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg);
+
+    }
+
+}
+
+
+/*==========================================================
                 SKILL BUBBLES
-==================================================*/
+==========================================================*/
 
 .skill-chip{
 
@@ -296,17 +612,11 @@ CHIPS
 
     display:flex;
 
-    flex-direction:column;
-
     justify-content:center;
 
     align-items:center;
 
-    gap:6px;
-
-    text-align:center;
-
-    background:rgba(17,24,39,.82);
+    background:rgba(17,24,39,.88);
 
     backdrop-filter:blur(20px);
 
@@ -314,17 +624,21 @@ CHIPS
 
     color:#fff;
 
-    font-size:13px;
-
-    font-weight:700;
-
-    line-height:1.25;
-
     cursor:pointer;
 
     user-select:none;
 
-    transition:.35s ease;
+    z-index:20;
+
+    transition:
+
+        background .35s ease,
+
+        border-color .35s ease,
+
+        box-shadow .35s ease,
+
+        scale .35s ease;
 
     box-shadow:
 
@@ -334,29 +648,63 @@ CHIPS
 
 }
 
+
+/*==========================================================
+                TECHNOLOGY LOGO
+==========================================================*/
+
+.skill-logo{
+
+    width:50px;
+
+    height:50px;
+
+    object-fit:contain;
+
+    display:block;
+
+    pointer-events:none;
+
+    transition:.35s ease;
+
+}
+
+
+/*==========================================================
+                CHIP HOVER
+==========================================================*/
+
 .skill-chip:hover{
 
-    transform:
+    scale:1.15;
 
-    translate(-50%,-50%)
+    background:
 
-    scale(1.18);
-
-    background:linear-gradient(
-    135deg,
-    #00C6FF,
-    #008CFF);
+        linear-gradient(
+            135deg,
+            #00C6FF,
+            #008CFF
+        );
 
     border-color:#00C6FF;
 
     box-shadow:
 
-    0 0 35px rgba(0,198,255,.55);
+        0 0 35px rgba(0,198,255,.55),
+
+        0 15px 35px rgba(0,0,0,.30);
 
 }
 
+.skill-chip:hover .skill-logo{
+
+    transform:scale(1.12);
+
+}
+
+
 /*==========================================================
-CLOSE
+                CLOSE BUTTON
 ==========================================================*/
 
 .wheel-close{
@@ -373,7 +721,11 @@ CLOSE
 
     border-radius:50%;
 
-    border:none;
+    border:
+
+        1px solid
+
+        rgba(255,255,255,.10);
 
     cursor:pointer;
 
@@ -383,7 +735,7 @@ CLOSE
 
     font-size:22px;
 
-    transition:.35s;
+    transition:.35s ease;
 
     z-index:100;
 
@@ -393,124 +745,215 @@ CLOSE
 
     background:#00C6FF;
 
+    border-color:#00C6FF;
+
     transform:rotate(90deg);
 
+    box-shadow:
+
+        0 10px 30px rgba(0,198,255,.30);
+
 }
+
 
 /*==========================================================
-RESPONSIVE
+                RESPONSIVE
 ==========================================================*/
 
-@media(max-width:992px){
+@media(max-width:1100px){
 
-.skills-grid{
+    .skills-grid{
 
-grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .wheel-modal{
+
+        width:750px;
+
+        height:750px;
+
+    }
 
 }
 
-.wheel-modal{
 
-width:700px;
-height:700px;
+/*==========================================================
+                TABLET
+==========================================================*/
+
+@media(max-width:850px){
+
+    .wheel-modal{
+
+        width:650px;
+
+        height:650px;
+
+    }
+
+    .wheel-container::before,
+    .wheel-container::after{
+
+        width:500px;
+
+        height:500px;
+
+    }
+
+    .wheel-center{
+
+        width:220px;
+
+        height:220px;
+
+    }
+
+    .wheel-icon{
+
+        width:80px;
+
+        height:80px;
+
+        font-size:36px;
+
+    }
+
+    .wheel-center h2{
+
+        font-size:24px;
+
+    }
+
+    .skill-chip{
+
+        width:82px;
+
+        height:82px;
+
+    }
+
+    .skill-logo{
+
+        width:42px;
+
+        height:42px;
+
+    }
 
 }
 
-}
+
+/*==========================================================
+                MOBILE
+==========================================================*/
 
 @media(max-width:768px){
 
-.skills-grid{
+    .skills-section{
 
-grid-template-columns:1fr;
+        padding:90px 0;
 
-}
+    }
 
-.wheel-modal{
+    .skills-heading h2{
 
-width:95vw;
-height:95vw;
+        font-size:40px;
 
-}
+    }
 
-.wheel-center{
+    .skills-grid{
 
-width:170px;
-height:170px;
+        grid-template-columns:1fr;
 
-}
+    }
 
-.skill-chip{
+    .skill-card{
 
-width:110px;
+        height:200px;
 
-height:45px;
+    }
 
-font-size:13px;
+    .wheel-modal{
 
-}
+        width:100vw;
 
-}
-.wheel-container::before{
+        height:100vw;
 
-content:"";
+        max-width:none;
 
-position:absolute;
+        max-height:none;
 
-left:50%;
-top:50%;
+    }
 
-width:620px;
-height:620px;
+    .wheel-container::before,
+    .wheel-container::after{
 
-border-radius:50%;
+        width:280px;
 
-transform:translate(-50%,-50%);
+        height:280px;
 
-border:2px dashed rgba(255,255,255,.08);
+    }
 
-}
+    .wheel-center{
 
-/*==================================================
-                GLOW RING
-==================================================*/
+        width:170px;
 
-.wheel-container::before{
+        height:170px;
 
-    content:"";
+        border-radius:25px;
 
-    position:absolute;
+    }
 
-    left:50%;
+    .wheel-icon{
 
-    top:50%;
+        width:60px;
 
-    width:640px;
+        height:60px;
 
-    height:640px;
+        border-radius:16px;
 
-    transform:translate(-50%,-50%);
+        font-size:28px;
 
-    border-radius:50%;
+        margin-bottom:12px;
 
-    border:2px dashed rgba(255,255,255,.08);
+    }
 
-    animation:ringRotate 60s linear infinite;
+    .wheel-center h2{
 
-}
+        font-size:19px;
 
-@keyframes ringRotate{
+        max-width:140px;
 
-from{
+    }
 
-transform:translate(-50%,-50%) rotate(0deg);
+    .skill-chip{
 
-}
+        width:65px;
 
-to{
+        height:65px;
 
-transform:translate(-50%,-50%) rotate(360deg);
+    }
 
-}
+    .skill-logo{
+
+        width:34px;
+
+        height:34px;
+
+    }
+
+    .wheel-close{
+
+        width:48px;
+
+        height:48px;
+
+        top:12px;
+
+        right:12px;
+
+    }
 
 }
