@@ -126,9 +126,9 @@
         </p>
     </div>
 
-    <!-- ========================================================================================================================
+    <!-- =================================================================================================
                 ABOUT SECTION
-        ========================================================================================================================= -->
+        ================================================================================================== -->
     <section id="about" class="about">
     <!-- Section Heading -->
     <div class="section-heading">
@@ -178,9 +178,9 @@
         </div>
     </div>
 
-<!-- ==========================================
+<!-- ====================================================================================================
             EDUCATION JOURNEY
-========================================== -->
+========================================================================================================= -->
     <div class="education-section">
         <div class="education-heading">
             <h2>Education Journey</h2>
@@ -345,9 +345,9 @@
         </div>
     </div>
 
-<!-- ==========================================
+<!-- ===================================================================================================
             AREAS OF INTEREST
-========================================== -->
+======================================================================================================== -->
 <div class="interest-section">
     <div class="interest-heading">
         <h2>Areas of Interest</h2>
@@ -418,9 +418,9 @@
     </div>
         </div>
 
-<!-- =====================================================
+<!-- ==================================================================================================
                     CURRENT GOAL
-====================================================== -->
+======================================================================================================= -->
 <section id="goal" class="goal-section">
     <div class="goal-heading">
         <h2>Current Goal</h2>
@@ -546,9 +546,9 @@
 
 </section>
 
-<!-- ==========================================
+<!-- ==================================================================================================
             CAREER VISION
-========================================== -->
+======================================================================================================= -->
 <section class="career-section">
 
     <div class="career-heading">
@@ -669,14 +669,15 @@
 
 </section>
 
-<!-- ==========================================
-                SKILLS SECTION
-========================================== -->
+<!-- =================================================================================================
+                    SKILLS SECTION
+====================================================================================================== -->
 
 <section class="skills-section" id="skills">
 
     <div class="container">
 
+        <!-- Heading -->
         <div class="skills-heading">
 
             <span>MY TECH ECOSYSTEM</span>
@@ -690,77 +691,122 @@
 
         </div>
 
+
+        <!-- ================= SKILL CARDS ================= -->
+
         <div class="skills-grid">
+
+
+            <!-- FRONTEND -->
 
             <div class="skill-card"
                 data-title="Frontend Development"
-                data-icon="💻"
+                data-icon="fa-solid fa-code"
                 data-color="#00C6FF"
                 data-skills="HTML5,CSS3,JavaScript,React,Tailwind CSS,Responsive Design">
 
-                <div class="skill-icon">💻</div>
+                <div class="skill-card-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
 
                 <h3>Frontend Development</h3>
 
+                <i class="fa-solid fa-arrow-right card-arrow"></i>
+
             </div>
+
+
+            <!-- UI UX -->
 
             <div class="skill-card"
                 data-title="UI / UX Design"
-                data-icon="🎨"
+                data-icon="fa-solid fa-pen-ruler"
                 data-color="#8B5CF6"
-                data-skills="Figma,Wireframing,Prototype,Auto Layout,Design Systems,User Research">
+                data-skills="Figma,Wireframing,Prototyping,Auto Layout,Design Systems,UX Design">
 
-                <div class="skill-icon">🎨</div>
+                <div class="skill-card-icon">
+                    <i class="fa-solid fa-pen-ruler"></i>
+                </div>
 
                 <h3>UI / UX Design</h3>
 
+                <i class="fa-solid fa-arrow-right card-arrow"></i>
+
             </div>
+
+
+            <!-- AI -->
 
             <div class="skill-card"
                 data-title="AI Assisted Development"
-                data-icon="🤖"
+                data-icon="fa-solid fa-robot"
                 data-color="#06B6D4"
-                data-skills="Vibe Coding,Copilot,Prompting,Rapid Prototyping">
+                data-skills="AI Tools,Vibe Coding,Prompt Crafting,Copilot,Rapid Prototyping">
 
-                <div class="skill-icon">🤖</div>
+                <div class="skill-card-icon">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
 
                 <h3>AI Development</h3>
 
+                <i class="fa-solid fa-arrow-right card-arrow"></i>
+
             </div>
+
+
+            <!-- TOOLS -->
 
             <div class="skill-card"
                 data-title="Development Tools"
-                data-icon="🛠️"
+                data-icon="fa-solid fa-screwdriver-wrench"
                 data-color="#F59E0B"
                 data-skills="VS Code,Git,GitHub,Vercel,Canva">
 
-                <div class="skill-icon">🛠️</div>
+                <div class="skill-card-icon">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
 
                 <h3>Development Tools</h3>
 
+                <i class="fa-solid fa-arrow-right card-arrow"></i>
+
             </div>
+
+
+            <!-- PROFESSIONAL -->
 
             <div class="skill-card"
                 data-title="Professional Skills"
-                data-icon="🤝"
+                data-icon="fa-solid fa-users"
                 data-color="#22C55E"
                 data-skills="Leadership,Communication,Teamwork,Problem Solving,Adaptability,Time Management">
 
-                <div class="skill-icon">🤝</div>
+                <div class="skill-card-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
 
                 <h3>Professional Skills</h3>
 
+                <i class="fa-solid fa-arrow-right card-arrow"></i>
+
             </div>
+
+
+            <!-- LANGUAGES -->
 
             <div class="skill-card"
                 data-title="Languages"
-                data-icon="🌍"
+                data-icon="fa-solid fa-language"
                 data-color="#EC4899"
                 data-skills="English,Kannada,Hindi,Telugu,Tamil,Marathi">
 
-                <div class="skill-icon">🌍</div>
+                <div class="skill-card-icon">
+                    <i class="fa-solid fa-language"></i>
+                </div>
 
                 <h3>Languages</h3>
+
+                <i class="fa-solid fa-arrow-right card-arrow"></i>
 
             </div>
 
@@ -769,208 +815,821 @@
     </div>
 
 </section>
-<!-- ==========================================
-            WHEEL MODAL
-========================================== -->
+
+
+
+<!-- =========================================================
+                    SKILL WHEEL MODAL
+============================================================== -->
 
 <div class="wheel-overlay">
 
     <div class="wheel-modal">
 
-        <button class="wheel-close">
+        <!-- CLOSE -->
+
+        <button class="wheel-close" aria-label="Close">
 
             <i class="fa-solid fa-xmark"></i>
 
         </button>
 
+
+        <!-- CENTER -->
+
         <div class="wheel-center">
 
             <div class="wheel-icon">
 
-                💻
+                <i class="fa-solid fa-code"></i>
 
             </div>
 
-            <h2>
-
-                Frontend Development
-
-            </h2>
+            <h2>Frontend Development</h2>
 
         </div>
 
-        <div class="wheel-container">
 
-            <!-- Chips generated by JS -->
+        <!-- ROTATING SKILLS -->
+
+        <div class="wheel-container"></div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ===============================================================================================
+                    PROJECTS SECTION
+==================================================================================================== -->
+
+<section class="projects-section" id="projects">
+
+    <div class="projects-header">
+
+        <span class="section-label">
+            PROJECT SHOWCASE
+        </span>
+
+        <h2>
+            Projects I've Built
+        </h2>
+
+        <p>
+            A collection of products, experiments and solutions
+            I've designed and developed throughout my journey.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+                        PROJECT GRID
+    ====================================================== -->
+
+    <div class="projects-grid">
+
+
+        <!-- =================================================
+                            PROJECT 01
+        ================================================== -->
+
+        <article class="project-card featured-project"
+            data-project="vanrakshak">
+
+            <div class="project-number">
+                01
+            </div>
+
+            <div class="project-image">
+
+                <img
+                    src="images/vanrakshak.png"
+                    alt="VanRakshak project">
+
+                <div class="project-image-overlay"></div>
+
+                <span class="project-status">
+                    <span></span>
+                    Featured Project
+                </span>
+
+            </div>
+
+
+            <div class="project-card-content">
+
+                <div class="project-meta">
+                    AI • IoT • Dashboard
+                </div>
+
+                <h3>
+                    VanRakshak
+                </h3>
+
+                <p>
+                    AI-powered forest monitoring platform designed
+                    to help monitor forests, wildlife and environmental
+                    conditions through an intelligent dashboard.
+                </p>
+
+
+                <div class="project-tech">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>AI</span>
+
+                </div>
+
+
+                <button class="view-project-btn">
+
+                    View Project
+
+                    <span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+                            PROJECT 02
+        ================================================== -->
+
+        <article class="project-card"
+            data-project="campuseye">
+
+            <div class="project-number">
+                02
+            </div>
+
+            <div class="project-image">
+
+                <img
+                    src="images/campuseye.png"
+                    alt="CampusEye project">
+
+                <div class="project-image-overlay"></div>
+
+            </div>
+
+
+            <div class="project-card-content">
+
+                <div class="project-meta">
+                    WEB APP • CAMPUS
+                </div>
+
+                <h3>
+                    CampusEye
+                </h3>
+
+                <p>
+                    A smart campus platform designed to simplify
+                    student management, communication and everyday
+                    campus activities.
+                </p>
+
+
+                <div class="project-tech">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+
+                </div>
+
+
+                <button class="view-project-btn">
+
+                    View Project
+
+                    <span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+                            PROJECT 03
+        ================================================== -->
+
+        <article class="project-card"
+            data-project="portfolio">
+
+            <div class="project-number">
+                03
+            </div>
+
+            <div class="project-image">
+
+                <img
+                    src="images/portfolio.png"
+                    alt="Portfolio project">
+
+                <div class="project-image-overlay"></div>
+
+            </div>
+
+
+            <div class="project-card-content">
+
+                <div class="project-meta">
+                    PERSONAL • UI/UX
+                </div>
+
+                <h3>
+                    Developer Portfolio
+                </h3>
+
+                <p>
+                    A premium personal portfolio focused on modern
+                    interfaces, storytelling, responsive design and
+                    interactive experiences.
+                </p>
+
+
+                <div class="project-tech">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+
+                </div>
+
+
+                <button class="view-project-btn">
+
+                    View Project
+
+                    <span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+                            PROJECT 04
+        ================================================== -->
+
+        <article class="project-card"
+            data-project="calculator">
+
+            <div class="project-number">
+                04
+            </div>
+
+            <div class="project-image">
+
+                <img
+                    src="images/calculator.png"
+                    alt="Calculator project">
+
+                <div class="project-image-overlay"></div>
+
+            </div>
+
+
+            <div class="project-card-content">
+
+                <div class="project-meta">
+                    FRONTEND • CODEALPHA
+                </div>
+
+                <h3>
+                    Smart Calculator
+                </h3>
+
+                <p>
+                    A responsive calculator application featuring
+                    a clean interface, interactive controls and
+                    smooth user experience.
+                </p>
+
+
+                <div class="project-tech">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+
+                </div>
+
+
+                <button class="view-project-btn">
+
+                    View Project
+
+                    <span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+                            PROJECT 05
+        ================================================== -->
+
+        <article class="project-card"
+            data-project="pixelvault">
+
+            <div class="project-number">
+                05
+            </div>
+
+            <div class="project-image">
+
+                <img
+                    src="images/pixelvault.png"
+                    alt="PixelVault project">
+
+                <div class="project-image-overlay"></div>
+
+            </div>
+
+
+            <div class="project-card-content">
+
+                <div class="project-meta">
+                    FRONTEND • GALLERY
+                </div>
+
+                <h3>
+                    PixelVault
+                </h3>
+
+                <p>
+                    A modern image gallery experience focused on
+                    visual discovery, responsive layouts and
+                    smooth interactions.
+                </p>
+
+
+                <div class="project-tech">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+
+                </div>
+
+
+                <button class="view-project-btn">
+
+                    View Project
+
+                    <span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+                            PROJECT 06
+        ================================================== -->
+
+        <article class="project-card"
+            data-project="musicplayer">
+
+            <div class="project-number">
+                06
+            </div>
+
+            <div class="project-image">
+
+                <img
+                    src="images/music-player.png"
+                    alt="Music Player project">
+
+                <div class="project-image-overlay"></div>
+
+            </div>
+
+
+            <div class="project-card-content">
+
+                <div class="project-meta">
+                    FRONTEND • MEDIA
+                </div>
+
+                <h3>
+                    Music Player
+                </h3>
+
+                <p>
+                    A browser-based music player with an intuitive
+                    interface designed around simple controls and
+                    an engaging listening experience.
+                </p>
+
+
+                <div class="project-tech">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+
+                </div>
+
+
+                <button class="view-project-btn">
+
+                    View Project
+
+                    <span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+                PROJECT DETAIL OVERLAY
+========================================================= -->
+
+<div class="project-detail-overlay"
+    id="projectDetailOverlay">
+
+    <div class="project-detail-modal">
+
+
+        <!-- CLOSE -->
+
+        <button
+            class="project-detail-close"
+            id="projectDetailClose">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+
+        <!-- =================================================
+                        DETAIL HERO IMAGE
+        ================================================== -->
+
+        <div class="detail-image">
+
+            <img
+                id="detailImage"
+                src=""
+                alt="Project preview">
+
+            <div class="detail-image-gradient"></div>
+
+
+            <div class="detail-project-number"
+                id="detailNumber">
+
+                01
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+                        DETAIL CONTENT
+        ================================================== -->
+
+        <div class="detail-content">
+
+
+            <div class="detail-top">
+
+                <div>
+
+                    <span
+                        class="detail-category"
+                        id="detailCategory">
+
+                        AI • IoT • Dashboard
+
+                    </span>
+
+
+                    <h2 id="detailTitle">
+
+                        VanRakshak
+
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="detail-achievement"
+                    id="detailAchievement">
+
+                    🏆 1st Place — HACKMELA 2K26
+
+                </div>
+
+            </div>
+
+
+
+            <p
+                class="detail-intro"
+                id="detailIntro">
+
+            </p>
+
+
+
+            <!-- =================================================
+                            PROBLEM / SOLUTION
+            ================================================== -->
+
+            <div class="detail-two-column">
+
+
+                <div class="detail-info-block">
+
+                    <span class="detail-small-label">
+                        THE PROBLEM
+                    </span>
+
+                    <h3>
+                        Why I built it
+                    </h3>
+
+                    <p id="detailProblem">
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="detail-info-block">
+
+                    <span class="detail-small-label">
+                        THE SOLUTION
+                    </span>
+
+                    <h3>
+                        What I built
+                    </h3>
+
+                    <p id="detailSolution">
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                            FEATURES
+            ================================================== -->
+
+            <div class="detail-section">
+
+                <span class="detail-small-label">
+                    CORE FEATURES
+                </span>
+
+                <h3>
+                    What makes it useful
+                </h3>
+
+
+                <div
+                    class="detail-features"
+                    id="detailFeatures">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                            TECHNOLOGIES
+            ================================================== -->
+
+            <div class="detail-section">
+
+                <span class="detail-small-label">
+                    TECHNOLOGY
+                </span>
+
+                <h3>
+                    Built with
+                </h3>
+
+
+                <div
+                    class="detail-tech"
+                    id="detailTech">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                            JOURNEY
+            ================================================== -->
+
+            <div class="detail-section">
+
+                <span class="detail-small-label">
+                    DEVELOPMENT JOURNEY
+                </span>
+
+                <h3>
+                    From idea to product
+                </h3>
+
+
+                <div class="detail-journey">
+
+
+                    <div class="journey-step">
+
+                        <div class="journey-number">
+                            01
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Idea
+                            </strong>
+
+                            <p>
+                                Identified the problem and
+                                defined the product direction.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="journey-step">
+
+                        <div class="journey-number">
+                            02
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Design
+                            </strong>
+
+                            <p>
+                                Planned the interface,
+                                user flow and overall experience.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="journey-step">
+
+                        <div class="journey-number">
+                            03
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Development
+                            </strong>
+
+                            <p>
+                                Built the core functionality
+                                and refined the experience.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="journey-step">
+
+                        <div class="journey-number">
+                            04
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Result
+                            </strong>
+
+                            <p>
+                                Tested, presented and improved
+                                the final product.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                            ACTIONS
+            ================================================== -->
+
+            <div class="detail-actions">
+
+                <a
+                    href="#"
+                    target="_blank"
+                    id="detailGithub"
+                    class="detail-primary-btn">
+
+                    <i class="fa-brands fa-github"></i>
+
+                    View on GitHub
+
+                </a>
+
+
+                <a
+                    href="#"
+                    target="_blank"
+                    id="detailLive"
+                    class="detail-secondary-btn">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                    Live Demo
+
+                </a>
+
+            </div>
+
 
         </div>
 
     </div>
 
 </div>
-<!-- ======================================================
-                    PROJECT COMMAND CENTER
-======================================================= -->
-<section class="projects-section" id="projects">
-    <div class="projects-header">
-        <span>PROJECT COMMAND CENTER</span>
-        <h2>Projects That Define My Journey</h2>
-        <p>
-            Explore my work through an interactive command center.
-            Select any project to view its complete story, technologies,
-            challenges and achievements.
-        </p>
-    </div>
-    <div class="command-center">
-        <!-- ==========================================
-                    LEFT PANEL
-        ========================================== -->
-        <div class="project-sidebar">
-            <h3>Projects</h3>
-            <div class="project-item active"
-                data-project="vanrakshak">
-                <span class="project-number">
-                    01
-                </span>
-                <div>
-                    <h4>VanRakshak</h4>
-                    <small>Featured Project</small>
-                </div>
-            </div>
-            <div class="project-item"
-                data-project="campuseye">
-                <span class="project-number">
-                    02
-                </span>
-                <div>
-                    <h4>CampusEye</h4>
-                    <small>College Management</small>
-                </div>
-            </div>
-            <div class="project-item"
-                data-project="portfolio">
-                <span class="project-number">
-                    03
-                </span>
-                <div>
-                    <h4>Portfolio</h4>
-                    <small>Personal Website</small>
-                </div>
-            </div>
-            <div class="project-item"
-                data-project="calculator">
-                <span class="project-number">
-                    04
-                </span>
-                <div>
-                    <h4>Calculator</h4>
-                    <small>Frontend Project</small>
-                </div>
-            </div>
-        </div>
-        <!-- ==========================================
-                    RIGHT PANEL
-        ========================================== -->
-        <div class="project-viewer">
-            <!-- IMAGE -->
-            <div class="viewer-image">
-                <img
-                    id="projectImage"
-                    src="images/"
-                    alt="VanRakshak">
-                <div class="featured-tag">
-                    🏆 Featured
-                </div>
-            </div>
-            <!-- CONTENT -->
-            <div class="viewer-content">
-                <span id="projectCategory">
-                    AI • Dashboard • Hackathon
-                </span>
-                <h2 id="projectTitle">
-                    VanRakshak
-                </h2>
-                <p id="projectDescription">
-                    AI Powered Forest Monitoring Dashboard
-                    developed during HackMela to monitor forests,
-                    wildlife and environmental conditions.
-                </p>
-                <!-- TECH -->
-                <div
-                    id="projectTech"
-                    class="tech-stack">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>AI</span>
-                    <span>IoT</span>
-                </div>
-                <!-- FEATURES -->
-                <div class="project-features">
-                    <h3>
-                        Key Features
-                    </h3>
-                    <ul id="featureList">
-                        <li>
-                            Real Time Dashboard
-                        </li>
-                        <li>
-                            AI Detection
-                        </li>
-                        <li>
-                            Analytics
-                        </li>
-                        <li>
-                            Forest Monitoring
-                        </li>
-                    </ul>
-                </div>
-                <!-- TIMELINE -->
-                <div class="project-timeline1">
-                    <h3>
-                        Development Journey
-                    </h3>
-                    <div class="timeline1-item">
-                        💡 Idea
-                    </div>
-                    <div class="timeline1-item">
-                        🎨 Design
-                    </div>
-                    <div class="timeline1-item">
-                        💻 Development
-                    </div>
-                    <div class="timeline1-item">
-                        🚀 Deployment
-                    </div>
-                </div>
-                <!-- BUTTONS -->
-                <div class="project-buttons">
-                    <a
-                        id="githubBtn"
-                        href="#"
-                        class="primary-btn">
-                        <i class="fa-brands fa-github"></i>
-                        GitHub
-                    </a>
-                    <a
-                        id="liveBtn"
-                        href="#"
-                        class="secondary-btn">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        Live Demo
-                    </a>
-                    <a
-                        id="caseBtn"
-                        href="#"
-                        class="secondary-btn">
-                        <i class="fa-solid fa-book-open"></i>
-                        Case Study
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- ======================================================
                     EXPERIENCE SECTION

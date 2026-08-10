@@ -65,13 +65,15 @@ window.addEventListener("scroll",()=>{
 
 });
 
-/*====================================================
-            SKILL WHEEL
-====================================================*/
+/* =========================================================
+                    SKILL WHEEL
+========================================================= */
 
 const skillCards = document.querySelectorAll(".skill-card");
 
 const wheelOverlay = document.querySelector(".wheel-overlay");
+
+const wheelModal = document.querySelector(".wheel-modal");
 
 const wheelClose = document.querySelector(".wheel-close");
 
@@ -81,288 +83,582 @@ const wheelTitle = document.querySelector(".wheel-center h2");
 
 const wheelIcon = document.querySelector(".wheel-icon");
 
-let rotation = 0;
-
 let wheelAnimation;
 
-/*==============================================*/
+let rotation = 0;
 
-skillCards.forEach(card=>{
 
-card.addEventListener("click",()=>{
+/* =========================================================
+                    OPEN WHEEL
+========================================================= */
 
-openWheel(card);
+skillCards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        openWheel(card);
+
+    });
 
 });
 
-});
-
-/*==============================================*/
 
 function openWheel(card){
 
-wheelOverlay.classList.add("active");
+    wheelOverlay.classList.add("active");
 
-document.body.style.overflow="hidden";
+    document.body.style.overflow = "hidden";
 
-wheelTitle.innerHTML=card.dataset.title;
 
-wheelIcon.innerHTML=card.dataset.icon;
+    /* title */
 
-wheelIcon.style.background=card.dataset.color;
+    wheelTitle.textContent = card.dataset.title;
 
-wheelContainer.innerHTML="";
 
-const skills=card.dataset.skills.split(",");
+    /* icon */
 
-createWheel(skills);
+    wheelIcon.innerHTML = `
+        <i class="${card.dataset.icon}"></i>
+    `;
 
-cancelAnimationFrame(wheelAnimation);
 
-animateWheel();
+    /* icon color */
 
-}
+    wheelIcon.style.background = card.dataset.color;
 
-/*==============================================*/
 
-function closeWheel(){
+    /* reset */
 
-wheelOverlay.classList.remove("active");
+    rotation = 0;
 
-document.body.style.overflow="auto";
 
-cancelAnimationFrame(wheelAnimation);
+    /* remove previous chips */
 
-}
+    wheelContainer.innerHTML = "";
 
-wheelClose.onclick=closeWheel;
 
-wheelOverlay.onclick=(e)=>{
+    /* create new wheel */
 
-if(e.target===wheelOverlay){
+    const skills = card.dataset.skills
+        .split(",")
+        .map(skill => skill.trim())
+        .filter(Boolean);
 
-closeWheel();
 
-}
+    createWheel(skills);
 
-};
 
-document.addEventListener("keydown",(e)=>{
+    cancelAnimationFrame(wheelAnimation);
 
-if(e.key==="Escape"){
-
-closeWheel();
+    animateWheel();
 
 }
 
-});
 
-/*====================================================
-            CREATE CHIPS
-====================================================*/
+/* =========================================================
+                    CREATE CHIPS
+========================================================= */
 
 function createWheel(skills){
 
-const radius=310;
+    const total = skills.length;
 
-const total=skills.length;
 
-skills.forEach((skill,index)=>{
+    skills.forEach((skill,index) => {
 
-const chip=document.createElement("div");
+        const chip = document.createElement("div");
 
-chip.className="skill-chip";
+        chip.className = "skill-chip";
 
-chip.innerHTML=skill;
+        chip.textContent = skill;
 
-const angle=(360/total)*index;
 
-chip.dataset.angle=angle;
+        const angle = (360 / total) * index;
 
-wheelContainer.appendChild(chip);
 
-});
+        chip.dataset.angle = angle;
+
+
+        wheelContainer.appendChild(chip);
+
+    });
 
 }
 
-/*====================================================
-            ANIMATION
-====================================================*/
+
+/* =========================================================
+                    ANIMATE WHEEL
+========================================================= */
 
 function animateWheel(){
 
-rotation+=0.2;
+    rotation += 0.15;
 
-const chips=document.querySelectorAll(".skill-chip");
 
-const radius=320;
+    const chips = document.querySelectorAll(".skill-chip");
 
-chips.forEach(chip=>{
 
-const angle=parseFloat(chip.dataset.angle)+rotation;
+    const modalSize = wheelModal.offsetWidth;
 
-const rad=angle*Math.PI/180;
 
-const x=Math.cos(rad)*radius;
+    /*
+        Radius automatically adjusts
+        according to modal size.
+    */
 
-const y=Math.sin(rad)*radius;
+    const radius = modalSize * 0.325;
 
-chip.style.left=`calc(50% + ${x}px)`;
 
-chip.style.top=`calc(50% + ${y}px)`;
+    chips.forEach(chip => {
 
-/* keep text straight */
+        const baseAngle = parseFloat(chip.dataset.angle);
 
-chip.style.transform="translate(-50%,-50%)";
+        const angle = baseAngle + rotation;
 
-});
+        const radians = angle * Math.PI / 180;
 
-wheelAnimation=requestAnimationFrame(animateWheel);
+
+        const x = Math.cos(radians) * radius;
+
+        const y = Math.sin(radians) * radius;
+
+
+        chip.style.left = `calc(50% + ${x}px)`;
+
+        chip.style.top = `calc(50% + ${y}px)`;
+
+
+        /*
+            Keeps the text straight
+            while the wheel rotates.
+        */
+
+        chip.style.transform =
+            "translate(-50%, -50%)";
+
+    });
+
+
+    wheelAnimation =
+        requestAnimationFrame(animateWheel);
 
 }
 
+
+/* =========================================================
+                    CLOSE WHEEL
+========================================================= */
+
+function closeWheel(){
+
+    wheelOverlay.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+    cancelAnimationFrame(wheelAnimation);
+
+}
+
+
+/* =========================================================
+                    CLOSE BUTTON
+========================================================= */
+
+wheelClose.addEventListener("click", closeWheel);
+
+
+/* =========================================================
+                    CLICK OUTSIDE
+========================================================= */
+
+wheelOverlay.addEventListener("click", event => {
+
+    if(event.target === wheelOverlay){
+
+        closeWheel();
+
+    }
+
+});
+
+
+/* =========================================================
+                    ESCAPE KEY
+========================================================= */
+
+document.addEventListener("keydown", event => {
+
+    if(event.key === "Escape"){
+
+        closeWheel();
+
+    }
+
+});
 
 
 /*==================================================
             PROJECT COMMAND CENTER
 ==================================================*/
 
-const projects = {
+/* =========================================================
+                PROJECT DETAILS DATA
+========================================================= */
 
-    vanrakshak:{
+const projectDetails = {
 
-        title:"VanRakshak",
+    vanrakshak: {
 
-        category:"AI • Dashboard • Hackathon",
+        number: "01",
 
-        image:"images/vanrakshak.png",
+        title: "VanRakshak",
 
-        description:
-        "AI Powered Forest Monitoring Dashboard developed during HackMela to monitor forests, wildlife and environmental conditions using intelligent technologies.",
+        category: "AI • IoT • Dashboard • Hackathon",
 
-        tech:[
-            "HTML",
-            "CSS",
+        image: "images/vanrakshak.png",
+
+        intro:
+        "An AI-powered forest monitoring platform designed to transform traditional forest surveillance into a smarter, data-driven experience.",
+
+        problem:
+        "Forest monitoring often depends heavily on manual observation, making it difficult to continuously monitor large areas, identify threats quickly and organize environmental information effectively.",
+
+        solution:
+        "VanRakshak brings monitoring information into a centralized digital dashboard, combining intelligent detection concepts, environmental information and visual analytics into one experience.",
+
+        achievement:
+        "🏆 1st Place — HACKMELA 2K26",
+
+        features: [
+
+            "Real-time monitoring dashboard",
+
+            "AI-powered detection concept",
+
+            "Forest and wildlife monitoring",
+
+            "Environmental analytics",
+
+            "Visual data representation",
+
+            "Responsive dashboard interface"
+
+        ],
+
+        tech: [
+
+            "HTML5",
+
+            "CSS3",
+
             "JavaScript",
+
             "AI",
+
             "IoT",
+
             "Dashboard UI"
+
         ],
 
-        features:[
-            "Real Time Dashboard",
-            "AI Detection",
-            "Forest Monitoring",
-            "Analytics & Reports"
-        ],
+        github:
+        "https://github.com/aneeshrao0207/VanRakshak",
 
-        github:"https://github.com/yourusername/VanRakshak",
-
-        live:"#",
-
-        case:"#"
+        live:
+        "#"
 
     },
 
 
+    campuseye: {
 
-    campuseye:{
+        number: "02",
 
-        title:"CampusEye",
+        title: "CampusEye",
 
-        category:"College Management",
+        category: "WEB APPLICATION • CAMPUS MANAGEMENT",
 
-        image:"images/campuseye.png",
+        image: "images/campuseye.png",
 
-        description:
-        "CampusEye is a smart campus management platform designed to simplify administration, improve communication and enhance student experience.",
+        intro:
+        "A smart campus management concept focused on improving how students interact with information, services and everyday college activities.",
 
-        tech:[
-            "HTML",
-            "CSS",
-            "JavaScript"
+        problem:
+        "Students often need to access different types of campus information from disconnected sources, creating unnecessary friction and making communication less efficient.",
+
+        solution:
+        "CampusEye brings important campus-related information into a centralized and easy-to-use interface designed around accessibility, simplicity and student experience.",
+
+        achievement:
+        "🚀 Project Development",
+
+        features: [
+
+            "Student dashboard",
+
+            "Campus information",
+
+            "Responsive interface",
+
+            "Simple navigation",
+
+            "Information management",
+
+            "User-focused design"
+
         ],
 
-        features:[
-            "Student Dashboard",
-            "Attendance",
-            "Notice Board",
-            "Responsive UI"
+        tech: [
+
+            "HTML5",
+
+            "CSS3",
+
+            "JavaScript",
+
+            "Responsive Design"
+
         ],
 
-        github:"#",
+        github:
+        "https://github.com/aneeshrao0207/CampusEye",
 
-        live:"#",
-
-        case:"#"
+        live:
+        "#"
 
     },
 
 
+    portfolio: {
 
-    portfolio:{
+        number: "03",
 
-        title:"Developer Portfolio",
+        title: "Developer Portfolio",
 
-        category:"Personal Website",
+        category: "PERSONAL PRODUCT • UI/UX",
 
-        image:"images/portfolio.png",
+        image: "images/portfolio.png",
 
-        description:
-        "A premium portfolio designed to showcase projects, achievements, skills and experience with modern UI animations.",
+        intro:
+        "A personal digital platform designed to present my skills, projects, achievements and development journey through a premium product-style experience.",
 
-        tech:[
-            "HTML",
-            "CSS",
-            "JavaScript"
+        problem:
+        "A traditional resume alone cannot effectively communicate how I think, design and build digital products.",
+
+        solution:
+        "I designed an interactive portfolio that combines personal storytelling, project showcases, achievements, skills and responsive UI into one cohesive digital experience.",
+
+        achievement:
+        "✨ Personal Product",
+
+        features: [
+
+            "Premium visual design",
+
+            "Interactive project showcase",
+
+            "Dark and light mode",
+
+            "Responsive layouts",
+
+            "Animated interactions",
+
+            "Personal storytelling"
+
         ],
 
-        features:[
-            "Dark Mode",
-            "Animations",
-            "Responsive Design",
-            "Interactive UI"
+        tech: [
+
+            "HTML5",
+
+            "CSS3",
+
+            "JavaScript",
+
+            "Font Awesome",
+
+            "Responsive Design"
+
         ],
 
-        github:"#",
+        github:
+        "https://github.com/aneeshrao0207",
 
-        live:"#",
-
-        case:"#"
+        live:
+        "#"
 
     },
 
 
+    calculator: {
 
-    calculator:{
+        number: "04",
 
-        title:"Calculator",
+        title: "Smart Calculator",
 
-        category:"Frontend Project",
+        category: "FRONTEND PROJECT • CODEALPHA",
 
-        image:"images/calculator.png",
+        image: "images/calculator.png",
 
-        description:
-        "Responsive Calculator developed during CodeAlpha Frontend Internship featuring a modern UI and theme switcher.",
+        intro:
+        "A responsive calculator application created to strengthen frontend development fundamentals while focusing on clean interaction design.",
 
-        tech:[
-            "HTML",
-            "CSS",
+        problem:
+        "Basic calculator interfaces often provide functionality but overlook visual hierarchy, responsiveness and interaction quality.",
+
+        solution:
+        "I created a clean calculator experience with responsive layouts, interactive controls and a simple interface that works comfortably across screen sizes.",
+
+        achievement:
+        "💻 Frontend Development Project",
+
+        features: [
+
+            "Arithmetic operations",
+
+            "Responsive interface",
+
+            "Interactive controls",
+
+            "Clean visual hierarchy",
+
+            "Keyboard interaction",
+
+            "Smooth user experience"
+
+        ],
+
+        tech: [
+
+            "HTML5",
+
+            "CSS3",
+
             "JavaScript"
+
         ],
 
-        features:[
-            "Responsive",
-            "Theme Switch",
-            "Keyboard Support",
-            "Smooth UI"
+        github:
+        "#",
+
+        live:
+        "#"
+
+    },
+
+
+    pixelvault: {
+
+        number: "05",
+
+        title: "PixelVault",
+
+        category: "FRONTEND • IMAGE GALLERY",
+
+        image: "images/pixelvault.png",
+
+        intro:
+        "A visual image gallery project focused on creating a clean, responsive and engaging way to browse digital imagery.",
+
+        problem:
+        "Image-heavy interfaces can quickly become cluttered without proper spacing, hierarchy and responsive layout decisions.",
+
+        solution:
+        "PixelVault focuses on visual organization, responsive presentation and smooth interactions to create a more enjoyable browsing experience.",
+
+        achievement:
+        "🎨 UI Development Project",
+
+        features: [
+
+            "Responsive image gallery",
+
+            "Visual grid system",
+
+            "Clean image presentation",
+
+            "Interactive interface",
+
+            "Responsive layout",
+
+            "Modern visual hierarchy"
+
         ],
 
-        github:"#",
+        tech: [
 
-        live:"#",
+            "HTML5",
 
-        case:"#"
+            "CSS3",
+
+            "JavaScript",
+
+            "Responsive Design"
+
+        ],
+
+        github:
+        "#",
+
+        live:
+        "#"
+
+    },
+
+
+    musicplayer: {
+
+        number: "06",
+
+        title: "Music Player",
+
+        category: "FRONTEND • MEDIA EXPERIENCE",
+
+        image: "images/music-player.png",
+
+        intro:
+        "A browser-based music player designed around simple controls, clear visual hierarchy and an intuitive listening experience.",
+
+        problem:
+        "Media interfaces need to make controls immediately understandable while keeping the overall experience visually engaging.",
+
+        solution:
+        "The Music Player combines a focused interface with familiar playback controls and responsive design principles.",
+
+        achievement:
+        "🎵 Frontend Project",
+
+        features: [
+
+            "Music playback controls",
+
+            "Responsive interface",
+
+            "Interactive player",
+
+            "Clean visual design",
+
+            "Simple navigation",
+
+            "Media-focused experience"
+
+        ],
+
+        tech: [
+
+            "HTML5",
+
+            "CSS3",
+
+            "JavaScript"
+
+        ],
+
+        github:
+        "#",
+
+        live:
+        "#"
 
     }
 
@@ -370,107 +666,290 @@ const projects = {
 
 
 
-/*==================================================
-            ELEMENTS
-==================================================*/
+/* =========================================================
+                    ELEMENTS
+========================================================= */
 
-const items=document.querySelectorAll(".project-item");
+const projectCards =
+document.querySelectorAll(".project-card");
 
-const image=document.getElementById("projectImage");
+const projectOverlay =
+document.getElementById("projectDetailOverlay");
 
-const title=document.getElementById("projectTitle");
+const projectClose =
+document.getElementById("projectDetailClose");
 
-const category=document.getElementById("projectCategory");
+const detailImage =
+document.getElementById("detailImage");
 
-const description=document.getElementById("projectDescription");
+const detailNumber =
+document.getElementById("detailNumber");
 
-const tech=document.getElementById("projectTech");
+const detailCategory =
+document.getElementById("detailCategory");
 
-const feature=document.getElementById("featureList");
+const detailTitle =
+document.getElementById("detailTitle");
 
-const github=document.getElementById("githubBtn");
+const detailIntro =
+document.getElementById("detailIntro");
 
-const live=document.getElementById("liveBtn");
+const detailProblem =
+document.getElementById("detailProblem");
 
-const study=document.getElementById("caseBtn");
+const detailSolution =
+document.getElementById("detailSolution");
 
-const viewer=document.querySelector(".project-viewer");
+const detailAchievement =
+document.getElementById("detailAchievement");
 
+const detailFeatures =
+document.getElementById("detailFeatures");
 
+const detailTech =
+document.getElementById("detailTech");
 
-/*==================================================
-            CHANGE PROJECT
-==================================================*/
+const detailGithub =
+document.getElementById("detailGithub");
 
-items.forEach(item=>{
-
-    item.addEventListener("click",()=>{
-
-        items.forEach(card=>card.classList.remove("active"));
-
-        item.classList.add("active");
-
-        const data=projects[item.dataset.project];
-
-
-
-        viewer.style.opacity="0";
-
-        viewer.style.transform="translateY(30px)";
-
-
-
-        setTimeout(()=>{
-
-            image.src=data.image;
-
-            title.textContent=data.title;
-
-            category.textContent=data.category;
-
-            description.textContent=data.description;
+const detailLive =
+document.getElementById("detailLive");
 
 
 
-            tech.innerHTML="";
+/* =========================================================
+                    OPEN PROJECT
+========================================================= */
 
-            data.tech.forEach(skill=>{
+function openProject(projectID){
 
-                tech.innerHTML+=`<span>${skill}</span>`;
+    const project =
+    projectDetails[projectID];
 
-            });
-
-
-
-            feature.innerHTML="";
-
-            data.features.forEach(point=>{
-
-                feature.innerHTML+=`<li>${point}</li>`;
-
-            });
+    if(!project) return;
 
 
+    /* IMAGE */
 
-            github.href=data.github;
+    detailImage.src =
+    project.image;
 
-            live.href=data.live;
-
-            study.href=data.case;
-
-
-
-            viewer.style.opacity="1";
-
-            viewer.style.transform="translateY(0px)";
+    detailImage.alt =
+    project.title;
 
 
+    /* BASIC INFORMATION */
 
-        },250);
+    detailNumber.textContent =
+    project.number;
+
+    detailCategory.textContent =
+    project.category;
+
+    detailTitle.textContent =
+    project.title;
+
+    detailIntro.textContent =
+    project.intro;
+
+    detailProblem.textContent =
+    project.problem;
+
+    detailSolution.textContent =
+    project.solution;
+
+    detailAchievement.textContent =
+    project.achievement;
+
+
+    /* =====================================================
+                        FEATURES
+    ====================================================== */
+
+    detailFeatures.innerHTML = "";
+
+    project.features.forEach(feature => {
+
+        const featureElement =
+        document.createElement("div");
+
+        featureElement.className =
+        "detail-feature";
+
+        featureElement.innerHTML = `
+
+            <i class="fa-solid fa-check"></i>
+
+            <span>
+                ${feature}
+            </span>
+
+        `;
+
+        detailFeatures.appendChild(
+            featureElement
+        );
 
     });
 
+
+    /* =====================================================
+                        TECHNOLOGIES
+    ====================================================== */
+
+    detailTech.innerHTML = "";
+
+    project.tech.forEach(technology => {
+
+        const techElement =
+        document.createElement("span");
+
+        techElement.textContent =
+        technology;
+
+        detailTech.appendChild(
+            techElement
+        );
+
+    });
+
+
+    /* =====================================================
+                        LINKS
+    ====================================================== */
+
+    detailGithub.href =
+    project.github;
+
+    detailLive.href =
+    project.live;
+
+
+    /* =====================================================
+                        OPEN MODAL
+    ====================================================== */
+
+    projectOverlay.classList.add(
+        "active"
+    );
+
+    document.body.style.overflow =
+    "hidden";
+
+
+    /* Scroll modal to top */
+
+    const modal =
+    document.querySelector(
+        ".project-detail-modal"
+    );
+
+    if(modal){
+
+        modal.scrollTop = 0;
+
+    }
+
+}
+
+
+
+/* =========================================================
+                    CARD CLICK
+========================================================= */
+
+projectCards.forEach(card => {
+
+    card.addEventListener(
+        "click",
+        function(event){
+
+            /*
+                Prevent accidental double triggering
+                when clicking inside button.
+            */
+
+            const projectID =
+            this.dataset.project;
+
+            openProject(
+                projectID
+            );
+
+        }
+    );
+
 });
+
+
+
+/* =========================================================
+                    CLOSE PROJECT
+========================================================= */
+
+function closeProject(){
+
+    projectOverlay.classList.remove(
+        "active"
+    );
+
+    document.body.style.overflow =
+    "";
+
+}
+
+
+
+projectClose.addEventListener(
+    "click",
+    closeProject
+);
+
+
+
+/* =========================================================
+                    CLICK OUTSIDE
+========================================================= */
+
+projectOverlay.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            projectOverlay
+        ){
+
+            closeProject();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+                    ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape" &&
+            projectOverlay.classList.contains(
+                "active"
+            )
+        ){
+
+            closeProject();
+
+        }
+
+    }
+);
 
 /*=====================================
         PORTFOLIO APPRECIATION
