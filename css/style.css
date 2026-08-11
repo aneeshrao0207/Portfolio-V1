@@ -3923,126 +3923,61 @@ body.light-mode .wheel-close{
                 PROJECT COMMAND CENTER
 ==================================================*/
 /* =========================================================
-                    PROJECTS SECTION
+   PROJECTS SECTION
 ========================================================= */
 
 .projects-section{
 
-    padding:140px 0;
-
-    position:relative;
-
-    overflow:hidden;
+    padding:120px 0;
 
 }
 
+/* Heading */
 
-/* =========================================================
-                    BACKGROUND GLOW
-========================================================= */
-
-.projects-section::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:600px;
-
-    height:600px;
-
-    border-radius:50%;
-
-    top:-250px;
-
-    right:-200px;
-
-    background:rgba(0,198,255,.06);
-
-    filter:blur(120px);
-
-    pointer-events:none;
-
-}
-
-.projects-section::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:500px;
-
-    height:500px;
-
-    border-radius:50%;
-
-    bottom:-250px;
-
-    left:-200px;
-
-    background:rgba(0,198,255,.04);
-
-    filter:blur(120px);
-
-    pointer-events:none;
-
-}
-
-
-/* =========================================================
-                    HEADER
-========================================================= */
-
-.projects-header{
+.projects-heading{
 
     text-align:center;
 
-    max-width:800px;
-
-    margin:0 auto 75px;
+    margin-bottom:70px;
 
 }
 
-.section-label{
+.projects-tag{
 
     display:inline-block;
 
-    padding:10px 22px;
+    padding:8px 18px;
 
-    border-radius:50px;
+    border-radius:30px;
 
-    background:rgba(0,198,255,.08);
+    background:rgba(255,255,255,.05);
 
-    border:1px solid rgba(0,198,255,.18);
+    border:1px solid rgba(255,255,255,.08);
 
     color:#00C6FF;
 
-    font-size:12px;
+    font-size:14px;
 
-    font-weight:800;
+    font-weight:600;
 
     letter-spacing:2px;
 
-    margin-bottom:22px;
-
-}
-
-.projects-header h2{
-
-    font-size:56px;
-
-    line-height:1.1;
-
     margin-bottom:20px;
 
-    letter-spacing:-1.5px;
+}
+
+.projects-heading h2{
+
+    font-family:'Outfit',sans-serif;
+
+    font-size:45px;
+
+    margin-bottom:15px;
 
 }
 
-.projects-header p{
-
-    max-width:680px;
+.peojects-heading p{
+    max-width:850px;
 
     margin:auto;
 
@@ -4054,82 +3989,248 @@ body.light-mode .wheel-close{
 
 }
 
-
 /* =========================================================
-                    PROJECT GRID
+   BACKGROUND GLOW
 ========================================================= */
 
-.projects-grid{
+.projects-section::before{
 
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:32px;
-
-}
-
-
-/* =========================================================
-                    PROJECT CARD
-========================================================= */
-
-.project-card{
-
-    position:relative;
-
-    background:#101827;
-
-    border:1px solid rgba(255,255,255,.07);
-
-    border-radius:28px;
-
-    overflow:hidden;
-
-    transition:
-
-        transform .45s ease,
-
-        border-color .45s ease,
-
-        box-shadow .45s ease;
-
-}
-
-.project-card:hover{
-
-    transform:translateY(-10px);
-
-    border-color:rgba(0,198,255,.45);
-
-    box-shadow:
-
-        0 30px 80px rgba(0,0,0,.28),
-
-        0 0 40px rgba(0,198,255,.08);
-
-}
-
-
-/* =========================================================
-                    NUMBER
-========================================================= */
-
-.project-number{
+    content:"";
 
     position:absolute;
 
-    top:22px;
+    width:650px;
 
-    left:22px;
+    height:650px;
 
-    z-index:5;
+    top:-300px;
 
-    width:44px;
-
-    height:44px;
+    right:-220px;
 
     border-radius:50%;
+
+    background:rgba(0,198,255,.08);
+
+    filter:blur(130px);
+
+    pointer-events:none;
+
+}
+
+
+.projects-section::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    bottom:-250px;
+
+    left:-250px;
+
+    border-radius:50%;
+
+    background:rgba(0,198,255,.05);
+
+    filter:blur(120px);
+
+    pointer-events:none;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.projects-header{
+
+    text-align:center;
+
+    margin-bottom:65px;
+
+}
+
+
+.projects-header span{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:10px 22px;
+
+    border-radius:50px;
+
+    background:rgba(0,198,255,.08);
+
+    border:1px solid rgba(0,198,255,.16);
+
+    color:#00C6FF;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:22px;
+
+}
+
+
+.projects-header h2{
+
+    font-size:54px;
+
+    line-height:1.1;
+
+    margin-bottom:18px;
+
+}
+
+
+.projects-header p{
+
+    max-width:680px;
+
+    margin:auto;
+
+    color:#94A3B8;
+
+    line-height:1.8;
+
+    font-size:16px;
+
+}
+
+
+/* =========================================================
+   PROJECT SELECTOR
+========================================================= */
+
+.project-selector{
+
+    display:grid;
+
+    grid-template-columns:repeat(6,1fr);
+
+    gap:12px;
+
+    margin-bottom:25px;
+
+}
+
+
+.project-tab{
+
+    position:relative;
+
+    min-height:92px;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(15,23,42,.65);
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+    overflow:hidden;
+
+}
+
+
+.project-tab::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:2px;
+
+    background:#00C6FF;
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.35s;
+
+}
+
+
+.project-tab:hover{
+
+    transform:translateY(-5px);
+
+    border-color:rgba(0,198,255,.35);
+
+    background:rgba(0,198,255,.05);
+
+}
+
+
+.project-tab:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+
+.project-tab.active{
+
+    background:rgba(0,198,255,.10);
+
+    border-color:#00C6FF;
+
+    box-shadow:
+
+        0 15px 40px rgba(0,198,255,.10);
+
+}
+
+
+.project-tab.active::before{
+
+    transform:scaleX(1);
+
+}
+
+
+/* =========================================================
+   TAB NUMBER
+========================================================= */
+
+.tab-number{
+
+    min-width:36px;
+
+    height:36px;
 
     display:flex;
 
@@ -4137,120 +4238,215 @@ body.light-mode .wheel-close{
 
     justify-content:center;
 
-    background:rgba(8,15,28,.75);
+    border-radius:10px;
 
-    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,.05);
 
-    border:1px solid rgba(255,255,255,.12);
+    color:#64748B;
 
-    color:#fff;
-
-    font-size:13px;
+    font-size:12px;
 
     font-weight:800;
 
 }
 
 
+.project-tab.active .tab-number{
+
+    background:#00C6FF;
+
+    color:#fff;
+
+}
+
+
 /* =========================================================
-                    PROJECT IMAGE
+   TAB CONTENT
 ========================================================= */
 
-.project-image{
+.tab-content{
 
-    position:relative;
+    display:flex;
 
-    height:330px;
+    flex-direction:column;
+
+    gap:5px;
+
+    min-width:0;
+
+}
+
+
+.tab-content strong{
+
+    font-size:14px;
+
+    white-space:nowrap;
+
+}
+
+
+.tab-content small{
+
+    color:#64748B;
+
+    font-size:11px;
+
+    white-space:nowrap;
 
     overflow:hidden;
 
-    background:#0b1220;
+    text-overflow:ellipsis;
 
 }
 
-.project-image img{
 
-    width:100%;
+.project-tab.active .tab-content small{
 
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-
-    transition:transform .8s cubic-bezier(.2,.8,.2,1);
+    color:#94A3B8;
 
 }
 
-.project-card:hover .project-image img{
 
-    transform:scale(1.06);
+.project-tab > i{
+
+    margin-left:auto;
+
+    font-size:11px;
+
+    color:#475569;
+
+    transition:.3s;
+
+}
+
+
+.project-tab:hover > i{
+
+    color:#00C6FF;
+
+    transform:translate(3px,-3px);
+
+}
+
+
+.project-tab.active > i{
+
+    color:#00C6FF;
 
 }
 
 
 /* =========================================================
-                    IMAGE OVERLAY
+   FEATURED PROJECT
 ========================================================= */
 
-.project-image-overlay{
+.featured-project{
 
-    position:absolute;
+    position:relative;
 
-    inset:0;
+    display:grid;
+
+    grid-template-columns:1.05fr .95fr;
+
+    min-height:620px;
+
+    border-radius:32px;
+
+    overflow:hidden;
 
     background:
 
         linear-gradient(
 
-            180deg,
+            135deg,
 
-            rgba(3,8,20,.05) 30%,
+            rgba(17,24,39,.96),
 
-            rgba(3,8,20,.75) 100%
+            rgba(10,18,32,.96)
 
         );
+
+    border:1px solid rgba(255,255,255,.09);
+
+    box-shadow:
+
+        0 35px 90px rgba(0,0,0,.25);
+
+    transition:.45s ease;
+
+}
+
+
+.featured-project:hover{
+
+    border-color:rgba(0,198,255,.30);
+
+    box-shadow:
+
+        0 40px 100px rgba(0,198,255,.10);
 
 }
 
 
 /* =========================================================
-                    FEATURED STATUS
+   FEATURED CONTENT
 ========================================================= */
 
-.project-status{
+.featured-content{
 
-    position:absolute;
+    padding:55px;
 
-    right:22px;
+    display:flex;
 
-    top:22px;
+    flex-direction:column;
+
+    justify-content:center;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* =========================================================
+   TOPLINE
+========================================================= */
+
+.featured-topline{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+
+.featured-label{
 
     display:flex;
 
     align-items:center;
 
-    gap:8px;
+    gap:9px;
 
-    padding:9px 15px;
+    font-size:11px;
 
-    border-radius:50px;
+    letter-spacing:1.8px;
 
-    background:rgba(8,15,28,.72);
+    font-weight:800;
 
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,.1);
-
-    color:#fff;
-
-    font-size:12px;
-
-    font-weight:700;
+    color:#00C6FF;
 
 }
 
-.project-status span{
+
+.live-dot{
 
     width:7px;
 
@@ -4260,64 +4456,83 @@ body.light-mode .wheel-close{
 
     background:#22C55E;
 
-    box-shadow:0 0 10px #22C55E;
+    box-shadow:0 0 12px rgba(34,197,94,.8);
+
+}
+
+
+.project-index{
+
+    color:#475569;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
 
 }
 
 
 /* =========================================================
-                    CARD CONTENT
+   CATEGORY
 ========================================================= */
 
-.project-card-content{
+.project-category{
 
-    padding:30px;
+    color:#64748B;
 
-}
+    font-size:12px;
 
-.project-meta{
-
-    color:#00C6FF;
-
-    font-size:11px;
-
-    font-weight:800;
+    font-weight:700;
 
     letter-spacing:1.5px;
 
     text-transform:uppercase;
 
-    margin-bottom:13px;
-
-}
-
-.project-card-content h3{
-
-    font-size:30px;
-
-    margin-bottom:13px;
-
-    letter-spacing:-.5px;
-
-}
-
-.project-card-content p{
-
-    color:#94A3B8;
-
-    line-height:1.75;
-
-    font-size:15px;
-
-    min-height:82px;
-
-    margin-bottom:24px;
+    margin-bottom:15px;
 
 }
 
 
 /* =========================================================
-                    TECH CHIPS
+   TITLE
+========================================================= */
+
+#projectTitle{
+
+    font-size:56px;
+
+    line-height:1.05;
+
+    letter-spacing:-1.8px;
+
+    margin-bottom:22px;
+
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.project-description{
+
+    max-width:600px;
+
+    color:#94A3B8;
+
+    font-size:16px;
+
+    line-height:1.9;
+
+    margin-bottom:30px;
+
+}
+
+
+/* =========================================================
+   TECH STACK
 ========================================================= */
 
 .project-tech{
@@ -4328,19 +4543,20 @@ body.light-mode .wheel-close{
 
     gap:9px;
 
-    margin-bottom:27px;
+    margin-bottom:38px;
 
 }
 
+
 .project-tech span{
 
-    padding:8px 13px;
+    padding:8px 14px;
 
     border-radius:50px;
 
     background:rgba(255,255,255,.04);
 
-    border:1px solid rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.08);
 
     color:#CBD5E1;
 
@@ -4348,230 +4564,272 @@ body.light-mode .wheel-close{
 
     font-weight:600;
 
+    transition:.3s;
+
+}
+
+
+.project-tech span:hover{
+
+    color:#00C6FF;
+
+    border-color:rgba(0,198,255,.4);
+
+    background:rgba(0,198,255,.06);
+
 }
 
 
 /* =========================================================
-                    VIEW PROJECT BUTTON
+   HIGHLIGHTS
 ========================================================= */
 
-.view-project-btn{
+.project-highlights{
 
-    width:100%;
+    margin-bottom:35px;
 
-    border:0;
+}
 
-    padding:15px 18px;
 
-    border-radius:15px;
+.project-highlights h3{
+
+    font-size:14px;
+
+    margin-bottom:15px;
+
+    color:#E2E8F0;
+
+}
+
+
+.highlight-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:10px;
+
+}
+
+
+.highlight-item{
 
     display:flex;
 
     align-items:center;
 
-    justify-content:space-between;
+    gap:9px;
 
-    background:rgba(255,255,255,.045);
+    color:#94A3B8;
 
-    color:#fff;
-
-    border:1px solid rgba(255,255,255,.07);
-
-    font-size:14px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.35s;
+    font-size:13px;
 
 }
 
-.view-project-btn span{
 
-    width:34px;
+.highlight-item i{
 
-    height:34px;
+    width:20px;
 
-    border-radius:50%;
+    height:20px;
 
     display:flex;
 
     align-items:center;
 
     justify-content:center;
+
+    border-radius:50%;
 
     background:rgba(0,198,255,.1);
 
     color:#00C6FF;
 
-    transition:.35s;
-
-}
-
-.view-project-btn:hover{
-
-    background:#00C6FF;
-
-    border-color:#00C6FF;
-
-}
-
-.view-project-btn:hover span{
-
-    background:#fff;
-
-    color:#00C6FF;
-
-    transform:translateX(5px);
+    font-size:9px;
 
 }
 
 
 /* =========================================================
-                PROJECT DETAIL OVERLAY
+   ACTION BUTTONS
 ========================================================= */
 
-.project-detail-overlay{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:10000;
+.project-actions{
 
     display:flex;
 
-    justify-content:center;
+    gap:12px;
+
+}
+
+
+.project-btn{
+
+    display:inline-flex;
 
     align-items:center;
 
-    padding:30px;
+    justify-content:center;
 
-    background:rgba(2,6,18,.78);
+    gap:10px;
 
-    backdrop-filter:blur(18px);
+    padding:13px 20px;
 
-    opacity:0;
+    border-radius:12px;
 
-    visibility:hidden;
+    text-decoration:none;
 
-    transition:.4s ease;
+    font-size:13px;
 
-}
-
-.project-detail-overlay.active{
-
-    opacity:1;
-
-    visibility:visible;
-
-}
-
-
-/* =========================================================
-                    DETAIL MODAL
-========================================================= */
-
-.project-detail-modal{
-
-    width:1100px;
-
-    max-width:100%;
-
-    max-height:92vh;
-
-    overflow-y:auto;
-
-    position:relative;
-
-    border-radius:30px;
-
-    background:#0d1524;
-
-    border:1px solid rgba(255,255,255,.09);
-
-    box-shadow:
-
-        0 50px 120px rgba(0,0,0,.5),
-
-        0 0 80px rgba(0,198,255,.06);
-
-    transform:translateY(40px) scale(.97);
-
-    transition:.45s ease;
-
-}
-
-.project-detail-overlay.active .project-detail-modal{
-
-    transform:translateY(0) scale(1);
-
-}
-
-
-/* =========================================================
-                    CLOSE BUTTON
-========================================================= */
-
-.project-detail-close{
-
-    position:absolute;
-
-    top:22px;
-
-    right:22px;
-
-    z-index:20;
-
-    width:48px;
-
-    height:48px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(255,255,255,.12);
-
-    background:rgba(5,10,20,.7);
-
-    backdrop-filter:blur(15px);
-
-    color:#fff;
-
-    font-size:18px;
-
-    cursor:pointer;
+    font-weight:700;
 
     transition:.35s;
 
 }
 
-.project-detail-close:hover{
+
+.github-btn{
+
+    background:#fff;
+
+    color:#0F172A;
+
+}
+
+
+.github-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 30px rgba(255,255,255,.12);
+
+}
+
+
+.live-btn{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    color:#fff;
+
+}
+
+
+.live-btn:hover{
 
     background:#00C6FF;
 
     border-color:#00C6FF;
 
-    transform:rotate(90deg);
+    transform:translateY(-4px);
 
 }
 
 
 /* =========================================================
-                    DETAIL IMAGE
+   VISUAL
 ========================================================= */
 
-.detail-image{
-
-    height:480px;
+.featured-visual{
 
     position:relative;
 
+    min-height:620px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
     overflow:hidden;
+
+    background:
+
+        radial-gradient(
+
+            circle at center,
+
+            rgba(0,198,255,.08),
+
+            transparent 60%
+
+        );
 
 }
 
-.detail-image img{
+
+/* =========================================================
+   IMAGE GLOW
+========================================================= */
+
+.image-glow{
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    border-radius:50%;
+
+    background:rgba(0,198,255,.15);
+
+    filter:blur(100px);
+
+}
+
+
+/* =========================================================
+   IMAGE WRAPPER
+========================================================= */
+
+.project-image-wrapper{
+
+    position:relative;
+
+    width:78%;
+
+    aspect-ratio:16/10;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+
+        0 35px 70px rgba(0,0,0,.45),
+
+        0 0 60px rgba(0,198,255,.08);
+
+    transform:perspective(1200px) rotateY(-4deg);
+
+    transition:.5s;
+
+    z-index:2;
+
+}
+
+
+.featured-project:hover .project-image-wrapper{
+
+    transform:
+
+        perspective(1200px)
+
+        rotateY(0deg)
+
+        translateY(-5px);
+
+}
+
+
+.project-image-wrapper img{
 
     width:100%;
 
@@ -4581,598 +4839,273 @@ body.light-mode .wheel-close{
 
     display:block;
 
-}
-
-.detail-image-gradient{
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-        linear-gradient(
-
-            180deg,
-
-            transparent 30%,
-
-            rgba(13,21,36,.9) 100%
-
-        );
+    transition:.7s;
 
 }
 
-.detail-project-number{
 
-    position:absolute;
+.featured-project:hover .project-image-wrapper img{
 
-    left:30px;
-
-    bottom:25px;
-
-    padding:10px 17px;
-
-    border-radius:50px;
-
-    background:rgba(5,10,20,.7);
-
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,.1);
-
-    font-size:12px;
-
-    font-weight:800;
+    transform:scale(1.04);
 
 }
 
 
 /* =========================================================
-                    DETAIL CONTENT
+   VISUAL NUMBER
 ========================================================= */
 
-.detail-content{
+.visual-number{
 
-    padding:45px 55px 55px;
+    position:absolute;
+
+    top:30px;
+
+    right:35px;
+
+    font-size:100px;
+
+    line-height:1;
+
+    font-weight:900;
+
+    color:rgba(255,255,255,.025);
+
+    pointer-events:none;
 
 }
 
 
 /* =========================================================
-                    DETAIL TOP
+   VISUAL CAPTION
 ========================================================= */
 
-.detail-top{
+.visual-caption{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:35px;
+
+    transform:translateX(-50%);
+
+    width:78%;
+
+    padding:15px 18px;
 
     display:flex;
 
     justify-content:space-between;
 
-    align-items:flex-start;
-
-    gap:30px;
-
-    margin-bottom:20px;
-
-}
-
-.detail-category{
-
-    display:inline-block;
-
-    color:#00C6FF;
-
-    font-size:12px;
-
-    font-weight:800;
-
-    letter-spacing:1.5px;
-
-    text-transform:uppercase;
-
-    margin-bottom:13px;
-
-}
-
-.detail-top h2{
-
-    font-size:52px;
-
-    line-height:1.05;
-
-    letter-spacing:-1.5px;
-
-}
-
-.detail-achievement{
-
-    padding:11px 17px;
-
-    border-radius:50px;
-
-    background:rgba(245,158,11,.1);
-
-    border:1px solid rgba(245,158,11,.25);
-
-    color:#FBBF24;
-
-    font-size:12px;
-
-    font-weight:700;
-
-    white-space:nowrap;
-
-}
-
-
-/* =========================================================
-                    INTRO
-========================================================= */
-
-.detail-intro{
-
-    color:#94A3B8;
-
-    font-size:18px;
-
-    line-height:1.85;
-
-    max-width:850px;
-
-    margin-bottom:55px;
-
-}
-
-
-/* =========================================================
-                    TWO COLUMN
-========================================================= */
-
-.detail-two-column{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:25px;
-
-    margin-bottom:60px;
-
-}
-
-.detail-info-block{
-
-    padding:28px;
-
-    border-radius:20px;
-
-    background:rgba(255,255,255,.025);
-
-    border:1px solid rgba(255,255,255,.07);
-
-}
-
-.detail-small-label{
-
-    display:block;
-
-    color:#00C6FF;
-
-    font-size:10px;
-
-    font-weight:800;
-
-    letter-spacing:1.7px;
-
-    margin-bottom:13px;
-
-}
-
-.detail-info-block h3,
-.detail-section h3{
-
-    font-size:25px;
-
-    margin-bottom:12px;
-
-}
-
-.detail-info-block p{
-
-    color:#94A3B8;
-
-    line-height:1.8;
-
-    font-size:15px;
-
-}
-
-
-/* =========================================================
-                    DETAIL SECTION
-========================================================= */
-
-.detail-section{
-
-    margin-bottom:60px;
-
-}
-
-
-/* =========================================================
-                    FEATURES
-========================================================= */
-
-.detail-features{
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:14px;
-
-    margin-top:25px;
-
-}
-
-.detail-feature{
-
-    display:flex;
-
     align-items:center;
 
-    gap:13px;
+    border-radius:13px;
 
-    padding:18px;
+    background:rgba(7,12,22,.78);
 
-    border-radius:15px;
+    backdrop-filter:blur(15px);
 
-    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.08);
 
-    border:1px solid rgba(255,255,255,.07);
+    z-index:4;
 
     color:#CBD5E1;
 
-    font-size:14px;
-
-}
-
-.detail-feature i{
-
-    color:#00C6FF;
-
-}
-
-
-/* =========================================================
-                    DETAIL TECH
-========================================================= */
-
-.detail-tech{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:11px;
-
-    margin-top:25px;
-
-}
-
-.detail-tech span{
-
-    padding:11px 18px;
-
-    border-radius:50px;
-
-    background:rgba(0,198,255,.07);
-
-    border:1px solid rgba(0,198,255,.15);
-
-    color:#BAE6FD;
-
-    font-size:13px;
-
-    font-weight:700;
-
-}
-
-
-/* =========================================================
-                    JOURNEY
-========================================================= */
-
-.detail-journey{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:15px;
-
-    margin-top:25px;
-
-}
-
-.journey-step{
-
-    padding:20px;
-
-    border-radius:18px;
-
-    background:rgba(255,255,255,.025);
-
-    border:1px solid rgba(255,255,255,.07);
-
-}
-
-.journey-number{
-
-    width:38px;
-
-    height:38px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:rgba(0,198,255,.1);
-
-    color:#00C6FF;
-
-    font-size:11px;
-
-    font-weight:800;
-
-    margin-bottom:18px;
-
-}
-
-.journey-step strong{
-
-    font-size:15px;
-
-}
-
-.journey-step p{
-
-    color:#64748B;
-
     font-size:12px;
 
-    line-height:1.6;
+}
 
-    margin-top:8px;
+
+.visual-caption i{
+
+    color:#00C6FF;
 
 }
 
 
 /* =========================================================
-                    ACTION BUTTONS
+   PROJECT SWITCH ANIMATION
 ========================================================= */
 
-.detail-actions{
+.featured-project.project-changing
+.featured-content{
 
-    display:flex;
-
-    gap:14px;
-
-    padding-top:10px;
-
-    border-top:1px solid rgba(255,255,255,.07);
+    animation:projectContentOut .25s ease forwards;
 
 }
 
-.detail-primary-btn,
-.detail-secondary-btn{
 
-    display:flex;
+.featured-project.project-changing
+.featured-visual{
 
-    align-items:center;
-
-    justify-content:center;
-
-    gap:10px;
-
-    padding:15px 23px;
-
-    border-radius:14px;
-
-    text-decoration:none;
-
-    font-size:14px;
-
-    font-weight:700;
-
-    transition:.35s;
+    animation:projectVisualOut .25s ease forwards;
 
 }
 
-.detail-primary-btn{
 
-    background:#00C6FF;
+@keyframes projectContentOut{
 
-    color:#fff;
+    from{
 
-}
+        opacity:1;
 
-.detail-primary-btn:hover{
+        transform:translateX(0);
 
-    background:#008CFF;
+    }
 
-    transform:translateY(-3px);
+    to{
 
-    box-shadow:0 15px 35px rgba(0,198,255,.25);
+        opacity:0;
 
-}
+        transform:translateX(-25px);
 
-.detail-secondary-btn{
-
-    background:rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.09);
-
-    color:#fff;
+    }
 
 }
 
-.detail-secondary-btn:hover{
+
+@keyframes projectVisualOut{
+
+    from{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        opacity:0;
+
+        transform:translateX(25px);
+
+    }
+
+}
+
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+body.light-mode .project-tab{
 
     background:#fff;
 
-    color:#0f172a;
+    border-color:#E2E8F0;
 
-    transform:translateY(-3px);
-
-}
-
-
-/* =========================================================
-                SCROLLBAR
-========================================================= */
-
-.project-detail-modal::-webkit-scrollbar{
-
-    width:7px;
-
-}
-
-.project-detail-modal::-webkit-scrollbar-track{
-
-    background:transparent;
-
-}
-
-.project-detail-modal::-webkit-scrollbar-thumb{
-
-    background:rgba(255,255,255,.12);
-
-    border-radius:20px;
+    color:#0F172A;
 
 }
 
 
-/* =========================================================
-                    LIGHT MODE
-========================================================= */
+body.light-mode .project-tab.active{
 
-body.light-mode .project-card{
+    background:#F0FAFF;
+
+    border-color:#00C6FF;
+
+}
+
+
+body.light-mode .featured-project{
 
     background:#fff;
 
-    border-color:#dbe4ef;
+    border-color:#E2E8F0;
 
-    box-shadow:0 15px 40px rgba(15,23,42,.06);
+    box-shadow:0 30px 80px rgba(15,23,42,.08);
 
 }
 
-body.light-mode .project-card-content p{
+
+body.light-mode .project-index{
+
+    color:#94A3B8;
+
+}
+
+
+body.light-mode #projectTitle{
+
+    color:#0F172A;
+
+}
+
+
+body.light-mode .project-description{
 
     color:#64748B;
 
 }
+
 
 body.light-mode .project-tech span{
 
-    background:#f8fafc;
+    background:#F8FAFC;
 
-    border-color:#e2e8f0;
+    border-color:#E2E8F0;
 
     color:#475569;
 
 }
 
-body.light-mode .view-project-btn{
 
-    background:#f8fafc;
-
-    border-color:#e2e8f0;
-
-    color:#111827;
-
-}
-
-body.light-mode .project-detail-modal{
-
-    background:#fff;
-
-    border-color:#dbe4ef;
-
-}
-
-body.light-mode .detail-info-block,
-body.light-mode .journey-step,
-body.light-mode .detail-feature{
-
-    background:#f8fafc;
-
-    border-color:#e2e8f0;
-
-}
-
-body.light-mode .detail-info-block p,
-body.light-mode .detail-intro{
+body.light-mode .highlight-item{
 
     color:#64748B;
 
 }
 
-body.light-mode .detail-tech span{
 
-    background:#eff6ff;
+body.light-mode .live-btn{
 
-    border-color:#dbeafe;
+    color:#0F172A;
 
-    color:#0369A1;
+    border-color:#E2E8F0;
 
-}
-
-body.light-mode .detail-secondary-btn{
-
-    color:#111827;
-
-    background:#f8fafc;
-
-    border-color:#dbe4ef;
+    background:#F8FAFC;
 
 }
 
-body.light-mode .project-detail-close{
 
-    background:#fff;
+body.light-mode .live-btn:hover{
 
-    color:#111827;
-
-    border-color:#dbe4ef;
+    color:#fff;
 
 }
 
 
 /* =========================================================
-                    RESPONSIVE
+   RESPONSIVE
 ========================================================= */
 
-@media(max-width:1000px){
+@media(max-width:1200px){
 
-    .projects-grid{
+    .project-selector{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+    .featured-project{
 
         grid-template-columns:1fr;
 
     }
 
-    .detail-journey{
+    .featured-visual{
 
-        grid-template-columns:repeat(2,1fr);
+        min-height:500px;
+
+        order:-1;
 
     }
 
 }
+
 
 @media(max-width:768px){
 
@@ -5182,123 +5115,157 @@ body.light-mode .project-detail-close{
 
     }
 
+
     .projects-header h2{
-
-        font-size:40px;
-
-    }
-
-    .projects-header p{
-
-        font-size:15px;
-
-    }
-
-    .project-image{
-
-        height:250px;
-
-    }
-
-    .project-card-content{
-
-        padding:25px;
-
-    }
-
-    .project-card-content h3{
-
-        font-size:27px;
-
-    }
-
-    .project-detail-overlay{
-
-        padding:10px;
-
-    }
-
-    .project-detail-modal{
-
-        max-height:96vh;
-
-        border-radius:22px;
-
-    }
-
-    .detail-image{
-
-        height:250px;
-
-    }
-
-    .detail-content{
-
-        padding:30px 22px 35px;
-
-    }
-
-    .detail-top{
-
-        flex-direction:column;
-
-    }
-
-    .detail-top h2{
 
         font-size:38px;
 
     }
 
-    .detail-achievement{
 
-        white-space:normal;
+    .projects-header p{
 
-    }
-
-    .detail-intro{
-
-        font-size:16px;
-
-        margin-bottom:40px;
+        font-size:14px;
 
     }
 
-    .detail-two-column{
+
+    .project-selector{
+
+        grid-template-columns:1fr 1fr;
+
+        gap:10px;
+
+    }
+
+
+    .project-tab{
+
+        min-height:76px;
+
+        padding:12px;
+
+    }
+
+
+    .tab-content small{
+
+        display:none;
+
+    }
+
+
+    .project-tab > i{
+
+        display:none;
+
+    }
+
+
+    .featured-content{
+
+        padding:30px 25px;
+
+    }
+
+
+    .featured-visual{
+
+        min-height:300px;
+
+    }
+
+
+    #projectTitle{
+
+        font-size:40px;
+
+    }
+
+
+    .project-description{
+
+        font-size:14px;
+
+    }
+
+
+    .highlight-grid{
 
         grid-template-columns:1fr;
 
     }
 
-    .detail-features{
 
-        grid-template-columns:1fr;
-
-    }
-
-    .detail-journey{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .detail-actions{
+    .project-actions{
 
         flex-direction:column;
 
     }
 
-    .detail-primary-btn,
-    .detail-secondary-btn{
+
+    .project-btn{
 
         width:100%;
+
+    }
+
+
+    .project-image-wrapper{
+
+        width:85%;
+
+        transform:none;
+
+    }
+
+
+    .visual-caption{
+
+        width:85%;
+
+    }
+
+
+    .visual-number{
+
+        font-size:70px;
 
     }
 
 }
 
 
+@media(max-width:480px){
 
+    .project-selector{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .project-tab{
+
+        min-height:65px;
+
+    }
+
+
+    .featured-visual{
+
+        min-height:260px;
+
+    }
+
+
+    #projectTitle{
+
+        font-size:34px;
+
+    }
+
+}
 
 /*==================================================
             EXPERIENCE CARD
@@ -5535,17 +5502,17 @@ body.light-mode .project-detail-close{
 
 }
 
-.ongoing{
+.participant{
 
     background:rgba(0,198,255,.12);
 
-    color:#ddac1a;
+    color:#1383e6;
 
 }
 
-.ongoing span{
+.participant span{
 
-    background:#ddac1a;
+    background:#1383e6;
 
 }
 
