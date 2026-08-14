@@ -1,241 +1,264 @@
 /* =========================================================
-                CERTIFICATE DATA
+   BEYOND TECH EXPERIENCE CAROUSEL
 ========================================================= */
 
-const certificates = [
+const experiences = [
 
     {
-        title: "Meta Front-End Developer",
-        issuer: "Meta",
-        category: "development",
-        year: "2026",
+        title: "National Cadet Corps",
+
+        shortTitle: "NCC",
+
+        category: "DISCIPLINE • CAMPS • TEAMWORK",
+
+        label: "NCC",
+
+        description:
+            "Completed NCC training and participated in camps that strengthened discipline, teamwork, responsibility and leadership.",
+
         tags: [
-            "Frontend",
-            "JavaScript",
-            "React"
+            "Discipline",
+            "NCC Camps",
+            "Teamwork"
         ],
-        icon: "fa-brands fa-meta",
-        link: "#"
+
+        image: "images/ncc.jpg"
     },
 
-    {
-        title: "JavaScript Development",
-        issuer: "Infosys Springboard",
-        category: "development",
-        year: "2026",
-        tags: [
-            "JavaScript",
-            "Web Development"
-        ],
-        icon: "fa-brands fa-js",
-        link: "#"
-    },
 
     {
-        title: "HTML & CSS Web Development",
-        issuer: "Online Certification",
-        category: "development",
-        year: "2026",
+        title: "National Service Scheme",
+
+        shortTitle: "NSS",
+
+        category: "COMMUNITY • SERVICE • RESPONSIBILITY",
+
+        label: "NSS",
+
+        description:
+            "Completed NSS activities and contributed to community-oriented initiatives, volunteering and social service.",
+
         tags: [
-            "HTML",
-            "CSS",
-            "Responsive Design"
+            "Community Service",
+            "Volunteering",
+            "Responsibility"
         ],
-        icon: "fa-solid fa-code",
-        link: "#"
+
+        image: "images/nss.jpg"
     },
 
-    {
-        title: "Artificial Intelligence Fundamentals",
-        issuer: "Online Certification",
-        category: "ai",
-        year: "2026",
-        tags: [
-            "AI",
-            "Machine Learning"
-        ],
-        icon: "fa-solid fa-brain",
-        link: "#"
-    },
 
     {
-        title: "UI / UX Design Fundamentals",
-        issuer: "Online Certification",
-        category: "design",
-        year: "2026",
+        title: "Hackathon Team Leadership",
+
+        shortTitle: "Leadership",
+
+        category: "HACKATHONS • PROJECTS • EXECUTION",
+
+        label: "TEAM LEADERSHIP",
+
+        description:
+            "Led teams during hackathons and project competitions by coordinating ideas, development, presentations and execution.",
+
         tags: [
-            "Figma",
-            "UI Design",
-            "UX"
+            "Team Leadership",
+            "Hackathons",
+            "Project Execution"
         ],
-        icon: "fa-brands fa-figma",
-        link: "#"
+
+        image: "images/leadership.jpg"
     },
 
+
     {
-        title: "Git & GitHub",
-        issuer: "Online Certification",
-        category: "other",
-        year: "2026",
+        title: "Event Volunteering",
+
+        shortTitle: "Volunteering",
+
+        category: "EVENTS • COORDINATION • TEAMWORK",
+
+        label: "VOLUNTEERING",
+
+        description:
+            "Volunteered for multiple events and supported coordination, execution and teamwork behind successful activities.",
+
         tags: [
-            "Git",
-            "GitHub",
-            "Version Control"
+            "Event Support",
+            "Coordination",
+            "Teamwork"
         ],
-        icon: "fa-brands fa-github",
-        link: "#"
+
+        image: "images/volunteering.jpg"
+    },
+
+
+    {
+        title: "Project Leadership",
+
+        shortTitle: "Projects",
+
+        category: "BUILDING • COLLABORATION • DELIVERY",
+
+        label: "PROJECT LEADERSHIP",
+
+        description:
+            "Worked with teams to turn ideas into working projects while coordinating responsibilities, development and presentations.",
+
+        tags: [
+            "Collaboration",
+            "Development",
+            "Presentation"
+        ],
+
+        image: "images/project-team.jpg"
+    },
+
+
+    {
+        title: "NextStep",
+
+        shortTitle: "NextStep",
+
+        category: "INITIATIVE • COMMUNITY • MENTORSHIP",
+
+        label: "STUDENT INITIATIVE",
+
+        description:
+            "Building a student-led initiative focused on helping juniors discover opportunities, connect with peers and gain direction.",
+
+        tags: [
+            "Initiative",
+            "Community",
+            "Mentorship"
+        ],
+
+        image: "images/nextstep.jpg"
     }
 
 ];
 
 
 /* =========================================================
-                ELEMENTS
+   ELEMENTS
 ========================================================= */
 
-const certificateList =
-    document.getElementById("certificateList");
+const mainImage =
+    document.getElementById("mainExperienceImage");
 
-const certificateEmpty =
-    document.getElementById("certificateEmpty");
+const shadowOne =
+    document.getElementById("shadowImageOne");
 
-const certificateCount =
-    document.getElementById("certificateCount");
+const shadowTwo =
+    document.getElementById("shadowImageTwo");
 
-const certificateFilters =
-    document.querySelectorAll(".certificate-filter");
+const shadowThree =
+    document.getElementById("shadowImageThree");
+
+const prevImage =
+    document.getElementById("prevImage");
+
+const nextImage =
+    document.getElementById("nextImage");
+
+const currentNumber =
+    document.getElementById("currentNumber");
+
+const totalNumber =
+    document.getElementById("totalNumber");
+
+const imageLabel =
+    document.getElementById("imageLabel");
+
+const experienceCategory =
+    document.getElementById("experienceCategory");
+
+const experienceTitle =
+    document.getElementById("experienceTitle");
+
+const experienceDescription =
+    document.getElementById("experienceDescription");
+
+const experienceTags =
+    document.getElementById("experienceTags");
+
+const prevTitle =
+    document.getElementById("prevTitle");
+
+const nextTitle =
+    document.getElementById("nextTitle");
+
+const experienceCenter =
+    document.querySelector(".experience-center");
+
+const dotsContainer =
+    document.getElementById("experienceDots");
 
 
 /* =========================================================
-                RENDER CERTIFICATES
+   STATE
 ========================================================= */
 
-function renderCertificates(filter = "all"){
+let currentExperience = 0;
 
-    certificateList.innerHTML = "";
+let isAnimating = false;
 
-    const filteredCertificates =
-        filter === "all"
 
-        ? certificates
+/* =========================================================
+   TOTAL
+========================================================= */
 
-        : certificates.filter(
-            certificate =>
-            certificate.category === filter
+totalNumber.textContent =
+    String(experiences.length).padStart(2, "0");
+
+
+/* =========================================================
+   CREATE DOTS
+========================================================= */
+
+experiences.forEach((experience, index) => {
+
+    const dot =
+        document.createElement("button");
+
+    dot.className =
+        "experience-dot";
+
+    dot.setAttribute(
+        "aria-label",
+        `Go to ${experience.shortTitle}`
+    );
+
+    dot.addEventListener(
+        "click",
+        () => {
+
+            goToExperience(index);
+
+        }
+    );
+
+    dotsContainer.appendChild(dot);
+
+});
+
+
+/* =========================================================
+   UPDATE DOTS
+========================================================= */
+
+function updateDots(){
+
+    const dots =
+        document.querySelectorAll(
+            ".experience-dot"
         );
 
+    dots.forEach((dot, index) => {
 
-    /* EMPTY */
-
-    if(filteredCertificates.length === 0){
-
-        certificateEmpty.classList.add("show");
-
-        certificateCount.textContent = "0";
-
-        return;
-
-    }
-
-
-    certificateEmpty.classList.remove("show");
-
-
-    /* COUNT */
-
-    certificateCount.textContent =
-        filteredCertificates.length;
-
-
-    /* CREATE */
-
-    filteredCertificates.forEach(
-        (certificate,index)=>{
-
-        const item =
-            document.createElement("article");
-
-        item.className =
-            "certificate-item";
-
-        item.style.animationDelay =
-            `${index * 0.07}s`;
-
-
-        item.innerHTML = `
-
-            <div class="certificate-provider">
-
-                <i class="${certificate.icon}"></i>
-
-            </div>
-
-
-            <div class="certificate-main">
-
-                <div class="certificate-topline">
-
-                    <h3 class="certificate-title">
-
-                        ${certificate.title}
-
-                    </h3>
-
-                    <span class="certificate-status">
-
-                        <i class="fa-solid fa-check"></i>
-
-                        Verified
-
-                    </span>
-
-                </div>
-
-
-                <p class="certificate-issuer">
-
-                    Issued by ${certificate.issuer}
-
-                </p>
-
-
-                <div class="certificate-meta">
-
-                    ${certificate.tags.map(
-                        tag => `
-                            <span class="certificate-tag">
-                                ${tag}
-                            </span>
-                        `
-                    ).join("")}
-
-                    <span class="certificate-year">
-
-                        ${certificate.year}
-
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <a
-                href="${certificate.link}"
-                target="_blank"
-                class="certificate-action"
-            >
-
-                View Credential
-
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
-            </a>
-
-        `;
-
-
-        certificateList.appendChild(item);
+        dot.classList.toggle(
+            "active",
+            index === currentExperience
+        );
 
     });
 
@@ -243,38 +266,322 @@ function renderCertificates(filter = "all"){
 
 
 /* =========================================================
-                FILTER SYSTEM
+   GET INDEX
 ========================================================= */
 
-certificateFilters.forEach(filterButton => {
+function getIndex(offset){
 
-    filterButton.addEventListener(
-        "click",
-        () => {
+    return (
+        currentExperience +
+        offset +
+        experiences.length
+    ) % experiences.length;
 
-            certificateFilters.forEach(
-                button =>
-                button.classList.remove("active")
-            );
-
-
-            filterButton.classList.add("active");
-
-
-            const filter =
-                filterButton.dataset.filter;
-
-
-            renderCertificates(filter);
-
-        }
-    );
-
-});
+}
 
 
 /* =========================================================
-                INITIAL LOAD
+   RENDER
 ========================================================= */
 
-renderCertificates();
+function renderExperience(){
+
+    const current =
+        experiences[currentExperience];
+
+    const previous =
+        experiences[getIndex(-1)];
+
+    const next =
+        experiences[getIndex(1)];
+
+    /* MAIN */
+
+    mainImage.src =
+        current.image;
+
+    mainImage.alt =
+        current.title;
+
+    imageLabel.textContent =
+        current.label;
+
+    currentNumber.textContent =
+        String(currentExperience + 1)
+            .padStart(2, "0");
+
+    experienceCategory.textContent =
+        current.category;
+
+    experienceTitle.textContent =
+        current.title;
+
+    experienceDescription.textContent =
+        current.description;
+
+
+    /* TAGS */
+
+    experienceTags.innerHTML = "";
+
+    current.tags.forEach(tag => {
+
+        const span =
+            document.createElement("span");
+
+        span.textContent =
+            tag;
+
+        experienceTags.appendChild(span);
+
+    });
+
+
+    /* PREVIOUS */
+
+    prevImage.src =
+        previous.image;
+
+    prevImage.alt =
+        previous.title;
+
+    prevTitle.textContent =
+        previous.shortTitle;
+
+
+    /* NEXT */
+
+    nextImage.src =
+        next.image;
+
+    nextImage.alt =
+        next.title;
+
+    nextTitle.textContent =
+        next.shortTitle;
+
+
+    /* SHADOWS */
+
+    shadowOne.src =
+        previous.image;
+
+    shadowTwo.src =
+        next.image;
+
+    shadowThree.src =
+        experiences[getIndex(2)].image;
+
+
+    updateDots();
+
+}
+
+
+/* =========================================================
+   CHANGE EXPERIENCE
+========================================================= */
+
+function goToExperience(index){
+
+    if(isAnimating)
+        return;
+
+    if(index === currentExperience)
+        return;
+
+    isAnimating = true;
+
+    experienceCenter.classList.remove(
+        "slide-in"
+    );
+
+    experienceCenter.classList.add(
+        "slide-out"
+    );
+
+
+    setTimeout(() => {
+
+        currentExperience =
+            (
+                index +
+                experiences.length
+            ) % experiences.length;
+
+        renderExperience();
+
+
+        experienceCenter.classList.remove(
+            "slide-out"
+        );
+
+        experienceCenter.classList.add(
+            "slide-in"
+        );
+
+
+        setTimeout(() => {
+
+            experienceCenter.classList.remove(
+                "slide-in"
+            );
+
+            isAnimating = false;
+
+        },550);
+
+    },300);
+
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+function nextExperience(){
+
+    goToExperience(
+        getIndex(1)
+    );
+
+}
+
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+function previousExperience(){
+
+    goToExperience(
+        getIndex(-1)
+    );
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+document
+    .getElementById("nextExperience")
+    .addEventListener(
+        "click",
+        nextExperience
+    );
+
+
+document
+    .getElementById("experienceNext")
+    .addEventListener(
+        "click",
+        nextExperience
+    );
+
+
+document
+    .getElementById("prevExperience")
+    .addEventListener(
+        "click",
+        previousExperience
+    );
+
+
+document
+    .getElementById("experiencePrev")
+    .addEventListener(
+        "click",
+        previousExperience
+    );
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(event.key === "ArrowRight"){
+
+            nextExperience();
+
+        }
+
+        if(event.key === "ArrowLeft"){
+
+            previousExperience();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   TOUCH / SWIPE
+========================================================= */
+
+let touchStartX = 0;
+
+let touchEndX = 0;
+
+
+experienceCenter.addEventListener(
+    "touchstart",
+    event => {
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    },
+    { passive:true }
+);
+
+
+experienceCenter.addEventListener(
+    "touchend",
+    event => {
+
+        touchEndX =
+            event.changedTouches[0].screenX;
+
+        handleSwipe();
+
+    },
+    { passive:true }
+);
+
+
+function handleSwipe(){
+
+    const difference =
+        touchStartX - touchEndX;
+
+
+    if(Math.abs(difference) < 50)
+        return;
+
+
+    if(difference > 0){
+
+        nextExperience();
+
+    }else{
+
+        previousExperience();
+
+    }
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+renderExperience();

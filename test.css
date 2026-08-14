@@ -1,43 +1,147 @@
 /* =========================================================
-                CERTIFICATES SECTION
+   BEYOND TECH
 ========================================================= */
 
-.certificates-section{
-
-    padding:110px 0;
+.beyond-section{
 
     position:relative;
 
+    padding:130px 0 110px;
+
     overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(0,198,255,.07),
+            transparent 35%
+        );
 
 }
 
 
 /* =========================================================
-                HEADER
+   BACKGROUND DETAILS
 ========================================================= */
 
-.certificates-heading{
+.beyond-section::before{
 
-    text-align:center;
+    content:"";
 
-    max-width:750px;
+    position:absolute;
 
-    margin:0 auto 60px;
+    width:650px;
+
+    height:650px;
+
+    border-radius:50%;
+
+    top:10%;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,198,255,.08),
+            transparent 65%
+        );
+
+    filter:blur(40px);
+
+    pointer-events:none;
 
 }
 
-.certificates-heading span{
 
-    display:inline-block;
+.beyond-section::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:70px 70px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent
+        );
+
+    pointer-events:none;
+
+    opacity:.25;
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.beyond-container{
+
+    width:min(1400px,92%);
+
+    margin:auto;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.beyond-heading{
+
+    text-align:center;
+
+    max-width:800px;
+
+    margin:0 auto 70px;
+
+}
+
+
+.beyond-eyebrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
 
     padding:9px 20px;
 
     border-radius:50px;
 
-    background:rgba(0,198,255,.08);
+    border:1px solid rgba(0,198,255,.18);
 
-    border:1px solid rgba(0,198,255,.15);
+    background:rgba(0,198,255,.07);
 
     color:#00C6FF;
 
@@ -45,29 +149,47 @@
 
     font-weight:800;
 
-    letter-spacing:2px;
-
-    margin-bottom:20px;
+    letter-spacing:2.5px;
 
 }
 
-.certificates-heading h2{
 
-    font-size:52px;
+.beyond-eyebrow::before{
 
-    line-height:1.1;
+    content:"";
 
-    margin-bottom:18px;
+    width:7px;
 
-    letter-spacing:-1.5px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#00C6FF;
+
+    box-shadow:
+        0 0 12px #00C6FF;
 
 }
 
-.certificates-heading p{
 
-    max-width:680px;
+.beyond-heading h2{
 
-    margin:auto;
+    margin-top:22px;
+
+    font-size:clamp(42px,5vw,68px);
+
+    line-height:1.05;
+
+    letter-spacing:-2px;
+
+}
+
+
+.beyond-heading p{
+
+    max-width:650px;
+
+    margin:22px auto 0;
 
     color:#94A3B8;
 
@@ -79,528 +201,964 @@
 
 
 /* =========================================================
-                GRID
+   EXPERIENCE SHOWCASE
 ========================================================= */
 
-.certificates-grid{
+.experience-showcase{
 
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:230px minmax(500px,700px) 230px;
 
-    gap:20px;
-
-}
-
-
-/* =========================================================
-                CERTIFICATE CARD
-========================================================= */
-
-.certificate-card{
-
-    min-height:145px;
-
-    display:grid;
-
-    grid-template-columns:78px 1fr auto;
+    justify-content:center;
 
     align-items:center;
 
-    gap:22px;
+    gap:45px;
 
-    padding:22px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:20px;
-
-    background:#101827;
-
-    border:1px solid rgba(255,255,255,.07);
-
-    transition:
-
-        transform .35s ease,
-
-        border-color .35s ease,
-
-        box-shadow .35s ease;
+    min-height:700px;
 
 }
 
 
 /* =========================================================
-                CARD GLOW
+   CENTER
 ========================================================= */
 
-.certificate-card::before{
+.experience-center{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+/* =========================================================
+   VISUAL AREA
+========================================================= */
+
+.experience-visual{
+
+    position:relative;
+
+    width:470px;
+
+    height:470px;
+
+    margin:auto;
+
+}
+
+
+/* =========================================================
+   SHADOW IMAGES
+========================================================= */
+
+.visual-shadow{
+
+    position:absolute;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    background:#101827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:
+        transform .7s cubic-bezier(.22,1,.36,1),
+        opacity .7s ease,
+        filter .7s ease;
+
+}
+
+
+.visual-shadow img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+/* LEFT BACK IMAGE */
+
+.shadow-one{
+
+    width:310px;
+
+    height:380px;
+
+    left:-15px;
+
+    top:55px;
+
+    transform:
+        rotate(-10deg)
+        translateX(-35px);
+
+    opacity:.20;
+
+    filter:blur(1px);
+
+    z-index:1;
+
+}
+
+
+/* RIGHT BACK IMAGE */
+
+.shadow-two{
+
+    width:300px;
+
+    height:390px;
+
+    right:-20px;
+
+    top:35px;
+
+    transform:
+        rotate(10deg)
+        translateX(35px);
+
+    opacity:.18;
+
+    filter:blur(1px);
+
+    z-index:1;
+
+}
+
+
+/* THIRD IMAGE */
+
+.shadow-three{
+
+    width:270px;
+
+    height:350px;
+
+    left:100px;
+
+    top:-15px;
+
+    transform:
+        rotate(3deg)
+        translateY(-20px);
+
+    opacity:.10;
+
+    filter:blur(2px);
+
+    z-index:0;
+
+}
+
+
+/* =========================================================
+   MAIN IMAGE
+========================================================= */
+
+.main-experience-image{
+
+    position:absolute;
+
+    width:360px;
+
+    height:450px;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:#101827;
+
+    border:1px solid rgba(255,255,255,.14);
+
+    box-shadow:
+
+        0 40px 100px rgba(0,0,0,.45),
+
+        0 0 80px rgba(0,198,255,.10);
+
+    z-index:5;
+
+    transition:
+        transform .7s cubic-bezier(.22,1,.36,1);
+
+}
+
+
+.main-experience-image::before{
 
     content:"";
 
     position:absolute;
 
-    width:260px;
+    inset:0;
 
-    height:260px;
+    border-radius:30px;
 
-    top:-180px;
+    border:1px solid rgba(255,255,255,.10);
 
-    right:-100px;
-
-    border-radius:50%;
-
-    background:rgba(0,198,255,.08);
-
-    filter:blur(65px);
-
-    opacity:0;
-
-    transition:.45s ease;
+    z-index:3;
 
     pointer-events:none;
 
 }
 
-.certificate-card:hover{
 
-    transform:translateY(-5px);
+.main-experience-image img{
 
-    border-color:rgba(0,198,255,.35);
+    width:100%;
 
-    box-shadow:
+    height:100%;
 
-        0 20px 45px rgba(0,0,0,.25),
+    object-fit:cover;
 
-        0 0 30px rgba(0,198,255,.07);
+    display:block;
+
+    transition:
+        transform 1s cubic-bezier(.22,1,.36,1),
+        opacity .45s ease;
 
 }
 
-.certificate-card:hover::before{
+
+.experience-visual:hover
+.main-experience-image img{
+
+    transform:scale(1.045);
+
+}
+
+
+/* =========================================================
+   IMAGE GRADIENT
+========================================================= */
+
+.image-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+            to top,
+            rgba(3,8,20,.85),
+            transparent 45%
+        );
+
+    z-index:2;
+
+}
+
+
+/* =========================================================
+   IMAGE NUMBER
+========================================================= */
+
+.image-number{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    z-index:4;
+
+    padding:8px 13px;
+
+    border-radius:30px;
+
+    background:rgba(3,8,20,.55);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    color:#fff;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+   IMAGE LABEL
+========================================================= */
+
+.image-label{
+
+    position:absolute;
+
+    bottom:22px;
+
+    left:22px;
+
+    z-index:4;
+
+}
+
+
+.image-label span{
+
+    display:inline-block;
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    background:rgba(0,198,255,.14);
+
+    border:1px solid rgba(0,198,255,.25);
+
+    color:#fff;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+}
+
+
+/* =========================================================
+   SIDE PREVIEWS
+========================================================= */
+
+.experience-preview{
+
+    appearance:none;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    padding:0;
+
+    text-align:left;
+
+    opacity:.48;
+
+    transition:
+        transform .5s ease,
+        opacity .5s ease;
+
+}
+
+
+.experience-preview:hover{
 
     opacity:1;
 
 }
 
 
-/* =========================================================
-                LEFT LOGO
-========================================================= */
+.experience-preview-left:hover{
 
-.certificate-logo{
-
-    width:78px;
-
-    height:78px;
-
-    border-radius:18px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:#fff;
-
-    border:1px solid rgba(255,255,255,.12);
-
-    overflow:hidden;
-
-    position:relative;
-
-    z-index:1;
-
-    transition:.35s ease;
+    transform:translateX(10px);
 
 }
 
-.certificate-logo img{
+
+.experience-preview-right:hover{
+
+    transform:translateX(-10px);
+
+}
+
+
+.preview-image{
+
+    width:190px;
+
+    height:230px;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    background:#101827;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25);
+
+}
+
+
+.preview-image img{
 
     width:100%;
 
     height:100%;
 
-    object-fit:contain;
+    object-fit:cover;
 
-    padding:12px;
-
-    display:block;
+    transition:transform .6s ease;
 
 }
 
-.certificate-card:hover .certificate-logo{
+
+.experience-preview:hover
+.preview-image img{
 
     transform:scale(1.06);
 
-    box-shadow:0 10px 30px rgba(0,198,255,.15);
+}
+
+
+.preview-content{
+
+    margin-top:18px;
 
 }
 
 
-/* =========================================================
-                CONTENT
-========================================================= */
+.preview-content span{
 
-.certificate-content{
-
-    min-width:0;
-
-    position:relative;
-
-    z-index:1;
-
-}
-
-
-/* =========================================================
-                TOP LINE
-========================================================= */
-
-.certificate-top{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:10px;
-
-    margin-bottom:7px;
-
-}
-
-.certificate-category{
-
-    color:#00C6FF;
-
-    font-size:10px;
-
-    font-weight:800;
-
-    letter-spacing:1.3px;
-
-    text-transform:uppercase;
-
-}
-
-.certificate-year{
+    display:block;
 
     color:#64748B;
 
-    font-size:11px;
+    font-size:10px;
 
-    font-weight:700;
+    letter-spacing:2px;
 
-    white-space:nowrap;
-
-}
-
-
-/* =========================================================
-                TITLE
-========================================================= */
-
-.certificate-content h3{
-
-    font-size:19px;
-
-    line-height:1.3;
+    font-weight:800;
 
     margin-bottom:6px;
 
-    color:#fff;
+}
 
-    transition:.3s ease;
+
+.preview-content h3{
+
+    font-size:20px;
+
+    margin:0;
 
 }
 
-.certificate-card:hover .certificate-content h3{
+
+.preview-arrow{
+
+    margin-top:15px;
 
     color:#00C6FF;
 
+    font-size:22px;
+
 }
 
 
 /* =========================================================
-                ISSUER
+   INFORMATION
 ========================================================= */
 
-.certificate-issuer{
+.experience-information{
+
+    width:100%;
+
+    max-width:650px;
+
+    text-align:center;
+
+    margin-top:35px;
+
+}
+
+
+.experience-category{
+
+    margin-bottom:14px;
+
+}
+
+
+.experience-category span{
+
+    color:#00C6FF;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    font-weight:800;
+
+}
+
+
+.experience-information h2{
+
+    font-size:40px;
+
+    letter-spacing:-1px;
+
+    margin-bottom:14px;
+
+}
+
+
+.experience-information p{
+
+    max-width:600px;
+
+    margin:0 auto;
 
     color:#94A3B8;
 
-    font-size:13px;
+    line-height:1.8;
 
-    margin-bottom:11px;
+    font-size:15px;
 
 }
 
 
 /* =========================================================
-                SKILLS
+   TAGS
 ========================================================= */
 
-.certificate-skills{
+.experience-tags{
 
     display:flex;
 
+    justify-content:center;
+
     flex-wrap:wrap;
 
-    gap:6px;
+    gap:9px;
+
+    margin-top:22px;
 
 }
 
-.certificate-skills span{
 
-    padding:5px 9px;
+.experience-tags span{
+
+    padding:8px 14px;
 
     border-radius:30px;
 
     background:rgba(255,255,255,.045);
 
-    border:1px solid rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
 
-    color:#A8B4C5;
+    color:#CBD5E1;
 
-    font-size:10px;
+    font-size:11px;
 
     font-weight:600;
 
-    transition:.3s ease;
-
 }
 
-.certificate-card:hover .certificate-skills span{
-
-    border-color:rgba(0,198,255,.12);
-
-}
-
-.certificate-description{
-
-    margin:10px 0 18px;
-
-    color:#94A3B8;
-
-    font-size:14px;
-
-    line-height:1.7;
-
-    max-width:620px;
-
-}
-
-
-/* Keep issuer and description visually connected */
-
-.certificate-issuer{
-
-    margin-bottom:0;
-}
-
-
-/* Mobile */
-
-@media(max-width:768px){
-
-    .certificate-description{
-
-        font-size:13px;
-
-        line-height:1.6;
-
-        margin-top:8px;
-
-        margin-bottom:16px;
-
-    }
-
-}
 
 /* =========================================================
-                VIEW BUTTON
+   NAVIGATION
 ========================================================= */
 
-.certificate-view{
-
-    position:relative;
-
-    z-index:2;
+.experience-navigation{
 
     display:flex;
 
+    justify-content:center;
+
     align-items:center;
 
-    gap:9px;
+    gap:25px;
 
-    padding:11px 15px;
-
-    border-radius:12px;
-
-    background:rgba(255,255,255,.045);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    color:#fff;
-
-    text-decoration:none;
-
-    font-size:11px;
-
-    font-weight:700;
-
-    white-space:nowrap;
-
-    transition:.35s ease;
+    margin-top:55px;
 
 }
 
-.certificate-view i{
 
-    color:#00C6FF;
+.nav-circle{
 
-    font-size:11px;
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.045);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    color:#fff;
+
+    cursor:pointer;
 
     transition:.3s ease;
 
 }
 
-.certificate-view:hover{
+
+.nav-circle:hover{
 
     background:#00C6FF;
 
     border-color:#00C6FF;
 
-    color:#07111D;
+    transform:translateY(-3px);
 
-    transform:translateX(3px);
-
-}
-
-.certificate-view:hover i{
-
-    color:#07111D;
-
-    transform:translate(2px,-2px);
+    box-shadow:
+        0 12px 30px rgba(0,198,255,.25);
 
 }
 
 
 /* =========================================================
-                RESPONSIVE
+   DOTS
 ========================================================= */
 
-@media(max-width:1100px){
+.experience-dots{
 
-    .certificates-grid{
+    display:flex;
 
-        grid-template-columns:1fr;
+    align-items:center;
 
-        max-width:850px;
+    gap:8px;
 
-        margin:auto;
+}
+
+
+.experience-dot{
+
+    width:7px;
+
+    height:7px;
+
+    border-radius:50%;
+
+    background:#334155;
+
+    border:none;
+
+    padding:0;
+
+    cursor:pointer;
+
+    transition:
+        width .35s ease,
+        background .35s ease;
+
+}
+
+
+.experience-dot.active{
+
+    width:28px;
+
+    border-radius:20px;
+
+    background:#00C6FF;
+
+    box-shadow:
+        0 0 15px rgba(0,198,255,.5);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.beyond-footer{
+
+    text-align:center;
+
+    margin-top:70px;
+
+    padding-top:28px;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+}
+
+
+.beyond-footer span{
+
+    color:#475569;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    font-weight:800;
+
+}
+
+
+.beyond-footer p{
+
+    margin-top:8px;
+
+    color:#CBD5E1;
+
+    font-size:14px;
+
+}
+
+
+/* =========================================================
+   SLIDE ANIMATION
+========================================================= */
+
+.experience-center.slide-out{
+
+    animation:
+        experienceOut .35s ease forwards;
+
+}
+
+
+.experience-center.slide-in{
+
+    animation:
+        experienceIn .55s cubic-bezier(.22,1,.36,1) forwards;
+
+}
+
+
+@keyframes experienceOut{
+
+    to{
+
+        opacity:0;
+
+        transform:
+            translateX(-30px)
+            scale(.97);
 
     }
 
 }
 
 
-@media(max-width:768px){
+@keyframes experienceIn{
 
-    .certificates-section{
+    from{
 
-        padding:90px 0;
+        opacity:0;
 
-    }
-
-    .certificates-heading{
-
-        margin-bottom:45px;
+        transform:
+            translateX(30px)
+            scale(.97);
 
     }
 
-    .certificates-heading h2{
+    to{
 
-        font-size:38px;
+        opacity:1;
 
-    }
-
-    .certificates-heading p{
-
-        font-size:14px;
-
-    }
-
-    .certificate-card{
-
-        grid-template-columns:65px 1fr;
-
-        gap:18px;
-
-        padding:18px;
-
-    }
-
-    .certificate-logo{
-
-        width:65px;
-
-        height:65px;
-
-    }
-
-    .certificate-view{
-
-        grid-column:2;
-
-        width:max-content;
+        transform:
+            translateX(0)
+            scale(1);
 
     }
 
 }
 
 
-@media(max-width:480px){
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
-    .certificates-heading h2{
+@media(max-width:1200px){
 
-        font-size:32px;
+    .experience-showcase{
+
+        grid-template-columns:
+            150px
+            minmax(450px,600px)
+            150px;
+
+        gap:20px;
 
     }
 
-    .certificate-card{
+    .preview-image{
+
+        width:140px;
+
+        height:180px;
+
+    }
+
+    .experience-visual{
+
+        transform:scale(.9);
+
+    }
+
+}
+
+
+@media(max-width:900px){
+
+    .experience-showcase{
 
         grid-template-columns:1fr;
 
-        gap:15px;
+        min-height:auto;
 
     }
 
-    .certificate-logo{
+    .experience-preview{
 
-        width:62px;
-
-        height:62px;
+        display:none;
 
     }
 
-    .certificate-view{
-
-        grid-column:auto;
+    .experience-center{
 
         width:100%;
 
-        justify-content:center;
+    }
+
+    .experience-visual{
+
+        width:430px;
+
+        height:450px;
 
     }
 
-    .certificate-top{
+}
 
-        align-items:flex-start;
+
+@media(max-width:600px){
+
+    .beyond-section{
+
+        padding:95px 0 80px;
+
+    }
+
+    .beyond-heading{
+
+        margin-bottom:40px;
+
+    }
+
+    .beyond-heading h2{
+
+        letter-spacing:-1px;
+
+    }
+
+    .experience-visual{
+
+        width:340px;
+
+        height:390px;
+
+        transform:scale(.9);
+
+        margin-top:-15px;
+
+        margin-bottom:-20px;
+
+    }
+
+    .main-experience-image{
+
+        width:275px;
+
+        height:350px;
+
+    }
+
+    .shadow-one{
+
+        width:230px;
+
+        height:290px;
+
+    }
+
+    .shadow-two{
+
+        width:220px;
+
+        height:300px;
+
+    }
+
+    .shadow-three{
+
+        width:200px;
+
+        height:270px;
+
+    }
+
+    .experience-information h2{
+
+        font-size:30px;
+
+    }
+
+    .experience-navigation{
+
+        margin-top:30px;
+
+    }
+
+}
+
+
+@media(max-width:400px){
+
+    .experience-visual{
+
+        transform:scale(.78);
+
+        margin-top:-35px;
+
+        margin-bottom:-55px;
+
+    }
+
+    .experience-information h2{
+
+        font-size:27px;
 
     }
 
