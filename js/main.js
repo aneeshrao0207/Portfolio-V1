@@ -1364,6 +1364,77 @@ function handleSwipe(){
 
 renderExperience();
 
+
+
+/* =========================================================
+                    CONTACT FORM
+========================================================= */
+
+const contactForm = document.getElementById("contactForm");
+
+if(contactForm){
+
+    contactForm.addEventListener("submit", function(e){
+
+        e.preventDefault();
+
+
+        const name =
+            document.getElementById("contactName").value.trim();
+
+        const email =
+            document.getElementById("contactEmail").value.trim();
+
+        const subject =
+            document.getElementById("contactSubject").value;
+
+        const message =
+            document.getElementById("contactMessage").value.trim();
+
+
+        if(!name || !email || !subject || !message){
+
+            return;
+
+        }
+
+
+        const recipient = "yourmail@gmail.com";
+
+
+        const emailSubject =
+            `${subject} — Portfolio Contact`;
+
+
+        const emailBody =
+`Hi Aneesh,
+
+My name is ${name}.
+
+Email: ${email}
+
+I'm reaching out regarding: ${subject}
+
+Message:
+${message}
+
+Best regards,
+${name}`;
+
+
+        const mailtoURL =
+            `mailto:${recipient}` +
+            `?subject=${encodeURIComponent(emailSubject)}` +
+            `&body=${encodeURIComponent(emailBody)}`;
+
+
+        window.location.href = mailtoURL;
+
+    });
+
+}
+
+
 /*====================================================================================================================
         PORTFOLIO APPRECIATION
 ======================================================================================================================*/
