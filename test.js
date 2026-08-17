@@ -1,587 +1,557 @@
 /* =========================================================
-   BEYOND TECH EXPERIENCE CAROUSEL
+   MULTILINGUAL PORTFOLIO INTRO
 ========================================================= */
 
-const experiences = [
-
-    {
-        title: "National Cadet Corps",
-
-        shortTitle: "NCC",
-
-        category: "DISCIPLINE • CAMPS • TEAMWORK",
-
-        label: "NCC",
-
-        description:
-            "Completed NCC training and participated in camps that strengthened discipline, teamwork, responsibility and leadership.",
-
-        tags: [
-            "Discipline",
-            "NCC Camps",
-            "Teamwork"
-        ],
-
-        image: "images/ncc.jpg"
-    },
+document.addEventListener("DOMContentLoaded", function () {
 
 
-    {
-        title: "National Service Scheme",
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
 
-        shortTitle: "NSS",
+    const greetingScreen =
+        document.getElementById("greetingScreen");
 
-        category: "COMMUNITY • SERVICE • RESPONSIBILITY",
+    const greetingText =
+        document.getElementById("greetingText");
 
-        label: "NSS",
+    const language =
+        document.getElementById("introLanguage");
 
-        description:
-            "Completed NSS activities and contributed to community-oriented initiatives, volunteering and social service.",
+    const progressBar =
+        document.getElementById("introProgressBar");
 
-        tags: [
-            "Community Service",
-            "Volunteering",
-            "Responsibility"
-        ],
+    const percent =
+        document.getElementById("introPercent");
 
-        image: "images/nss.jpg"
-    },
-
-
-    {
-        title: "Hackathon Team Leadership",
-
-        shortTitle: "Leadership",
-
-        category: "HACKATHONS • PROJECTS • EXECUTION",
-
-        label: "TEAM LEADERSHIP",
-
-        description:
-            "Led teams during hackathons and project competitions by coordinating ideas, development, presentations and execution.",
-
-        tags: [
-            "Team Leadership",
-            "Hackathons",
-            "Project Execution"
-        ],
-
-        image: "images/leadership.jpg"
-    },
+    const skipButton =
+        document.getElementById("introSkip");
 
 
-    {
-        title: "Event Volunteering",
-
-        shortTitle: "Volunteering",
-
-        category: "EVENTS • COORDINATION • TEAMWORK",
-
-        label: "VOLUNTEERING",
-
-        description:
-            "Volunteered for multiple events and supported coordination, execution and teamwork behind successful activities.",
-
-        tags: [
-            "Event Support",
-            "Coordination",
-            "Teamwork"
-        ],
-
-        image: "images/volunteering.jpg"
-    },
-
-
-    {
-        title: "Project Leadership",
-
-        shortTitle: "Projects",
-
-        category: "BUILDING • COLLABORATION • DELIVERY",
-
-        label: "PROJECT LEADERSHIP",
-
-        description:
-            "Worked with teams to turn ideas into working projects while coordinating responsibilities, development and presentations.",
-
-        tags: [
-            "Collaboration",
-            "Development",
-            "Presentation"
-        ],
-
-        image: "images/project-team.jpg"
-    },
-
-
-    {
-        title: "NextStep",
-
-        shortTitle: "NextStep",
-
-        category: "INITIATIVE • COMMUNITY • MENTORSHIP",
-
-        label: "STUDENT INITIATIVE",
-
-        description:
-            "Building a student-led initiative focused on helping juniors discover opportunities, connect with peers and gain direction.",
-
-        tags: [
-            "Initiative",
-            "Community",
-            "Mentorship"
-        ],
-
-        image: "images/nextstep.jpg"
+    if (
+        !greetingScreen ||
+        !greetingText
+    ) {
+        return;
     }
 
-];
 
+    /* =====================================================
+       GREETINGS
+    ===================================================== */
 
-/* =========================================================
-   ELEMENTS
-========================================================= */
+    const greetings = [
 
-const mainImage =
-    document.getElementById("mainExperienceImage");
+        {
+            text: "Hello",
+            lang: "EN"
+        },
 
-const shadowOne =
-    document.getElementById("shadowImageOne");
+        {
+            text: "नमस्ते",
+            lang: "HI"
+        },
 
-const shadowTwo =
-    document.getElementById("shadowImageTwo");
+        {
+            text: "ನಮಸ್ಕಾರ",
+            lang: "KN"
+        },
 
-const shadowThree =
-    document.getElementById("shadowImageThree");
+        {
+            text: "வணக்கம்",
+            lang: "TA"
+        },
 
-const prevImage =
-    document.getElementById("prevImage");
+        {
+            text: "నమస్కారం",
+            lang: "TE"
+        },
 
-const nextImage =
-    document.getElementById("nextImage");
+        {
+            text: "നമസ്കാരം",
+            lang: "ML"
+        },
 
-const currentNumber =
-    document.getElementById("currentNumber");
+        {
+            text: "নমস্কার",
+            lang: "BN"
+        },
 
-const totalNumber =
-    document.getElementById("totalNumber");
+        {
+            text: "નમસ્તે",
+            lang: "GU"
+        },
 
-const imageLabel =
-    document.getElementById("imageLabel");
+        {
+            text: "ਨਮਸਤੇ",
+            lang: "PA"
+        },
 
-const experienceCategory =
-    document.getElementById("experienceCategory");
+        {
+            text: "ନମସ୍କାର",
+            lang: "OR"
+        },
 
-const experienceTitle =
-    document.getElementById("experienceTitle");
+        {
+            text: "Namaste",
+            lang: "SA"
+        },
 
-const experienceDescription =
-    document.getElementById("experienceDescription");
+        {
+            text: "Bonjour",
+            lang: "FR"
+        },
 
-const experienceTags =
-    document.getElementById("experienceTags");
+        {
+            text: "Hola",
+            lang: "ES"
+        },
 
-const prevTitle =
-    document.getElementById("prevTitle");
+        {
+            text: "Ciao",
+            lang: "IT"
+        },
 
-const nextTitle =
-    document.getElementById("nextTitle");
+        {
+            text: "Hallo",
+            lang: "DE"
+        },
 
-const experienceCenter =
-    document.querySelector(".experience-center");
+        {
+            text: "Olá",
+            lang: "PT"
+        },
 
-const dotsContainer =
-    document.getElementById("experienceDots");
+        {
+            text: "Привет",
+            lang: "RU"
+        },
 
+        {
+            text: "你好",
+            lang: "ZH"
+        },
 
-/* =========================================================
-   STATE
-========================================================= */
+        {
+            text: "こんにちは",
+            lang: "JA"
+        },
 
-let currentExperience = 0;
+        {
+            text: "안녕하세요",
+            lang: "KO"
+        },
 
-let isAnimating = false;
+        {
+            text: "สวัสดี",
+            lang: "TH"
+        },
 
+        {
+            text: "Xin chào",
+            lang: "VI"
+        },
 
-/* =========================================================
-   TOTAL
-========================================================= */
+        {
+            text: "Halo",
+            lang: "ID"
+        },
 
-totalNumber.textContent =
-    String(experiences.length).padStart(2, "0");
+        {
+            text: "Merhaba",
+            lang: "TR"
+        },
 
+        {
+            text: "مرحبا",
+            lang: "AR"
+        },
 
-/* =========================================================
-   CREATE DOTS
-========================================================= */
+        {
+            text: "שלום",
+            lang: "HE"
+        },
 
-experiences.forEach((experience, index) => {
+        {
+            text: "Γεια σου",
+            lang: "EL"
+        },
 
-    const dot =
-        document.createElement("button");
+        {
+            text: "Cześć",
+            lang: "PL"
+        },
 
-    dot.className =
-        "experience-dot";
+        {
+            text: "Ahoj",
+            lang: "CS"
+        },
 
-    dot.setAttribute(
-        "aria-label",
-        `Go to ${experience.shortTitle}`
-    );
+        {
+            text: "Bună",
+            lang: "RO"
+        },
 
-    dot.addEventListener(
-        "click",
-        () => {
+        {
+            text: "Hej",
+            lang: "SV"
+        },
 
-            goToExperience(index);
+        {
+            text: "Jambo",
+            lang: "SW"
+        },
 
+        {
+            text: "Sawubona",
+            lang: "ZU"
+        },
+
+        {
+            text: "Kia ora",
+            lang: "MI"
+        },
+
+        {
+            text: "Namaste 🙏",
+            lang: "IN"
         }
-    );
 
-    dotsContainer.appendChild(dot);
+    ];
 
-});
 
+    /* =====================================================
+       SETTINGS
+    ===================================================== */
 
-/* =========================================================
-   UPDATE DOTS
-========================================================= */
+    let currentIndex = 0;
 
-function updateDots(){
+    let introFinished = false;
 
-    const dots =
-        document.querySelectorAll(
-            ".experience-dot"
-        );
+    /*
+        Each greeting stays for 1.6 seconds.
 
-    dots.forEach((dot, index) => {
+        The actual fade is only 0.42 seconds.
 
-        dot.classList.toggle(
-            "active",
-            index === currentExperience
-        );
+        So the text remains completely still
+        for most of the time.
+    */
 
-    });
+    const displayTime = 1600;
 
-}
+    const fadeTime = 420;
 
 
-/* =========================================================
-   GET INDEX
-========================================================= */
+    /*
+        35 greetings × 1.6 seconds
+        ≈ 56 seconds.
 
-function getIndex(offset){
+        We don't want that.
 
-    return (
-        currentExperience +
-        offset +
-        experiences.length
-    ) % experiences.length;
+        Instead, show a selected sequence
+        for a much shorter premium intro.
+    */
 
-}
+    const selectedGreetings = [
 
+        greetings[0],   // Hello
+        greetings[1],   // Hindi
+        greetings[2],   // Kannada
+        greetings[3],   // Tamil
+        greetings[4],   // Telugu
+        greetings[11],  // French
+        greetings[12],  // Spanish
+        greetings[13],  // Italian
+        greetings[17],  // Chinese
+        greetings[18],  // Japanese
+        greetings[19],  // Korean
+        greetings[24],  // Arabic
+        greetings[29],  // Swedish
+        greetings[31],  // Zulu
+        greetings[34]   // Namaste
+    ];
 
-/* =========================================================
-   RENDER
-========================================================= */
 
-function renderExperience(){
+    /*
+        15 greetings × 550ms
+        ≈ 8.25 seconds
+    */
 
-    const current =
-        experiences[currentExperience];
+    const greetingDuration = 550;
 
-    const previous =
-        experiences[getIndex(-1)];
+    const totalDuration =
+        selectedGreetings.length *
+        greetingDuration;
 
-    const next =
-        experiences[getIndex(1)];
 
-    /* MAIN */
+    /* =====================================================
+       INITIAL GREETING
+    ===================================================== */
 
-    mainImage.src =
-        current.image;
+    greetingText.textContent =
+        selectedGreetings[0].text;
 
-    mainImage.alt =
-        current.title;
+    language.textContent =
+        selectedGreetings[0].lang;
 
-    imageLabel.textContent =
-        current.label;
 
-    currentNumber.textContent =
-        String(currentExperience + 1)
-            .padStart(2, "0");
+    /* =====================================================
+       CHANGE GREETING
+       SAME POSITION
+    ===================================================== */
 
-    experienceCategory.textContent =
-        current.category;
+    function changeGreeting() {
 
-    experienceTitle.textContent =
-        current.title;
+        if (introFinished) {
+            return;
+        }
 
-    experienceDescription.textContent =
-        current.description;
 
+        /*
+            Fade the current word out.
+        */
 
-    /* TAGS */
-
-    experienceTags.innerHTML = "";
-
-    current.tags.forEach(tag => {
-
-        const span =
-            document.createElement("span");
-
-        span.textContent =
-            tag;
-
-        experienceTags.appendChild(span);
-
-    });
-
-
-    /* PREVIOUS */
-
-    prevImage.src =
-        previous.image;
-
-    prevImage.alt =
-        previous.title;
-
-    prevTitle.textContent =
-        previous.shortTitle;
-
-
-    /* NEXT */
-
-    nextImage.src =
-        next.image;
-
-    nextImage.alt =
-        next.title;
-
-    nextTitle.textContent =
-        next.shortTitle;
-
-
-    /* SHADOWS */
-
-    shadowOne.src =
-        previous.image;
-
-    shadowTwo.src =
-        next.image;
-
-    shadowThree.src =
-        experiences[getIndex(2)].image;
-
-
-    updateDots();
-
-}
-
-
-/* =========================================================
-   CHANGE EXPERIENCE
-========================================================= */
-
-function goToExperience(index){
-
-    if(isAnimating)
-        return;
-
-    if(index === currentExperience)
-        return;
-
-    isAnimating = true;
-
-    experienceCenter.classList.remove(
-        "slide-in"
-    );
-
-    experienceCenter.classList.add(
-        "slide-out"
-    );
-
-
-    setTimeout(() => {
-
-        currentExperience =
-            (
-                index +
-                experiences.length
-            ) % experiences.length;
-
-        renderExperience();
-
-
-        experienceCenter.classList.remove(
-            "slide-out"
-        );
-
-        experienceCenter.classList.add(
-            "slide-in"
+        greetingText.classList.add(
+            "greeting-changing"
         );
 
 
-        setTimeout(() => {
+        setTimeout(function () {
 
-            experienceCenter.classList.remove(
-                "slide-in"
+
+            currentIndex++;
+
+
+            /*
+                End intro after final greeting.
+            */
+
+            if (
+                currentIndex >=
+                selectedGreetings.length
+            ) {
+
+                finishIntro();
+
+                return;
+
+            }
+
+
+            /*
+                Change ONLY the text.
+
+                Position remains exactly the same.
+            */
+
+            greetingText.textContent =
+                selectedGreetings[
+                    currentIndex
+                ].text;
+
+
+            language.textContent =
+                selectedGreetings[
+                    currentIndex
+                ].lang;
+
+
+            /*
+                Allow browser to register
+                the changed text.
+            */
+
+            requestAnimationFrame(function () {
+
+                greetingText.classList.remove(
+                    "greeting-changing"
+                );
+
+            });
+
+
+        }, fadeTime);
+
+    }
+
+
+    /* =====================================================
+       GREETING LOOP
+    ===================================================== */
+
+    const greetingTimer =
+        setInterval(
+            changeGreeting,
+            greetingDuration
+        );
+
+
+    /* =====================================================
+       PROGRESS
+    ===================================================== */
+
+    const startTime =
+        performance.now();
+
+
+    function updateProgress(currentTime) {
+
+        if (introFinished) {
+            return;
+        }
+
+
+        const elapsed =
+            currentTime - startTime;
+
+
+        const percentage =
+            Math.min(
+                100,
+                Math.round(
+                    (
+                        elapsed /
+                        totalDuration
+                    ) * 100
+                )
             );
 
-            isAnimating = false;
 
-        },550);
-
-    },300);
-
-}
+        progressBar.style.width =
+            percentage + "%";
 
 
-/* =========================================================
-   NEXT
-========================================================= */
-
-function nextExperience(){
-
-    goToExperience(
-        getIndex(1)
-    );
-
-}
+        percent.textContent =
+            percentage + "%";
 
 
-/* =========================================================
-   PREVIOUS
-========================================================= */
+        if (percentage < 100) {
 
-function previousExperience(){
-
-    goToExperience(
-        getIndex(-1)
-    );
-
-}
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-document
-    .getElementById("nextExperience")
-    .addEventListener(
-        "click",
-        nextExperience
-    );
-
-
-document
-    .getElementById("experienceNext")
-    .addEventListener(
-        "click",
-        nextExperience
-    );
-
-
-document
-    .getElementById("prevExperience")
-    .addEventListener(
-        "click",
-        previousExperience
-    );
-
-
-document
-    .getElementById("experiencePrev")
-    .addEventListener(
-        "click",
-        previousExperience
-    );
-
-
-/* =========================================================
-   KEYBOARD
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if(event.key === "ArrowRight"){
-
-            nextExperience();
-
-        }
-
-        if(event.key === "ArrowLeft"){
-
-            previousExperience();
+            requestAnimationFrame(
+                updateProgress
+            );
 
         }
 
     }
-);
 
 
-/* =========================================================
-   TOUCH / SWIPE
-========================================================= */
-
-let touchStartX = 0;
-
-let touchEndX = 0;
+    requestAnimationFrame(
+        updateProgress
+    );
 
 
-experienceCenter.addEventListener(
-    "touchstart",
-    event => {
+    /* =====================================================
+       FINISH INTRO
+    ===================================================== */
 
-        touchStartX =
-            event.changedTouches[0].screenX;
+    function finishIntro() {
 
-    },
-    { passive:true }
-);
-
-
-experienceCenter.addEventListener(
-    "touchend",
-    event => {
-
-        touchEndX =
-            event.changedTouches[0].screenX;
-
-        handleSwipe();
-
-    },
-    { passive:true }
-);
+        if (introFinished) {
+            return;
+        }
 
 
-function handleSwipe(){
-
-    const difference =
-        touchStartX - touchEndX;
+        introFinished = true;
 
 
-    if(Math.abs(difference) < 50)
-        return;
+        clearInterval(
+            greetingTimer
+        );
 
 
-    if(difference > 0){
+        /*
+            Complete progress.
+        */
 
-        nextExperience();
+        progressBar.style.width =
+            "100%";
 
-    }else{
+        percent.textContent =
+            "100%";
 
-        previousExperience();
+
+        /*
+            Give final greeting a moment.
+        */
+
+        setTimeout(function () {
+
+
+            greetingScreen.classList.add(
+                "intro-finished"
+            );
+
+
+            /*
+                Restore page scrolling.
+            */
+
+            document.body.style.overflow =
+                "";
+
+
+            /*
+                Completely remove intro
+                after transition.
+            */
+
+            setTimeout(function () {
+
+                greetingScreen.remove();
+
+            }, 1000);
+
+
+        }, 450);
 
     }
 
-}
+
+    /* =====================================================
+       SKIP BUTTON
+    ===================================================== */
+
+    if (skipButton) {
+
+        skipButton.addEventListener(
+            "click",
+            function () {
+
+                finishIntro();
+
+            }
+        );
+
+    }
 
 
-/* =========================================================
-   INITIALIZE
-========================================================= */
+    /* =====================================================
+       ESC KEY
+    ===================================================== */
 
-renderExperience();
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape" &&
+                !introFinished
+            ) {
+
+                finishIntro();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       LOCK SCROLL WHILE INTRO IS ACTIVE
+    ===================================================== */
+
+    document.body.style.overflow =
+        "hidden";
+
+});

@@ -3,319 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700;800&family=Noto+Sans+Telugu:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&family=Noto+Sans+Malayalam:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Noto+Sans+Gujarati:wght@400;500;600;700;800&family=Noto+Sans+Gurmukhi:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&family=Noto+Sans+Hebrew:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
     <link rel="stylesheet" href="test.css">
     <title>Testing Section</title>
 </head>
 <body>
 
 <!-- =========================================================
-     LEADERSHIP & EXTRACURRICULAR
+     PORTFOLIO INTRO SCREEN
 ========================================================= -->
 
-<section class="beyond-section" id="leadership">
+<div class="portfolio-intro" id="greetingScreen">
 
-    <div class="beyond-container">
+    <!-- Background -->
+    <div class="intro-background">
 
-        <!-- HEADER -->
+        <div class="intro-grid"></div>
 
-        <div class="beyond-heading">
+        <div class="intro-glow intro-glow-1"></div>
+        <div class="intro-glow intro-glow-2"></div>
 
-            <span class="beyond-eyebrow">
-                BEYOND TECH
-            </span>
+        <div class="intro-noise"></div>
 
-            <h2>
-                Experiences That Shaped Me
-            </h2>
+    </div>
 
-            <p>
-                The experiences beyond technology that taught me
-                discipline, leadership, teamwork and responsibility.
-            </p>
 
-        </div>
+    <!-- Top Navigation -->
+    <div class="intro-top">
 
+        <div class="intro-logo">
 
-        <!-- =================================================
-             EXPERIENCE SHOWCASE
-        ================================================== -->
+            <span>AR</span>
 
-        <div class="experience-showcase">
-
-
-            <!-- LEFT PREVIEW -->
-
-            <button
-                class="experience-preview experience-preview-left"
-                id="prevExperience"
-                aria-label="Previous experience">
-
-                <div class="preview-image">
-
-                    <img
-                        id="prevImage"
-                        src="images/ncc.jpg"
-                        alt="Previous experience">
-
-                </div>
-
-                <div class="preview-content">
-
-                    <span>PREVIOUS</span>
-
-                    <h3 id="prevTitle">
-                        NCC
-                    </h3>
-
-                </div>
-
-                <div class="preview-arrow">
-                    ←
-                </div>
-
-            </button>
-
-
-
-            <!-- =================================================
-                 CENTER EXPERIENCE
-            ================================================== -->
-
-            <div class="experience-center">
-
-
-                <!-- IMAGE COLLAGE -->
-
-                <div
-                    class="experience-visual"
-                    id="experienceVisual">
-
-
-                    <!-- SHADOW IMAGE 1 -->
-
-                    <div class="visual-shadow shadow-one">
-
-                        <img
-                            id="shadowImageOne"
-                            src="images/nss.jpg"
-                            alt="">
-
-                    </div>
-
-
-                    <!-- SHADOW IMAGE 2 -->
-
-                    <div class="visual-shadow shadow-two">
-
-                        <img
-                            id="shadowImageTwo"
-                            src="images/volunteering.jpg"
-                            alt="">
-
-                    </div>
-
-
-                    <!-- SHADOW IMAGE 3 -->
-
-                    <div class="visual-shadow shadow-three">
-
-                        <img
-                            id="shadowImageThree"
-                            src="images/leadership.jpg"
-                            alt="">
-
-                    </div>
-
-
-                    <!-- MAIN IMAGE -->
-
-                    <div class="main-experience-image">
-
-                        <img
-                            id="mainExperienceImage"
-                            src="images/ncc.jpg"
-                            alt="NCC">
-
-                        <div class="image-overlay"></div>
-
-
-                        <div class="image-number">
-
-                            <span id="currentNumber">
-                                01
-                            </span>
-
-                            /
-                            <span id="totalNumber">
-                                06
-                            </span>
-
-                        </div>
-
-
-                        <div class="image-label">
-
-                            <span id="imageLabel">
-                                NCC
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- EXPERIENCE INFORMATION -->
-
-                <div class="experience-information">
-
-
-                    <div class="experience-category">
-
-                        <span id="experienceCategory">
-                            DISCIPLINE • CAMPS • TEAMWORK
-                        </span>
-
-                    </div>
-
-
-                    <h2 id="experienceTitle">
-                        National Cadet Corps
-                    </h2>
-
-
-                    <p id="experienceDescription">
-
-                        Completed NCC training and participated
-                        in camps that strengthened discipline,
-                        teamwork, responsibility and leadership.
-
-                    </p>
-
-
-                    <!-- TAGS -->
-
-                    <div
-                        class="experience-tags"
-                        id="experienceTags">
-
-                        <span>
-                            Discipline
-                        </span>
-
-                        <span>
-                            NCC Camps
-                        </span>
-
-                        <span>
-                            Teamwork
-                        </span>
-
-                    </div>
-
-
-                </div>
-
+            <div>
+                <strong>ANEESH RAO S V</strong>
+                <small>PORTFOLIO</small>
             </div>
 
-
-
-            <!-- RIGHT PREVIEW -->
-
-            <button
-                class="experience-preview experience-preview-right"
-                id="nextExperience"
-                aria-label="Next experience">
-
-                <div class="preview-image">
-
-                    <img
-                        id="nextImage"
-                        src="images/nss.jpg"
-                        alt="Next experience">
-
-                </div>
-
-                <div class="preview-content">
-
-                    <span>NEXT</span>
-
-                    <h3 id="nextTitle">
-                        NSS
-                    </h3>
-
-                </div>
-
-                <div class="preview-arrow">
-                    →
-                </div>
-
-            </button>
-
         </div>
 
 
+        <div class="intro-language">
 
-        <!-- =================================================
-             NAVIGATION
-        ================================================== -->
-
-        <div class="experience-navigation">
-
-
-            <button
-                class="nav-circle"
-                id="experiencePrev"
-                aria-label="Previous">
-
-                <i class="fa-solid fa-arrow-left"></i>
-
-            </button>
-
-
-            <div
-                class="experience-dots"
-                id="experienceDots">
-            </div>
-
-
-            <button
-                class="nav-circle"
-                id="experienceNext"
-                aria-label="Next">
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </button>
-
-
-        </div>
-
-
-
-        <!-- =================================================
-             BOTTOM STATEMENT
-        ================================================== -->
-
-        <div class="beyond-footer">
-
-            <span>
-                MORE THAN CODE
-            </span>
-
-            <p>
-                Discipline. Leadership. Service. Initiative.
-            </p>
+            <span id="introLanguage">EN</span>
 
         </div>
 
     </div>
 
-</section>
 
-</section>
+    <!-- Main Content -->
+    <div class="intro-center">
+
+        <div class="intro-label">
+
+            <span></span>
+
+            WELCOME
+
+            <span></span>
+
+        </div>
+
+
+        <!-- IMPORTANT:
+             This stays in exactly the same position -->
+        <div class="greeting-wrapper">
+
+            <div id="greetingText">
+                Hello
+            </div>
+
+        </div>
+
+
+        <div class="intro-name">
+            Aneesh Rao S V
+        </div>
+
+
+        <div class="intro-role">
+
+            Frontend Developer
+
+            <b>•</b>
+
+            UI/UX Enthusiast
+
+        </div>
+
+
+        <div class="intro-location">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            Bengaluru, India
+
+        </div>
+
+    </div>
+
+
+    <!-- Bottom -->
+    <div class="intro-bottom">
+
+        <div class="intro-progress-container">
+
+            <div class="intro-progress-top">
+
+                <span>
+                    ENTERING PORTFOLIO
+                </span>
+
+                <strong id="introPercent">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="intro-progress">
+
+                <div
+                    id="introProgressBar">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="intro-skip"
+            id="introSkip">
+
+            SKIP
+
+            <span>
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <!-- Corner Details -->
+
+    <div class="intro-corner intro-corner-left">
+        01
+    </div>
+
+    <div class="intro-corner intro-corner-right">
+        PORTFOLIO / 2026
+    </div>
+
+</div>
+
 <script src="test.js"></script>
 </body>
 </html>
