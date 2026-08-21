@@ -297,246 +297,352 @@ document.addEventListener("keydown", event => {
 });
 
 
-/*==================================================
+/*============================================================================================================
             PROJECT COMMAND CENTER
-==================================================*/
+============================================================================================================*/
 /* =========================================================
-   PROJECT SHOWCASE
+   PROJECT LAB DATA
 ========================================================= */
 
-
-/* =========================================================
-   PROJECT DATA
-========================================================= */
-
-const projectData = {
+const projects = {
 
     vanrakshak: {
 
-        index: "01 / 06",
-
-        number: "01",
+        number: "0 1",
 
         title: "VanRakshak",
 
-        category: "AI • DASHBOARD • HACKATHON",
+        category: "AI • IOT • FOREST INTELLIGENCE",
 
         image: "images/vanrakshak.png",
 
         caption: "AI Powered Forest Monitoring",
 
         description:
-            "AI-powered forest monitoring dashboard developed during HackMela to monitor forests, wildlife and environmental conditions through intelligent technology.",
+            "An intelligent forest monitoring concept designed to detect suspicious activity and provide forest teams with a centralized monitoring interface.",
 
         tech: [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "AI",
-            "IoT",
-            "Dashboard UI"
+            ["fa-brands fa-html5", "HTML"],
+            ["fa-brands fa-css3-alt", "CSS"],
+            ["fa-brands fa-js", "JavaScript"],
+            ["fa-solid fa-brain", "AI / ML"],
+            ["fa-solid fa-microchip", "IoT"]
         ],
 
         highlights: [
-            "Real-time monitoring",
-            "AI detection",
-            "Analytics dashboard",
-            "Forest monitoring"
+            "Forest activity monitoring",
+            "Intelligent detection",
+            "Centralized dashboard",
+            "Data visualization"
         ],
 
-        github:
-            "https://github.com/aneeshrao0207/VanRakshak",
+        about:
+            "VanRakshak explores how AI, IoT and intelligent monitoring interfaces can be combined to support forest protection and environmental monitoring.",
 
-        live: "#"
+        problem:
+            "Forest areas can be difficult to monitor continuously, making suspicious activities difficult to detect at an early stage.",
+
+        solution:
+            "A centralized monitoring concept that combines intelligent detection, sensors and a visual dashboard for faster awareness and response.",
+
+        features: [
+            "Forest monitoring",
+            "Intelligent detection",
+            "Centralized dashboard",
+            "Alert-oriented interface"
+        ],
+
+        role:
+            "Product concept, UI/UX design, frontend development and system planning.",
+
+        achievement:
+            "1st Place — HACKMELA 2K26",
+
+        github:
+            "https://github.com/aneeshrao0207/VanRakshak"
 
     },
 
 
     campuseye: {
 
-        index: "02 / 06",
-
-        number: "02",
+        number: "0 2",
 
         title: "CampusEye",
 
-        category: "WEB APPLICATION • CAMPUS",
+        category: "AI • SMART CAMPUS • IOT",
 
         image: "images/campuseye.png",
 
         caption: "Smart Campus Management",
 
         description:
-            "A smart campus platform designed to improve the digital experience of students and simplify campus-related interactions through a clean and responsive interface.",
+            "A smart campus platform concept designed to improve campus management, communication and the overall student experience.",
 
         tech: [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "Responsive UI"
+            ["fa-brands fa-html5", "HTML"],
+            ["fa-brands fa-css3-alt", "CSS"],
+            ["fa-brands fa-js", "JavaScript"],
+            ["fa-solid fa-brain", "AI / ML"],
+            ["fa-solid fa-camera", "Computer Vision"],
+            ["fa-solid fa-microchip", "IoT"]
         ],
 
         highlights: [
+            "Smart campus dashboard",
             "Student-focused interface",
-            "Responsive design",
-            "Campus information",
-            "Clean dashboard UI"
+            "AI integration",
+            "Campus monitoring"
         ],
 
-        github:
-            "https://github.com/aneeshrao0207/CampusEye",
+        about:
+            "CampusEye is an exploration of how AI, computer vision and IoT can be brought together to create a smarter and more connected campus environment.",
 
-        live: "#"
+        problem:
+            "Managing different campus activities and information can become fragmented across multiple systems.",
+
+        solution:
+            "A unified digital platform designed to bring important campus information and intelligent monitoring into one interface.",
+
+        features: [
+            "Smart campus dashboard",
+            "Student information",
+            "AI-powered concepts",
+            "Monitoring interface"
+        ],
+
+        role:
+            "Frontend development, interface design, product planning and system concept development.",
+
+        achievement:
+            "3rd Prize — NIT Warangal Summer Internship Programme 2026",
+
+        github:
+            "#"
 
     },
 
 
     portfolio: {
 
-        index: "03 / 06",
-
-        number: "03",
+        number: "0 3",
 
         title: "Developer Portfolio",
 
-        category: "PERSONAL BRAND • WEB",
+        category: "FRONTEND • UI/UX • PERSONAL BRAND",
 
         image: "images/portfolio.png",
 
-        caption: "Personal Developer Portfolio",
+        caption: "My Digital Portfolio",
 
         description:
-            "A premium personal portfolio designed to showcase my projects, skills, achievements, education and professional journey through an interactive digital experience.",
+            "A product-inspired personal portfolio designed to communicate my skills, projects, achievements and journey through a modern interactive experience.",
 
         tech: [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "Responsive Design"
+            ["fa-brands fa-html5", "HTML"],
+            ["fa-brands fa-css3-alt", "CSS"],
+            ["fa-brands fa-js", "JavaScript"]
         ],
 
         highlights: [
-            "Interactive UI",
-            "Dark / Light mode",
-            "Responsive design",
-            "Smooth animations"
+            "Premium responsive UI",
+            "Interactive sections",
+            "Dark / light experience",
+            "Personal branding"
         ],
 
-        github: "#",
+        about:
+            "This portfolio is designed as more than an online resume. It is an interactive representation of my journey, technical abilities, design thinking and projects.",
 
-        live: "#"
+        problem:
+            "Traditional resumes often provide limited space to communicate personality, projects and the way a developer thinks about products.",
+
+        solution:
+            "A custom-built interactive portfolio that combines visual storytelling, responsive frontend development and product-oriented design.",
+
+        features: [
+            "Interactive project showcase",
+            "Responsive design",
+            "Theme experience",
+            "Animated interfaces"
+        ],
+
+        role:
+            "Designer, frontend developer, content architect and product owner.",
+
+        achievement:
+            "Personal Product — Continuously evolving",
+
+        github:
+            "#"
 
     },
 
 
     calculator: {
 
-        index: "04 / 06",
-
-        number: "04",
+        number: "0 4",
 
         title: "Calculator",
 
-        category: "FRONTEND • JAVASCRIPT",
+        category: "FRONTEND • JAVASCRIPT • UI",
 
         image: "images/calculator.png",
 
-        caption: "Interactive Web Calculator",
+        caption: "Interactive Calculator",
 
         description:
-            "A responsive calculator built as a frontend project with a clean interface, interactive controls and a focus on usability across different screen sizes.",
+            "A responsive calculator project built to strengthen frontend fundamentals, JavaScript logic and interactive UI development.",
 
         tech: [
-            "HTML",
-            "CSS",
-            "JavaScript"
+            ["fa-brands fa-html5", "HTML"],
+            ["fa-brands fa-css3-alt", "CSS"],
+            ["fa-brands fa-js", "JavaScript"]
         ],
 
         highlights: [
-            "Responsive interface",
             "Interactive calculations",
-            "Clean UI",
-            "Keyboard-friendly design"
+            "Responsive layout",
+            "Clean interface",
+            "JavaScript logic"
         ],
 
-        github: "#",
+        about:
+            "A focused frontend project created to practice JavaScript logic, user interaction and responsive interface development.",
 
-        live: "#"
+        problem:
+            "Simple utility applications are useful exercises for understanding state, user input and interface feedback.",
+
+        solution:
+            "A clean calculator interface that connects user actions with JavaScript-based calculation logic.",
+
+        features: [
+            "Basic calculations",
+            "Interactive buttons",
+            "Responsive interface",
+            "JavaScript logic"
+        ],
+
+        role:
+            "Frontend development and UI implementation.",
+
+        achievement:
+            "Frontend Development Project",
+
+        github:
+            "#"
 
     },
 
 
     pixelvault: {
 
-        index: "05 / 06",
-
-        number: "05",
+        number: "0 5",
 
         title: "PixelVault",
 
-        category: "WEB • IMAGE GALLERY",
+        category: "FRONTEND • IMAGE GALLERY • UI",
 
         image: "images/pixelvault.png",
 
         caption: "Interactive Image Gallery",
 
         description:
-            "A modern image gallery project focused on presenting visual content through a clean, responsive and engaging browsing experience.",
+            "A modern image gallery experience focused on visual presentation, responsive layouts and smooth user interaction.",
 
         tech: [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "Responsive Design"
+            ["fa-brands fa-html5", "HTML"],
+            ["fa-brands fa-css3-alt", "CSS"],
+            ["fa-brands fa-js", "JavaScript"]
         ],
 
         highlights: [
-            "Responsive gallery",
-            "Modern card layout",
-            "Interactive browsing",
-            "Visual-first experience"
+            "Image gallery",
+            "Responsive layout",
+            "Visual navigation",
+            "Interactive UI"
         ],
 
-        github: "#",
+        about:
+            "PixelVault is a frontend exploration focused on building an engaging visual gallery experience.",
 
-        live: "#"
+        problem:
+            "Image-heavy interfaces need clear hierarchy and interaction patterns without overwhelming the user.",
+
+        solution:
+            "A responsive gallery interface designed around visual hierarchy, navigation and simple interactions.",
+
+        features: [
+            "Gallery layout",
+            "Responsive images",
+            "Interactive navigation",
+            "Visual hierarchy"
+        ],
+
+        role:
+            "UI design and frontend development.",
+
+        achievement:
+            "Frontend UI Project",
+
+        github:
+            "#"
 
     },
 
 
     musicplayer: {
 
-        index: "06 / 06",
-
-        number: "06",
+        number: "0 6",
 
         title: "Music Player",
 
-        category: "WEB APPLICATION • JAVASCRIPT",
+        category: "WEB APPLICATION • JAVASCRIPT • UI",
 
-        image: "images/music-player.png",
+        image: "images/musicplayer.png",
 
         caption: "Interactive Music Experience",
 
         description:
-            "A browser-based music player designed with a modern interface and interactive playback controls to create a smooth digital music experience.",
+            "A browser-based music player interface created to explore interactive controls, state management and modern web application UI.",
 
         tech: [
-            "HTML",
-            "CSS",
-            "JavaScript"
+            ["fa-brands fa-html5", "HTML"],
+            ["fa-brands fa-css3-alt", "CSS"],
+            ["fa-brands fa-js", "JavaScript"]
         ],
 
         highlights: [
-            "Music controls",
-            "Interactive interface",
-            "Responsive design",
-            "Modern UI"
+            "Playback interface",
+            "Interactive controls",
+            "Responsive UI",
+            "JavaScript interactions"
         ],
 
-        github: "#",
+        about:
+            "A frontend web application exploring how music controls, visual feedback and interface state can be combined into one experience.",
 
-        live: "#"
+        problem:
+            "Interactive media applications require clear controls and immediate feedback to make the experience intuitive.",
+
+        solution:
+            "A focused music-player interface designed around interaction, hierarchy and responsive controls.",
+
+        features: [
+            "Playback controls",
+            "Music interface",
+            "Responsive layout",
+            "Interactive state"
+        ],
+
+        role:
+            "Frontend development and UI/UX implementation.",
+
+        achievement:
+            "Frontend Web Application",
+
+        github:
+            "#"
 
     }
 
@@ -556,17 +662,14 @@ const featuredProject =
 const projectIndex =
     document.getElementById("projectIndex");
 
-const projectTitle =
-    document.getElementById("projectTitle");
-
 const projectCategory =
     document.getElementById("projectCategory");
 
+const projectTitle =
+    document.getElementById("projectTitle");
+
 const projectDescription =
     document.getElementById("projectDescription");
-
-const projectImage =
-    document.getElementById("projectImage");
 
 const projectTech =
     document.getElementById("projectTech");
@@ -574,185 +677,204 @@ const projectTech =
 const highlightGrid =
     document.getElementById("highlightGrid");
 
-const githubBtn =
-    document.getElementById("githubBtn");
-
-const liveBtn =
-    document.getElementById("liveBtn");
+const projectImage =
+    document.getElementById("projectImage");
 
 const visualCaption =
     document.getElementById("visualCaption");
 
 const visualNumber =
-    document.querySelector(".visual-number");
+    document.getElementById("visualNumber");
+
+const githubBtn =
+    document.getElementById("githubBtn");
+
+const exploreBtn =
+    document.getElementById("exploreBtn");
 
 
 /* =========================================================
-   LOAD PROJECT
+   DETAIL ELEMENTS
 ========================================================= */
 
-function loadProject(projectKey){
+const projectOverlay =
+    document.getElementById("projectOverlay");
 
-    const project = projectData[projectKey];
+const detailClose =
+    document.getElementById("detailClose");
 
-    if(!project) return;
+const detailIndex =
+    document.getElementById("detailIndex");
+
+const detailCategory =
+    document.getElementById("detailCategory");
+
+const detailTitle =
+    document.getElementById("detailTitle");
+
+const detailIntro =
+    document.getElementById("detailIntro");
+
+const detailImage =
+    document.getElementById("detailImage");
+
+const detailAbout =
+    document.getElementById("detailAbout");
+
+const detailProblem =
+    document.getElementById("detailProblem");
+
+const detailSolution =
+    document.getElementById("detailSolution");
+
+const detailFeatures =
+    document.getElementById("detailFeatures");
+
+const detailTech =
+    document.getElementById("detailTech");
+
+const detailRole =
+    document.getElementById("detailRole");
+
+const detailAchievement =
+    document.getElementById("detailAchievement");
+
+const detailGithubBtn =
+    document.getElementById("detailGithubBtn");
 
 
-    /* -------------------------
-       ACTIVE TAB
-    ------------------------- */
-
-    projectTabs.forEach(tab => {
-
-        tab.classList.remove("active");
-
-        if(tab.dataset.project === projectKey){
-
-            tab.classList.add("active");
-
-        }
-
-    });
+let currentProject = "vanrakshak";
 
 
-    /* -------------------------
-       EXIT ANIMATION
-    ------------------------- */
+/* =========================================================
+   RENDER FEATURED PROJECT
+========================================================= */
 
-    featuredProject.classList.add("project-changing");
+function renderProject(projectKey) {
+
+    const data = projects[projectKey];
+
+    if (!data) return;
+
+    currentProject = projectKey;
+
+    featuredProject.classList.add("project-switching");
 
 
     setTimeout(() => {
 
-
-        /* -------------------------
-           BASIC INFORMATION
-        ------------------------- */
-
         projectIndex.textContent =
-            project.index;
-
-        projectTitle.textContent =
-            project.title;
+            `${data.number} / 06`;
 
         projectCategory.textContent =
-            project.category;
+            data.category;
+
+        projectTitle.textContent =
+            data.title;
 
         projectDescription.textContent =
-            project.description;
-
-
-        /* -------------------------
-           IMAGE
-        ------------------------- */
-
-        projectImage.src =
-            project.image;
-
-        projectImage.alt =
-            project.title;
-
-
-        /* -------------------------
-           VISUAL
-        ------------------------- */
-
-        visualCaption.textContent =
-            project.caption;
+            data.description;
 
         visualNumber.textContent =
-            project.number;
+            data.number;
+
+        visualCaption.textContent =
+            data.caption;
 
 
-        /* -------------------------
-           TECH STACK
-        ------------------------- */
+        /* IMAGE */
+
+        projectImage.src =
+            data.image;
+
+        projectImage.alt =
+            `${data.title} project`;
+
+
+        /* TECH */
 
         projectTech.innerHTML = "";
 
-        project.tech.forEach(skill => {
+        data.tech.forEach(item => {
 
-            const chip =
+            const span =
                 document.createElement("span");
 
-            chip.textContent = skill;
+            span.innerHTML = `
+                <i class="${item[0]}"></i>
+                ${item[1]}
+            `;
 
-            projectTech.appendChild(chip);
+            projectTech.appendChild(span);
 
         });
 
 
-        /* -------------------------
-           HIGHLIGHTS
-        ------------------------- */
+        /* HIGHLIGHTS */
 
         highlightGrid.innerHTML = "";
 
-        project.highlights.forEach(item => {
+        data.highlights.forEach(item => {
 
-            const highlight =
+            const div =
                 document.createElement("div");
 
-            highlight.className =
+            div.className =
                 "highlight-item";
 
-            highlight.innerHTML = `
-
+            div.innerHTML = `
                 <i class="fa-solid fa-check"></i>
-
                 <span>${item}</span>
-
             `;
 
-            highlightGrid.appendChild(highlight);
+            highlightGrid.appendChild(div);
 
         });
 
 
-        /* -------------------------
-           LINKS
-        ------------------------- */
+        /* GITHUB */
 
         githubBtn.href =
-            project.github;
-
-        liveBtn.href =
-            project.live;
+            data.github;
 
 
-        /* -------------------------
-           REMOVE ANIMATION
-        ------------------------- */
+        /* ACTIVE TAB */
+
+        projectTabs.forEach(tab => {
+
+            tab.classList.toggle(
+                "active",
+                tab.dataset.project === projectKey
+            );
+
+        });
+
 
         featuredProject.classList.remove(
-            "project-changing"
+            "project-switching"
+        );
+
+        featuredProject.classList.add(
+            "project-enter"
         );
 
 
-        /* -------------------------
-           SCROLL RESET
-        ------------------------- */
+        setTimeout(() => {
 
-        window.requestAnimationFrame(() => {
+            featuredProject.classList.remove(
+                "project-enter"
+            );
 
-            featuredProject.scrollIntoView({
-
-                behavior:"smooth",
-
-                block:"nearest"
-
-            });
-
-        });
+        }, 600);
 
 
-    }, 250);
+    }, 220);
 
 }
 
 
 /* =========================================================
-   TAB CLICK
+   PROJECT TAB EVENTS
 ========================================================= */
 
 projectTabs.forEach(tab => {
@@ -762,7 +884,10 @@ projectTabs.forEach(tab => {
         const projectKey =
             tab.dataset.project;
 
-        loadProject(projectKey);
+        if (projectKey === currentProject)
+            return;
+
+        renderProject(projectKey);
 
     });
 
@@ -770,10 +895,188 @@ projectTabs.forEach(tab => {
 
 
 /* =========================================================
+   OPEN PROJECT DETAILS
+========================================================= */
+
+function openProjectDetails() {
+
+    const data =
+        projects[currentProject];
+
+    if (!data) return;
+
+
+    detailIndex.textContent =
+        data.number;
+
+    detailCategory.textContent =
+        data.category;
+
+    detailTitle.textContent =
+        data.title;
+
+    detailIntro.textContent =
+        data.description;
+
+    detailImage.src =
+        data.image;
+
+    detailImage.alt =
+        `${data.title} project preview`;
+
+    detailAbout.textContent =
+        data.about;
+
+    detailProblem.textContent =
+        data.problem;
+
+    detailSolution.textContent =
+        data.solution;
+
+    detailRole.textContent =
+        data.role;
+
+
+    /* FEATURES */
+
+    detailFeatures.innerHTML = "";
+
+    data.features.forEach(feature => {
+
+        const div =
+            document.createElement("div");
+
+        div.innerHTML = `
+            <i class="fa-solid fa-arrow-right"></i>
+            ${feature}
+        `;
+
+        detailFeatures.appendChild(div);
+
+    });
+
+
+    /* TECH */
+
+    detailTech.innerHTML = "";
+
+    data.tech.forEach(item => {
+
+        const span =
+            document.createElement("span");
+
+        span.textContent =
+            item[1];
+
+        detailTech.appendChild(span);
+
+    });
+
+
+    /* ACHIEVEMENT */
+
+    detailAchievement.querySelector(
+        "strong"
+    ).textContent =
+        data.achievement;
+
+
+    /* GITHUB */
+
+    detailGithubBtn.href =
+        data.github;
+
+
+    /* OPEN */
+
+    projectOverlay.classList.add("open");
+
+    projectOverlay.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =========================================================
+   EXPLORE BUTTON
+========================================================= */
+
+exploreBtn.addEventListener(
+    "click",
+    openProjectDetails
+);
+
+
+/* =========================================================
+   CLOSE PROJECT
+========================================================= */
+
+function closeProjectDetails() {
+
+    projectOverlay.classList.remove(
+        "open"
+    );
+
+    projectOverlay.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+detailClose.addEventListener(
+    "click",
+    closeProjectDetails
+);
+
+
+/* =========================================================
+   BACKDROP CLOSE
+========================================================= */
+
+document
+    .querySelector(".project-overlay-backdrop")
+    .addEventListener(
+        "click",
+        closeProjectDetails
+    );
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape" &&
+            projectOverlay.classList.contains("open")
+        ) {
+
+            closeProjectDetails();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
    INITIAL PROJECT
 ========================================================= */
 
-loadProject("vanrakshak");
+renderProject("vanrakshak");
 
 
 /* =================================================================================================================

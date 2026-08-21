@@ -17,137 +17,127 @@
 <!-- =========================================================
      PORTFOLIO INTRO SCREEN
 ========================================================= -->
+<!-- =========================================================
+     PROJECTS — PROJECT LAB
+========================================================= -->
 
-<div class="portfolio-intro" id="greetingScreen">
+<section class="projects-section" id="projects">
 
-    <!-- Background -->
-    <div class="intro-background">
+    <div class="projects-heading">
 
-        <div class="intro-grid"></div>
+        <span class="projects-tag">
+            SELECTED WORK
+        </span>
 
-        <div class="intro-glow intro-glow-1"></div>
-        <div class="intro-glow intro-glow-2"></div>
+        <h2>
+            Projects That Define My Journey
+        </h2>
 
-        <div class="intro-noise"></div>
-
-    </div>
-
-
-    <!-- Top Navigation -->
-    <div class="intro-top">
-
-        <div class="intro-logo">
-
-            <span>AR</span>
-
-            <div>
-                <strong>ANEESH RAO S V</strong>
-                <small>PORTFOLIO</small>
-            </div>
-
-        </div>
-
-
-        <div class="intro-language">
-
-            <span id="introLanguage">EN</span>
-
-        </div>
+        <p>
+            A collection of products, experiments and ideas I've built
+            while exploring technology, design and problem solving.
+        </p>
 
     </div>
 
 
-    <!-- Main Content -->
-    <div class="intro-center">
+    <!-- =====================================================
+         PROJECT SELECTOR
+    ====================================================== -->
 
-        <div class="intro-label">
+    <div class="project-selector">
 
-            <span></span>
+        <button class="project-tab active" data-project="vanrakshak">
 
-            WELCOME
+            <span class="tab-number">01</span>
 
-            <span></span>
+            <span class="tab-content">
+                <strong>VanRakshak</strong>
+                <small>AI • Forest Intelligence</small>
+            </span>
 
-        </div>
-
-
-        <!-- IMPORTANT:
-             This stays in exactly the same position -->
-        <div class="greeting-wrapper">
-
-            <div id="greetingText">
-                Hello
-            </div>
-
-        </div>
-
-
-        <div class="intro-name">
-            Aneesh Rao S V
-        </div>
-
-
-        <div class="intro-role">
-
-            Frontend Developer
-
-            <b>•</b>
-
-            UI/UX Enthusiast
-
-        </div>
-
-
-        <div class="intro-location">
-
-            <i class="fa-solid fa-location-dot"></i>
-
-            Bengaluru, India
-
-        </div>
-
-    </div>
-
-
-    <!-- Bottom -->
-    <div class="intro-bottom">
-
-        <div class="intro-progress-container">
-
-            <div class="intro-progress-top">
-
-                <span>
-                    ENTERING PORTFOLIO
-                </span>
-
-                <strong id="introPercent">
-                    0%
-                </strong>
-
-            </div>
-
-
-            <div class="intro-progress">
-
-                <div
-                    id="introProgressBar">
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <button
-            class="intro-skip"
-            id="introSkip">
-
-            SKIP
-
-            <span>
-
+            <span class="tab-arrow">
                 <i class="fa-solid fa-arrow-right"></i>
+            </span>
 
+        </button>
+
+
+        <button class="project-tab" data-project="campuseye">
+
+            <span class="tab-number">02</span>
+
+            <span class="tab-content">
+                <strong>CampusEye</strong>
+                <small>Smart Campus</small>
+            </span>
+
+            <span class="tab-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+            </span>
+
+        </button>
+
+
+        <button class="project-tab" data-project="portfolio">
+
+            <span class="tab-number">03</span>
+
+            <span class="tab-content">
+                <strong>Portfolio</strong>
+                <small>Personal Website</small>
+            </span>
+
+            <span class="tab-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+            </span>
+
+        </button>
+
+
+        <button class="project-tab" data-project="calculator">
+
+            <span class="tab-number">04</span>
+
+            <span class="tab-content">
+                <strong>Calculator</strong>
+                <small>Frontend Project</small>
+            </span>
+
+            <span class="tab-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+            </span>
+
+        </button>
+
+
+        <button class="project-tab" data-project="pixelvault">
+
+            <span class="tab-number">05</span>
+
+            <span class="tab-content">
+                <strong>PixelVault</strong>
+                <small>Image Gallery</small>
+            </span>
+
+            <span class="tab-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+            </span>
+
+        </button>
+
+
+        <button class="project-tab" data-project="musicplayer">
+
+            <span class="tab-number">06</span>
+
+            <span class="tab-content">
+                <strong>Music Player</strong>
+                <small>Web Application</small>
+            </span>
+
+            <span class="tab-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
             </span>
 
         </button>
@@ -155,14 +145,544 @@
     </div>
 
 
-    <!-- Corner Details -->
+    <!-- =====================================================
+         FEATURED PROJECT
+    ====================================================== -->
 
-    <div class="intro-corner intro-corner-left">
-        01
+    <div class="featured-project" id="featuredProject">
+
+        <!-- LEFT -->
+
+        <div class="featured-content">
+
+            <div class="featured-meta">
+
+                <span class="featured-label">
+                    <span class="featured-dot"></span>
+                    FEATURED PROJECT
+                </span>
+
+                <span class="project-index" id="projectIndex">
+                    01 / 06
+                </span>
+
+            </div>
+
+
+            <div class="project-category" id="projectCategory">
+                AI • IOT • FOREST INTELLIGENCE
+            </div>
+
+
+            <h2 id="projectTitle">
+                VanRakshak
+            </h2>
+
+
+            <p
+                class="project-description"
+                id="projectDescription"
+            >
+                An intelligent forest monitoring concept designed to
+                detect suspicious activity and provide forest teams
+                with a centralized monitoring interface.
+            </p>
+
+
+            <!-- TECHNOLOGY -->
+
+            <div class="project-tech" id="projectTech">
+
+                <span>
+                    <i class="fa-brands fa-html5"></i>
+                    HTML
+                </span>
+
+                <span>
+                    <i class="fa-brands fa-css3-alt"></i>
+                    CSS
+                </span>
+
+                <span>
+                    <i class="fa-brands fa-js"></i>
+                    JavaScript
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-brain"></i>
+                    AI / ML
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-microchip"></i>
+                    IoT
+                </span>
+
+            </div>
+
+
+            <!-- PROJECT HIGHLIGHTS -->
+
+            <div class="project-highlights">
+
+                <div class="highlights-heading">
+
+                    <span>
+                        BUILT AROUND
+                    </span>
+
+                    <i class="fa-solid fa-arrow-down"></i>
+
+                </div>
+
+
+                <div
+                    class="highlight-grid"
+                    id="highlightGrid"
+                >
+
+                    <div class="highlight-item">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Forest activity monitoring
+                        </span>
+
+                    </div>
+
+                    <div class="highlight-item">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Intelligent detection
+                        </span>
+
+                    </div>
+
+                    <div class="highlight-item">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Centralized dashboard
+                        </span>
+
+                    </div>
+
+                    <div class="highlight-item">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Data visualization
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="project-actions">
+
+                <a
+                    id="githubBtn"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-btn github-btn"
+                >
+
+                    <i class="fa-brands fa-github"></i>
+
+                    <span>View GitHub</span>
+
+                    <i class="fa-solid fa-arrow-up-right"></i>
+
+                </a>
+
+
+                <button
+                    id="exploreBtn"
+                    class="project-btn explore-btn"
+                    type="button"
+                >
+
+                    <span>Explore Project</span>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT VISUAL -->
+
+        <div class="featured-visual">
+
+            <div class="visual-top">
+
+                <span>
+                    PROJECT
+                </span>
+
+                <strong id="visualNumber">
+                    01
+                </strong>
+
+            </div>
+
+
+            <div class="image-stage">
+
+                <div class="image-grid"></div>
+
+                <div class="image-glow"></div>
+
+                <div class="project-image-wrapper">
+
+                    <img
+                        id="projectImage"
+                        src="images/vanrakshak.png"
+                        alt="VanRakshak project"
+                    >
+
+                </div>
+
+                <div class="image-corner corner-one"></div>
+                <div class="image-corner corner-two"></div>
+                <div class="image-corner corner-three"></div>
+                <div class="image-corner corner-four"></div>
+
+            </div>
+
+
+            <div class="visual-caption">
+
+                <span id="visualCaption">
+                    AI Powered Forest Monitoring
+                </span>
+
+                <span class="caption-line"></span>
+
+                <i class="fa-solid fa-arrow-up-right"></i>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="intro-corner intro-corner-right">
-        PORTFOLIO / 2026
+</section>
+
+
+<!-- =========================================================
+     PROJECT DETAIL OVERLAY
+========================================================= -->
+
+<div
+    class="project-overlay"
+    id="projectOverlay"
+    aria-hidden="true"
+>
+
+    <div class="project-overlay-backdrop"></div>
+
+
+    <div
+        class="project-detail"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="detailTitle"
+    >
+
+        <!-- HEADER -->
+
+        <div class="detail-header">
+
+            <div>
+
+                <span class="detail-eyebrow">
+                    PROJECT DETAILS
+                </span>
+
+                <div class="detail-number">
+                    <span id="detailIndex">01</span>
+                    <span>/</span>
+                    <span>06</span>
+                </div>
+
+            </div>
+
+
+            <button
+                class="detail-close"
+                id="detailClose"
+                aria-label="Close project details"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- DETAIL HERO -->
+
+        <div class="detail-hero">
+
+            <div class="detail-title-area">
+
+                <span
+                    id="detailCategory"
+                    class="detail-category"
+                >
+                    AI • IOT • FOREST INTELLIGENCE
+                </span>
+
+                <h2 id="detailTitle">
+                    VanRakshak
+                </h2>
+
+                <p id="detailIntro">
+                    An intelligent forest monitoring concept focused
+                    on early detection, monitoring and response.
+                </p>
+
+            </div>
+
+
+            <div class="detail-image">
+
+                <img
+                    id="detailImage"
+                    src="images/vanrakshak.png"
+                    alt="Project preview"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- DETAIL CONTENT -->
+
+        <div class="detail-content">
+
+
+            <!-- ABOUT -->
+
+            <div class="detail-block detail-about">
+
+                <span class="detail-label">
+                    01 — ABOUT
+                </span>
+
+                <p id="detailAbout">
+                    VanRakshak explores how AI, IoT and intelligent
+                    monitoring interfaces can be combined to support
+                    forest protection and environmental monitoring.
+                </p>
+
+            </div>
+
+
+            <!-- PROBLEM / SOLUTION -->
+
+            <div class="detail-two-column">
+
+
+                <div class="detail-block">
+
+                    <span class="detail-label">
+                        02 — THE PROBLEM
+                    </span>
+
+                    <h3>
+                        Why I built it
+                    </h3>
+
+                    <p id="detailProblem">
+                        Forest areas can be difficult to monitor
+                        continuously, making suspicious activities
+                        difficult to detect at an early stage.
+                    </p>
+
+                </div>
+
+
+                <div class="detail-block">
+
+                    <span class="detail-label">
+                        03 — THE SOLUTION
+                    </span>
+
+                    <h3>
+                        What I explored
+                    </h3>
+
+                    <p id="detailSolution">
+                        A centralized monitoring concept that combines
+                        intelligent detection, sensors and a visual
+                        dashboard for faster awareness and response.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FEATURES -->
+
+            <div class="detail-block">
+
+                <span class="detail-label">
+                    04 — KEY FEATURES
+                </span>
+
+                <div
+                    class="detail-feature-list"
+                    id="detailFeatures"
+                >
+
+                    <div>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        Forest monitoring
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        Intelligent detection
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        Dashboard analytics
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        Alert-oriented interface
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TECH + ROLE -->
+
+            <div class="detail-two-column">
+
+
+                <div class="detail-block">
+
+                    <span class="detail-label">
+                        05 — TECHNOLOGY
+                    </span>
+
+                    <div
+                        class="detail-tech"
+                        id="detailTech"
+                    >
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>AI / ML</span>
+                        <span>IoT</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail-block">
+
+                    <span class="detail-label">
+                        06 — MY ROLE
+                    </span>
+
+                    <p id="detailRole">
+                        Product concept, UI/UX design, frontend
+                        development and system planning.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACHIEVEMENT -->
+
+            <div
+                class="detail-achievement"
+                id="detailAchievement"
+            >
+
+                <div class="achievement-icon">
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        RECOGNITION
+                    </span>
+
+                    <strong>
+                        1st Place — HACKMELA 2K26
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- FINAL ACTION -->
+
+            <div class="detail-footer">
+
+                <div>
+
+                    <span>
+                        WANT TO EXPLORE THE CODE?
+                    </span>
+
+                    <strong>
+                        View the repository.
+                    </strong>
+
+                </div>
+
+                <a
+                    id="detailGithubBtn"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    GitHub Repository
+
+                    <i class="fa-solid fa-arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
 
 </div>

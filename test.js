@@ -1,557 +1,928 @@
 /* =========================================================
-   MULTILINGUAL PORTFOLIO INTRO
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", function () {
+   PROJECT SHOWCASE — COMPLETE JAVASCRIPT
+   ========================================================= */
 
 
-    /* =====================================================
-       ELEMENTS
-    ===================================================== */
+/* =========================================================
+   PROJECT DATA
+   ========================================================= */
 
-    const greetingScreen =
-        document.getElementById("greetingScreen");
+const projects = {
 
-    const greetingText =
-        document.getElementById("greetingText");
+    vanrakshak: {
 
-    const language =
-        document.getElementById("introLanguage");
+        number: "0 1",
 
-    const progressBar =
-        document.getElementById("introProgressBar");
+        title: "VanRakshak",
 
-    const percent =
-        document.getElementById("introPercent");
+        category: "AI • DASHBOARD • HACKATHON",
 
-    const skipButton =
-        document.getElementById("introSkip");
+        image: "images/vanrakshak.png",
+
+        caption: "AI Powered Forest Monitoring",
+
+        description:
+            "An AI and IoT based forest monitoring concept designed to help detect illegal tree cutting and suspicious activity through intelligent sensing, monitoring and real-time alerts.",
+
+        tech: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "AI / ML",
+            "IoT",
+            "Dashboard UI"
+        ],
+
+        highlights: [
+            "Real-time forest monitoring",
+            "AI-based activity detection",
+            "Intelligent alert system",
+            "Analytics dashboard"
+        ],
+
+        github:
+            "https://github.com/aneeshrao0207/VanRakshak",
+
+        live: "#"
+
+    },
 
 
-    if (
-        !greetingScreen ||
-        !greetingText
-    ) {
-        return;
+    campuseye: {
+
+        number: "0 2",
+
+        title: "CampusEye",
+
+        category: "AI • SMART CAMPUS • IOT",
+
+        image: "images/campuseye.png",
+
+        caption: "Smart Campus Management",
+
+        description:
+            "A smart campus platform designed to bring student services, campus information and intelligent monitoring into a unified digital experience.",
+
+        tech: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "AI / ML",
+            "Computer Vision",
+            "IoT"
+        ],
+
+        highlights: [
+            "Smart campus dashboard",
+            "Student-focused interface",
+            "AI-powered monitoring",
+            "Responsive web experience"
+        ],
+
+        github: "#",
+
+        live: "#"
+
+    },
+
+
+    portfolio: {
+
+        number: "0 3",
+
+        title: "Developer Portfolio",
+
+        category: "FRONTEND • UI/UX • PERSONAL BRAND",
+
+        image: "images/portfolio.png",
+
+        caption: "My Digital Identity",
+
+        description:
+            "A product-inspired personal portfolio designed to present my projects, achievements, skills and experience through a clean and interactive digital experience.",
+
+        tech: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "UI / UX",
+            "Responsive Design"
+        ],
+
+        highlights: [
+            "Interactive project showcase",
+            "Responsive design",
+            "Modern animations",
+            "Personal branding system"
+        ],
+
+        github: "#",
+
+        live: "#"
+
+    },
+
+
+    calculator: {
+
+        number: "0 4",
+
+        title: "Calculator",
+
+        category: "FRONTEND • JAVASCRIPT • CODEALPHA",
+
+        image: "images/calculator.png",
+
+        caption: "Interactive Calculator",
+
+        description:
+            "A responsive calculator application developed as part of my frontend development journey, focusing on clean interface design, usability and JavaScript functionality.",
+
+        tech: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Responsive UI"
+        ],
+
+        highlights: [
+            "Responsive interface",
+            "Interactive calculations",
+            "Keyboard support",
+            "Clean user experience"
+        ],
+
+        github: "#",
+
+        live: "#"
+
+    },
+
+
+    pixelvault: {
+
+        number: "0 5",
+
+        title: "PixelVault",
+
+        category: "WEB • IMAGE GALLERY • UI",
+
+        image: "images/pixelvault.png",
+
+        caption: "Visual Image Gallery",
+
+        description:
+            "A visually focused image gallery project created to explore responsive layouts, image presentation and modern frontend interaction patterns.",
+
+        tech: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Responsive Design"
+        ],
+
+        highlights: [
+            "Responsive gallery",
+            "Modern image layout",
+            "Interactive interface",
+            "Visual-first experience"
+        ],
+
+        github: "#",
+
+        live: "#"
+
+    },
+
+
+    musicplayer: {
+
+        number: "0 6",
+
+        title: "Music Player",
+
+        category: "WEB APPLICATION • JAVASCRIPT",
+
+        image: "images/musicplayer.png",
+
+        caption: "Interactive Music Experience",
+
+        description:
+            "A browser-based music player interface built to explore interactive controls, media handling and modern application-style frontend design.",
+
+        tech: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Web Audio"
+        ],
+
+        highlights: [
+            "Interactive music controls",
+            "Play and pause functionality",
+            "Responsive interface",
+            "Application-style UI"
+        ],
+
+        github: "#",
+
+        live: "#"
+
+    }
+
+};
+
+
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
+
+const projectTabs =
+    document.querySelectorAll(".project-tab");
+
+const featuredProject =
+    document.getElementById("featuredProject");
+
+const projectIndex =
+    document.getElementById("projectIndex");
+
+const projectCategory =
+    document.getElementById("projectCategory");
+
+const projectTitle =
+    document.getElementById("projectTitle");
+
+const projectDescription =
+    document.getElementById("projectDescription");
+
+const projectTech =
+    document.getElementById("projectTech");
+
+const highlightGrid =
+    document.getElementById("highlightGrid");
+
+const projectImage =
+    document.getElementById("projectImage");
+
+const visualCaption =
+    document.getElementById("visualCaption");
+
+const githubBtn =
+    document.getElementById("githubBtn");
+
+const liveBtn =
+    document.getElementById("liveBtn");
+
+const featuredVisual =
+    document.querySelector(".featured-visual");
+
+
+/* =========================================================
+   CURRENT PROJECT
+   ========================================================= */
+
+let currentProject = "vanrakshak";
+
+let isChanging = false;
+
+
+/* =========================================================
+   UPDATE TECH STACK
+   ========================================================= */
+
+function updateTechStack(techList) {
+
+    if (!projectTech) return;
+
+    projectTech.innerHTML = "";
+
+    techList.forEach((technology, index) => {
+
+        const span =
+            document.createElement("span");
+
+        span.textContent = technology;
+
+        span.style.opacity = "0";
+
+        span.style.transform = "translateY(12px)";
+
+        projectTech.appendChild(span);
+
+
+        setTimeout(() => {
+
+            span.style.transition =
+                "opacity .45s ease, transform .45s cubic-bezier(.22,1,.36,1)";
+
+            span.style.opacity = "1";
+
+            span.style.transform =
+                "translateY(0)";
+
+        }, 80 + (index * 70));
+
+    });
+
+}
+
+
+/* =========================================================
+   UPDATE HIGHLIGHTS
+   ========================================================= */
+
+function updateHighlights(highlights) {
+
+    if (!highlightGrid) return;
+
+    highlightGrid.innerHTML = "";
+
+    highlights.forEach((highlight, index) => {
+
+        const item =
+            document.createElement("div");
+
+        item.className = "highlight-item";
+
+        item.innerHTML = `
+            <i class="fa-solid fa-check"></i>
+            <span>${highlight}</span>
+        `;
+
+        item.style.opacity = "0";
+
+        item.style.transform =
+            "translateY(15px)";
+
+        highlightGrid.appendChild(item);
+
+
+        setTimeout(() => {
+
+            item.style.transition =
+                "opacity .45s ease, transform .45s cubic-bezier(.22,1,.36,1)";
+
+            item.style.opacity = "1";
+
+            item.style.transform =
+                "translateY(0)";
+
+        }, 120 + (index * 90));
+
+    });
+
+}
+
+
+/* =========================================================
+   UPDATE PROJECT
+   ========================================================= */
+
+function updateProject(projectKey, animate = true) {
+
+    const data = projects[projectKey];
+
+    if (!data) return;
+
+    if (isChanging) return;
+
+    isChanging = true;
+
+
+    /* -----------------------------------------
+       REMOVE ACTIVE STATE
+       ----------------------------------------- */
+
+    projectTabs.forEach(tab => {
+
+        tab.classList.toggle(
+            "active",
+            tab.dataset.project === projectKey
+        );
+
+    });
+
+
+    /* -----------------------------------------
+       EXIT ANIMATION
+       ----------------------------------------- */
+
+    if (animate && featuredProject) {
+
+        featuredProject.classList.add(
+            "project-changing"
+        );
+
     }
 
 
-    /* =====================================================
-       GREETINGS
-    ===================================================== */
+    const delay = animate ? 280 : 0;
 
-    const greetings = [
 
-        {
-            text: "Hello",
-            lang: "EN"
-        },
+    setTimeout(() => {
 
-        {
-            text: "नमस्ते",
-            lang: "HI"
-        },
+        /* -----------------------------------------
+           BASIC CONTENT
+           ----------------------------------------- */
 
-        {
-            text: "ನಮಸ್ಕಾರ",
-            lang: "KN"
-        },
+        if (projectIndex) {
 
-        {
-            text: "வணக்கம்",
-            lang: "TA"
-        },
+            projectIndex.textContent =
+                `${data.number} / 06`;
 
-        {
-            text: "నమస్కారం",
-            lang: "TE"
-        },
-
-        {
-            text: "നമസ്കാരം",
-            lang: "ML"
-        },
-
-        {
-            text: "নমস্কার",
-            lang: "BN"
-        },
-
-        {
-            text: "નમસ્તે",
-            lang: "GU"
-        },
-
-        {
-            text: "ਨਮਸਤੇ",
-            lang: "PA"
-        },
-
-        {
-            text: "ନମସ୍କାର",
-            lang: "OR"
-        },
-
-        {
-            text: "Namaste",
-            lang: "SA"
-        },
-
-        {
-            text: "Bonjour",
-            lang: "FR"
-        },
-
-        {
-            text: "Hola",
-            lang: "ES"
-        },
-
-        {
-            text: "Ciao",
-            lang: "IT"
-        },
-
-        {
-            text: "Hallo",
-            lang: "DE"
-        },
-
-        {
-            text: "Olá",
-            lang: "PT"
-        },
-
-        {
-            text: "Привет",
-            lang: "RU"
-        },
-
-        {
-            text: "你好",
-            lang: "ZH"
-        },
-
-        {
-            text: "こんにちは",
-            lang: "JA"
-        },
-
-        {
-            text: "안녕하세요",
-            lang: "KO"
-        },
-
-        {
-            text: "สวัสดี",
-            lang: "TH"
-        },
-
-        {
-            text: "Xin chào",
-            lang: "VI"
-        },
-
-        {
-            text: "Halo",
-            lang: "ID"
-        },
-
-        {
-            text: "Merhaba",
-            lang: "TR"
-        },
-
-        {
-            text: "مرحبا",
-            lang: "AR"
-        },
-
-        {
-            text: "שלום",
-            lang: "HE"
-        },
-
-        {
-            text: "Γεια σου",
-            lang: "EL"
-        },
-
-        {
-            text: "Cześć",
-            lang: "PL"
-        },
-
-        {
-            text: "Ahoj",
-            lang: "CS"
-        },
-
-        {
-            text: "Bună",
-            lang: "RO"
-        },
-
-        {
-            text: "Hej",
-            lang: "SV"
-        },
-
-        {
-            text: "Jambo",
-            lang: "SW"
-        },
-
-        {
-            text: "Sawubona",
-            lang: "ZU"
-        },
-
-        {
-            text: "Kia ora",
-            lang: "MI"
-        },
-
-        {
-            text: "Namaste 🙏",
-            lang: "IN"
-        }
-
-    ];
-
-
-    /* =====================================================
-       SETTINGS
-    ===================================================== */
-
-    let currentIndex = 0;
-
-    let introFinished = false;
-
-    /*
-        Each greeting stays for 1.6 seconds.
-
-        The actual fade is only 0.42 seconds.
-
-        So the text remains completely still
-        for most of the time.
-    */
-
-    const displayTime = 1600;
-
-    const fadeTime = 420;
-
-
-    /*
-        35 greetings × 1.6 seconds
-        ≈ 56 seconds.
-
-        We don't want that.
-
-        Instead, show a selected sequence
-        for a much shorter premium intro.
-    */
-
-    const selectedGreetings = [
-
-        greetings[0],   // Hello
-        greetings[1],   // Hindi
-        greetings[2],   // Kannada
-        greetings[3],   // Tamil
-        greetings[4],   // Telugu
-        greetings[11],  // French
-        greetings[12],  // Spanish
-        greetings[13],  // Italian
-        greetings[17],  // Chinese
-        greetings[18],  // Japanese
-        greetings[19],  // Korean
-        greetings[24],  // Arabic
-        greetings[29],  // Swedish
-        greetings[31],  // Zulu
-        greetings[34]   // Namaste
-    ];
-
-
-    /*
-        15 greetings × 550ms
-        ≈ 8.25 seconds
-    */
-
-    const greetingDuration = 550;
-
-    const totalDuration =
-        selectedGreetings.length *
-        greetingDuration;
-
-
-    /* =====================================================
-       INITIAL GREETING
-    ===================================================== */
-
-    greetingText.textContent =
-        selectedGreetings[0].text;
-
-    language.textContent =
-        selectedGreetings[0].lang;
-
-
-    /* =====================================================
-       CHANGE GREETING
-       SAME POSITION
-    ===================================================== */
-
-    function changeGreeting() {
-
-        if (introFinished) {
-            return;
         }
 
 
-        /*
-            Fade the current word out.
-        */
+        if (projectCategory) {
 
-        greetingText.classList.add(
-            "greeting-changing"
-        );
+            projectCategory.textContent =
+                data.category;
 
-
-        setTimeout(function () {
+        }
 
 
-            currentIndex++;
+        if (projectTitle) {
+
+            projectTitle.textContent =
+                data.title;
+
+        }
 
 
-            /*
-                End intro after final greeting.
-            */
+        if (projectDescription) {
+
+            projectDescription.textContent =
+                data.description;
+
+        }
+
+
+        if (projectImage) {
+
+            projectImage.src =
+                data.image;
+
+            projectImage.alt =
+                data.title;
+
+        }
+
+
+        if (visualCaption) {
+
+            visualCaption.textContent =
+                data.caption;
+
+        }
+
+
+        /* -----------------------------------------
+           TECH
+           ----------------------------------------- */
+
+        updateTechStack(data.tech);
+
+
+        /* -----------------------------------------
+           HIGHLIGHTS
+           ----------------------------------------- */
+
+        updateHighlights(data.highlights);
+
+
+        /* -----------------------------------------
+           GITHUB
+           ----------------------------------------- */
+
+        if (githubBtn) {
+
+            githubBtn.href =
+                data.github;
+
+            githubBtn.target =
+                "_blank";
+
+            githubBtn.rel =
+                "noopener noreferrer";
+
+        }
+
+
+        /* -----------------------------------------
+           LIVE DEMO
+           ----------------------------------------- */
+
+        if (liveBtn) {
 
             if (
-                currentIndex >=
-                selectedGreetings.length
+                !data.live ||
+                data.live === "#"
             ) {
 
-                finishIntro();
+                liveBtn.href = "#";
 
-                return;
-
-            }
-
-
-            /*
-                Change ONLY the text.
-
-                Position remains exactly the same.
-            */
-
-            greetingText.textContent =
-                selectedGreetings[
-                    currentIndex
-                ].text;
-
-
-            language.textContent =
-                selectedGreetings[
-                    currentIndex
-                ].lang;
-
-
-            /*
-                Allow browser to register
-                the changed text.
-            */
-
-            requestAnimationFrame(function () {
-
-                greetingText.classList.remove(
-                    "greeting-changing"
+                liveBtn.removeAttribute(
+                    "target"
                 );
 
-            });
+                liveBtn.classList.add(
+                    "disabled"
+                );
+
+                liveBtn.innerHTML = `
+                    Live Demo
+                    <i class="fa-solid fa-lock"></i>
+                `;
+
+            } else {
+
+                liveBtn.href =
+                    data.live;
+
+                liveBtn.target =
+                    "_blank";
+
+                liveBtn.rel =
+                    "noopener noreferrer";
+
+                liveBtn.classList.remove(
+                    "disabled"
+                );
+
+                liveBtn.innerHTML = `
+                    Live Demo
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                `;
+
+            }
+
+        }
 
 
-        }, fadeTime);
+        /* -----------------------------------------
+           UPDATE CURRENT PROJECT
+           ----------------------------------------- */
 
-    }
-
-
-    /* =====================================================
-       GREETING LOOP
-    ===================================================== */
-
-    const greetingTimer =
-        setInterval(
-            changeGreeting,
-            greetingDuration
-        );
+        currentProject =
+            projectKey;
 
 
-    /* =====================================================
-       PROGRESS
-    ===================================================== */
+        /* -----------------------------------------
+           REMOVE EXIT ANIMATION
+           ----------------------------------------- */
 
-    const startTime =
-        performance.now();
+        if (featuredProject) {
+
+            featuredProject.classList.remove(
+                "project-changing"
+            );
+
+        }
 
 
-    function updateProgress(currentTime) {
+        /* -----------------------------------------
+           RESET VISUAL TILT
+           ----------------------------------------- */
 
-        if (introFinished) {
+        if (featuredVisual) {
+
+            featuredVisual.style.transform =
+                "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+
+        }
+
+
+        isChanging = false;
+
+    }, delay);
+
+}
+
+
+/* =========================================================
+   PROJECT TAB CLICK
+   ========================================================= */
+
+projectTabs.forEach(tab => {
+
+    tab.addEventListener("click", () => {
+
+        const projectKey =
+            tab.dataset.project;
+
+        if (
+            !projectKey ||
+            projectKey === currentProject
+        ) {
             return;
         }
 
-
-        const elapsed =
-            currentTime - startTime;
-
-
-        const percentage =
-            Math.min(
-                100,
-                Math.round(
-                    (
-                        elapsed /
-                        totalDuration
-                    ) * 100
-                )
-            );
-
-
-        progressBar.style.width =
-            percentage + "%";
-
-
-        percent.textContent =
-            percentage + "%";
-
-
-        if (percentage < 100) {
-
-            requestAnimationFrame(
-                updateProgress
-            );
-
-        }
-
-    }
-
-
-    requestAnimationFrame(
-        updateProgress
-    );
-
-
-    /* =====================================================
-       FINISH INTRO
-    ===================================================== */
-
-    function finishIntro() {
-
-        if (introFinished) {
-            return;
-        }
-
-
-        introFinished = true;
-
-
-        clearInterval(
-            greetingTimer
+        updateProject(
+            projectKey,
+            true
         );
 
-
-        /*
-            Complete progress.
-        */
-
-        progressBar.style.width =
-            "100%";
-
-        percent.textContent =
-            "100%";
-
-
-        /*
-            Give final greeting a moment.
-        */
-
-        setTimeout(function () {
-
-
-            greetingScreen.classList.add(
-                "intro-finished"
-            );
-
-
-            /*
-                Restore page scrolling.
-            */
-
-            document.body.style.overflow =
-                "";
-
-
-            /*
-                Completely remove intro
-                after transition.
-            */
-
-            setTimeout(function () {
-
-                greetingScreen.remove();
-
-            }, 1000);
-
-
-        }, 450);
-
-    }
-
-
-    /* =====================================================
-       SKIP BUTTON
-    ===================================================== */
-
-    if (skipButton) {
-
-        skipButton.addEventListener(
-            "click",
-            function () {
-
-                finishIntro();
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       ESC KEY
-    ===================================================== */
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
-
-            if (
-                event.key === "Escape" &&
-                !introFinished
-            ) {
-
-                finishIntro();
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       LOCK SCROLL WHILE INTRO IS ACTIVE
-    ===================================================== */
-
-    document.body.style.overflow =
-        "hidden";
+    });
 
 });
+
+
+/* =========================================================
+   MOUSE FOLLOW 3D EFFECT
+   ========================================================= */
+
+if (
+    featuredProject &&
+    featuredVisual
+) {
+
+    featuredProject.addEventListener(
+        "mousemove",
+        (event) => {
+
+            const rect =
+                featuredProject.getBoundingClientRect();
+
+
+            const x =
+                event.clientX - rect.left;
+
+            const y =
+                event.clientY - rect.top;
+
+
+            const percentX =
+                x / rect.width;
+
+            const percentY =
+                y / rect.height;
+
+
+            const rotateY =
+                (percentX - 0.5) * 5;
+
+            const rotateX =
+                (percentY - 0.5) * -5;
+
+
+            /* -----------------------------------------
+               VISUAL TILT
+               ----------------------------------------- */
+
+            featuredVisual.style.transform =
+                `
+                perspective(1000px)
+                rotateX(${rotateX}deg)
+                rotateY(${rotateY}deg)
+                `;
+
+
+            /* -----------------------------------------
+               CURSOR GLOW POSITION
+               ----------------------------------------- */
+
+            featuredProject.style.setProperty(
+                "--mouse-x",
+                `${x}px`
+            );
+
+            featuredProject.style.setProperty(
+                "--mouse-y",
+                `${y}px`
+            );
+
+        }
+    );
+
+
+    featuredProject.addEventListener(
+        "mouseleave",
+        () => {
+
+            featuredVisual.style.transform =
+                `
+                perspective(1000px)
+                rotateX(0deg)
+                rotateY(0deg)
+                `;
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   TAB HOVER MICRO INTERACTION
+   ========================================================= */
+
+projectTabs.forEach(tab => {
+
+    tab.addEventListener(
+        "mouseenter",
+        () => {
+
+            const icon =
+                tab.querySelector(
+                    ".fa-arrow-up-right"
+                );
+
+            if (icon) {
+
+                icon.style.transform =
+                    "translate(3px,-3px)";
+
+            }
+
+        }
+    );
+
+
+    tab.addEventListener(
+        "mouseleave",
+        () => {
+
+            const icon =
+                tab.querySelector(
+                    ".fa-arrow-up-right"
+                );
+
+            if (icon) {
+
+                icon.style.transform =
+                    "translate(0,0)";
+
+            }
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   BUTTON RIPPLE EFFECT
+   ========================================================= */
+
+document
+    .querySelectorAll(".project-btn")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    this.classList.contains(
+                        "disabled"
+                    )
+                ) {
+
+                    event.preventDefault();
+
+                    return;
+
+                }
+
+
+                const ripple =
+                    document.createElement("span");
+
+                ripple.className =
+                    "project-ripple";
+
+
+                const rect =
+                    this.getBoundingClientRect();
+
+
+                ripple.style.left =
+                    `${event.clientX - rect.left}px`;
+
+                ripple.style.top =
+                    `${event.clientY - rect.top}px`;
+
+
+                this.appendChild(ripple);
+
+
+                setTimeout(() => {
+
+                    ripple.remove();
+
+                }, 700);
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   IMAGE ERROR FALLBACK
+   ========================================================= */
+
+if (projectImage) {
+
+    projectImage.addEventListener(
+        "error",
+        () => {
+
+            projectImage.style.opacity =
+                "0.35";
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   KEYBOARD NAVIGATION
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            event.key !== "ArrowRight" &&
+            event.key !== "ArrowLeft"
+        ) {
+            return;
+        }
+
+
+        const projectKeys =
+            Object.keys(projects);
+
+        const currentIndex =
+            projectKeys.indexOf(
+                currentProject
+            );
+
+
+        let nextIndex;
+
+
+        if (
+            event.key === "ArrowRight"
+        ) {
+
+            nextIndex =
+                (currentIndex + 1)
+                % projectKeys.length;
+
+        } else {
+
+            nextIndex =
+                (
+                    currentIndex -
+                    1 +
+                    projectKeys.length
+                )
+                % projectKeys.length;
+
+        }
+
+
+        updateProject(
+            projectKeys[nextIndex],
+            true
+        );
+
+    }
+);
+
+
+/* =========================================================
+   INITIAL LOAD
+   ========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        updateProject(
+            "vanrakshak",
+            false
+        );
+
+    }
+);
+
+
+/* =========================================================
+   ALSO INITIALIZE IF DOM IS ALREADY LOADED
+   ========================================================= */
+
+if (
+    document.readyState !== "loading"
+) {
+
+    updateProject(
+        "vanrakshak",
+        false
+    );
+
+}
